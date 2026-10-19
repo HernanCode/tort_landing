@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contenidors i Gestió de Residus Tort · Gestió de residus a Manresa</title>
+<meta name="description" content="Recollida, transport i gestió de residus per a empreses i indústria a Manresa i comarca del Bages. Autoritzats per l'Agència de Residus de Catalunya (E-211.96) i com a transportistes (T-663).">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contenidors i Gestió de Residus Tort">
+<meta property="og:description" content="Recollida, transport i gestió de residus per a empreses i indústria. Manresa i comarca del Bages.">
+<meta property="og:locale" content="ca_ES">
+<link rel="icon" href="assets/logo/isotype-tort.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/slide-interior-1600.webp" type="image/webp">
+<link rel="stylesheet" href="css/style.css?v=20261019-7">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <button class="nav__burger" id="burger" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span>
+    <span class="sr-only">Obre el menú</span>
+  </button>
+
+  <a class="nav__logo" href="#top" aria-label="Tort, inici">
+    <img id="navLogo" src="assets/logo/logo-tort-compact-white.svg" alt="Tort" width="409" height="88">
+  </a>
+
+  <a class="nav__cta" href="#contacte"><span>Contacte</span> ↗</a>
+</header>
+
+<!-- ============ MENÚ ============ -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú principal" aria-hidden="true">
+
+  <figure class="menu__media" aria-hidden="true">
+    <img src="assets/img/slide-operari-1600.webp"
+         srcset="assets/img/slide-operari-1000.webp 1000w, assets/img/slide-operari-1600.webp 1600w"
+         sizes="50vw" alt="" width="1452" height="968" loading="lazy">
+  </figure>
+
+  <nav class="menu__nav" aria-label="Principal">
+    <ul class="menu__list">
+      <li class="menu__item"><a href="#serveis" data-close>Serveis</a></li>
+      <li class="menu__item"><a href="#residus" data-close>Què gestionem</a></li>
+      <li class="menu__item"><a href="#autoritzacions" data-close>Llicències</a></li>
+      <li class="menu__item"><a href="#ubicacio" data-close>Ubicació</a></li>
+      <li class="menu__item"><a href="#contacte" data-close>Contacte</a></li>
+    </ul>
+
+    <div class="menu__foot">
+      <a class="menu__phone" href="tel:+34938730237">93 873 02 37</a>
+      <a class="menu__cta" href="#contacte" data-close>Contacte</a>
+    </div>
+  </nav>
+
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__sticky">
+      <div class="hero__frame">
+        <div class="hero__slides">
+          <figure class="hero__slide is-active" data-title="Gestió de residus a Manresa" data-sub="Ens encarreguem de la classificació, el tractament i la destinació final de cada residu.">
+            <picture>
+              <source type="image/webp" srcset="assets/img/slide-interior-1000.webp 1000w, assets/img/slide-interior-1600.webp 1600w" sizes="100vw">
+              <img src="assets/img/slide-interior-1600.jpg" alt="Nau de tractament i tria de residus de Tort" width="1365" height="768" fetchpriority="high">
+            </picture>
+          </figure>
+          <figure class="hero__slide" data-title="Transport i processament de residus" data-sub="Recollim al teu centre de treball i ho portem al gestor autoritzat, amb mitjans propis.">
+            <picture>
+              <source type="image/webp" srcset="assets/img/slide-operari-1000.webp 1000w, assets/img/slide-operari-1600.webp 1600w" sizes="100vw">
+              <img src="assets/img/slide-operari-1600.jpg" alt="Operari de Tort caminant per les instal·lacions" width="1452" height="968" loading="lazy">
+            </picture>
+          </figure>
+          <figure class="hero__slide" data-title="Destrucció de documents importants" data-sub="Recollida i destrucció confidencial de documentació, amb el certificat corresponent.">
+            <picture>
+              <source type="image/webp" srcset="assets/img/slide-jaqueta-1000.webp 1000w, assets/img/slide-jaqueta-1600.webp 1600w" sizes="100vw">
+              <img src="assets/img/slide-jaqueta-1600.jpg" alt="Equipament de treball de Tort amb el símbol de la marca" width="2400" height="1350" loading="lazy">
+            </picture>
+          </figure>
+        </div>
+        <div class="hero__scrim" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__content">
+        <div class="hero__stack">
+          <h1 class="hero__title">Gestió de residus a Manresa</h1>
+          <p class="hero__sub">Ens encarreguem de la classificació, el tractament i la destinació final de cada residu.</p>
+        </div>
+      </div>
+
+      <div class="hero__controls" role="group" aria-label="Imatges del hero">
+        <button class="hero__dot is-active" type="button" data-slide="0" aria-label="Mostra la imatge 1"></button>
+        <button class="hero__dot" type="button" data-slide="1" aria-label="Mostra la imatge 2"></button>
+        <button class="hero__dot" type="button" data-slide="2" aria-label="Mostra la imatge 3"></button>
+        <button class="hero__toggle" type="button" id="heroToggle" aria-pressed="false" aria-label="Atura la rotació d'imatges">
+          <svg class="hero__toggle-icon hero__toggle-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="6" width="3.4" height="12" rx="1.2"/><rect x="13.6" y="6" width="3.4" height="12" rx="1.2"/></svg>
+          <svg class="hero__toggle-icon hero__toggle-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.53.85l10-6.4a1 1 0 0 0 0-1.7l-10-6.4A1 1 0 0 0 8 5.6Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVEIS ============ -->
+  <section class="section section--tight" id="serveis">
+    <div class="wrap">
+      <p class="kicker" style="color:var(--brand-red)">Serveis</p>
+      <h2 class="display h-section" style="margin:24px 0 56px; max-width:22ch">Un sol proveïdor per a tot el cicle del residu</h2>
+
+      <div class="services">
+        <article class="service">
+          <figure class="service__media">
+            <img src="assets/img/servei-gestio-800.webp" alt="Interior de la nau de gestió de residus de Tort" loading="lazy" width="800" height="600">
+          </figure>
+          <p class="service__num">01</p>
+          <h3>Gestió de residus</h3>
+          <p>Estem especialitzats en la gestió de tot tipus de residus. Les activitats industrials generen de forma massiva residus que cal tractar per personal especialitzat, i tenim el personal humà i tècnic suficient per desenvolupar tots aquests treballs.</p>
+          <a class="service__more" href="serveis/gestio-de-residus.html">Veure més <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 5.2a1 1 0 0 1 1.4 0l5.6 5.6a1.7 1.7 0 0 1 0 2.4l-5.6 5.6a1 1 0 0 1-1.4-1.4l3.9-3.9H4.6a1 1 0 0 1 0-2h12.5l-3.9-3.9a1 1 0 0 1 0-1.4Z"/></svg></a>
+        </article>
+
+        <article class="service">
+          <figure class="service__media">
+            <img src="assets/img/servei-reciclatge-800.webp" alt="Contenidor de Tort carregat de residus" loading="lazy" width="800" height="600">
+          </figure>
+          <p class="service__num">02</p>
+          <h3>Reciclatge de residus</h3>
+          <p>Ens encarreguem del reciclatge, transport i gestió de diferents tipus de residus. Recollim, emmagatzemem i gestionem la posterior eliminació o reutilització dels diferents tipus de residus.</p>
+          <a class="service__more" href="serveis/reciclatge-de-residus.html">Veure més <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 5.2a1 1 0 0 1 1.4 0l5.6 5.6a1.7 1.7 0 0 1 0 2.4l-5.6 5.6a1 1 0 0 1-1.4-1.4l3.9-3.9H4.6a1 1 0 0 1 0-2h12.5l-3.9-3.9a1 1 0 0 1 0-1.4Z"/></svg></a>
+        </article>
+
+        <article class="service">
+          <figure class="service__media">
+            <img src="assets/img/servei-transport-800.webp" alt="Operari de Tort a les instal·lacions" loading="lazy" width="800" height="600">
+          </figure>
+          <p class="service__num">03</p>
+          <h3>Transport de residus</h3>
+          <p>També realitzem el transport dels residus per a la seva gestió. Un cop rebem la teva trucada, anem fins al teu centre de treball i ens encarreguem de la recollida de tots els residus que hagis generat.</p>
+          <a class="service__more" href="serveis/transport-de-residus.html">Veure més <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 5.2a1 1 0 0 1 1.4 0l5.6 5.6a1.7 1.7 0 0 1 0 2.4l-5.6 5.6a1 1 0 0 1-1.4-1.4l3.9-3.9H4.6a1 1 0 0 1 0-2h12.5l-3.9-3.9a1 1 0 0 1 0-1.4Z"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUTORITZACIONS ============ -->
+  <section class="section section--blue" id="autoritzacions">
+    <div class="wrap">
+      <div class="creds-strip">
+        <div class="creds-strip__intro">
+          <p class="kicker">Autoritzacions</p>
+          <h2 class="display h-section">Empresa autoritzada per l'Agència de Residus de Catalunya</h2>
+          <div class="feature__logos">
+            <span class="logo-card"><img src="assets/oficial/arc.png" alt="SDR, Sistema Documental de Residus" width="260" height="116" loading="lazy"></span>
+            <span class="logo-card"><img src="assets/oficial/generalitat.png" alt="Generalitat de Catalunya" width="392" height="196" loading="lazy"></span>
+          </div>
+        </div>
+        <dl class="creds-strip__list">
+          <div class="cred">
+            <dt>E-211.96</dt>
+            <dd>Autorització de gestor de residus</dd>
+          </div>
+          <div class="cred">
+            <dt>T-663</dt>
+            <dd>Autorització de transportista de residus</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ TIPUS DE RESIDUS ============ -->
+  <section class="section section--tight" id="residus">
+    <div class="wrap grid-2">
+      <div>
+        <p class="kicker" style="color:var(--brand-red)">Què gestionem</p>
+        <h2 class="display h-section" style="margin-top:24px">Tots els residus que genera una empresa</h2>
+        <p class="body" style="margin-top:24px">Som centre de recollida i transferència de RAEE i tenim totes les homologacions per tractar el que et sobra, tant si es pot reciclar com si s'ha d'eliminar. Si el teu residu no apareix a la llista, pregunta'ns-ho.</p>
+        <p style="margin-top:32px"><a class="action action--red" href="#contacte">Consulta el teu cas</a></p>
+      </div>
+      <ul class="materials">
+        <li>Paper i cartró</li>
+        <li>Ferralla i metalls</li>
+        <li>Plàstic</li>
+        <li>Fusta</li>
+        <li>Vidre</li>
+        <li>Bateries</li>
+        <li>Pneumàtics</li>
+        <li>RAEE i electrònica</li>
+        <li>Residus perillosos</li>
+        <li>Runes i obra</li>
+        <li>Olis usats</li>
+        <li>Voluminosos</li>
+        <li>Documentació</li>
+        <li>Residus d'oficina</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ GALERIA ============ -->
+  <section class="section section--tight section--paper" id="galeria">
+    <div class="wrap">
+      <p class="kicker" style="color:var(--brand-red)">Galeria</p>
+      <h2 class="display h-section" style="margin:24px 0 48px; max-width:24ch">Les instal·lacions, els mitjans i l'equip</h2>
+      <div class="gallery">
+        <figure><img src="assets/img/galeria-01-800.webp" alt="Operari de Tort a les instal·lacions" loading="lazy" width="800" height="597"></figure>
+        <figure><img src="assets/img/galeria-02-800.webp" alt="Nau de tractament i tria de residus" loading="lazy" width="800" height="450"></figure>
+        <figure><img src="assets/img/galeria-03-800.webp" alt="Contenidor de Tort carregat" loading="lazy" width="800" height="601"></figure>
+        <figure><img src="assets/img/galeria-04-800.webp" alt="Equipament de treball de Tort" loading="lazy" width="800" height="597"></figure>
+        <figure><img src="assets/img/galeria-05-800.webp" alt="Contenidor de recollida de residus" loading="lazy" width="800" height="601"></figure>
+        <figure><img src="assets/img/galeria-06-800.webp" alt="Cartell d'entrada a les instal·lacions" loading="lazy" width="800" height="597"></figure>
+        <figure><img src="assets/img/galeria-07-800.webp" alt="Targetes de visita de Tort" loading="lazy" width="800" height="597"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UBICACIÓ ============ -->
+  <section class="section section--tight" id="ubicacio">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="kicker" style="color:var(--brand-red)">Ubicació</p>
+        <h2 class="display h-section" style="margin-top:24px; margin-bottom:48px">Ens trobaràs a Manresa</h2>
+      </div>
+      <div class="grid-2">
+        <div class="map">
+          <iframe title="Mapa de la ubicació de Tort a Manresa" loading="lazy"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=1.8590%2C41.7619%2C1.8844%2C41.7739&amp;layer=mapnik&amp;marker=41.767960%2C1.871633"></iframe>
+        </div>
+        <div>
+          <p class="body">Nova ubicació a Manresa, a peu de carretera i amb accés directe per a camions. Si vens, avisa'ns i t'expliquem com arribar-hi.</p>
+          <ul class="contact-list">
+            <li><span class="kicker">Telèfon</span><a href="tel:+34938730237">93 873 02 37</a></li>
+            <li><span class="kicker">Correu</span><a href="mailto:administracio@containerstort.com">administracio@containerstort.com</a></li>
+            <li><span class="kicker">Coordenades</span><span>41.767960, 1.871633</span></li>
+          </ul>
+          <p style="margin-top:28px">
+            <a class="action" href="https://www.google.com/maps/search/?api=1&amp;query=41.767960,1.871633" target="_blank" rel="noopener">Obrir al Google Maps</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ============ CONTACTE ============ -->
+  <section class="section section--wide" id="contacte">
+    <div class="wrap">
+      <div class="cta">
+        <div class="cta__text">
+          <h2>Explica'ns quins residus generes</h2>
+          <p>Et passem un pressupost sense compromís i amb la documentació que caldrà per a cada residu.</p>
+          <ul class="contact-list contact-list--ink">
+            <li><span class="kicker">Telèfon</span><a href="tel:+34938730237">93 873 02 37</a></li>
+            <li><span class="kicker">Correu</span><a href="mailto:administracio@containerstort.com">administracio@containerstort.com</a></li>
+          </ul>
+        </div>
+
+        <form class="form" id="lead" novalidate>
+          <div class="form__row">
+            <div class="field"><label for="nom">Nom i cognoms</label><input id="nom" name="nom" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" autocomplete="organization"></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="telefon">Telèfon</label><input id="telefon" name="telefon" type="tel" autocomplete="tel" required></div>
+            <div class="field"><label for="correu">Correu electrònic</label><input id="correu" name="correu" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="field">
+            <label for="tipus">Tipus de residu</label>
+            <select id="tipus" name="tipus">
+              <option>Residu industrial</option>
+              <option>Residu de construcció i demolició</option>
+              <option>Envasos, plàstics i olis</option>
+              <option>RAEE i electrònica</option>
+              <option>Residu perillós</option>
+              <option>Destrucció de documents</option>
+              <option>Buidatge de nau o local</option>
+              <option>Encara no ho sé</option>
+            </select>
+          </div>
+          <div class="field"><label for="missatge">Detalls de la teva activitat</label><textarea id="missatge" name="missatge" rows="4" placeholder="Què produeixes i quins residus generes?"></textarea></div>
+          <label class="form__legal"><input type="checkbox" required> <span>He llegit i accepto la <a href="politica-de-privacitat.html">política de privacitat</a> i el tractament de les meves dades per rebre el Contacte.</span></label>
+          <label class="form__legal"><input type="checkbox"> <span>Vull rebre informació sobre serveis, promocions i activitats formatives.</span></label>
+          <button class="action action--red form__submit" type="submit">Contacta amb nosaltres</button>
+          <p class="form__ok" id="ok">Sol·licitud rebuda. Et contactem el mateix dia laborable.</p>
+          <p class="form__note">Prototip de proposta: el formulari encara no envia dades.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PEU ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img src="assets/logo/logo-tort.svg" alt="Contenidors i Gestió de Residus Tort" width="409" height="138" style="width:210px;height:auto;margin-bottom:24px">
+        <p class="body" style="font-size:var(--text-body-sm);max-width:34ch">Recollida, transport i gestió de residus per a empreses i indústria del Bages.</p>
+        <ul class="footer__contact">
+          <li><a href="tel:+34938730237">93 873 02 37</a></li>
+          <li><a href="mailto:administracio@containerstort.com">administracio@containerstort.com</a></li>
+          <li>Manresa, Barcelona</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Navegació</h2>
+        <ul>
+          <li><a href="#top">Inici</a></li>
+          <li><a href="#serveis">Serveis</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#ubicacio">Ubicació</a></li>
+          <li><a href="#contacte">Contacte</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="avis-legal.html">Avís legal</a></li>
+          <li><a href="politica-de-cookies.html">Política de cookies</a></li>
+          <li><a href="politica-de-privacitat.html">Política de privacitat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__meta">
+      <span>© <span id="any">2026</span> Contenidors i Gestió de Residus Tort</span>
+      <span>Gestor E-211.96 · Transportista T-663</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ AVÍS DE COOKIES ============ -->
+<div class="cookies" id="cookies" role="dialog" aria-live="polite" aria-label="Avís de cookies" hidden>
+  <p>Utilitzem cookies pròpies i de tercers per millorar la navegació, analitzar l'ús del web i mostrar publicitat relacionada amb les teves preferències. Pots consultar la <a href="politica-de-cookies.html">política de cookies</a>.</p>
+  <div class="cookies__actions">
+    <button class="action" type="button" data-cookies="rebutjar">Rebutjar</button>
+    <button class="action action--red" type="button" data-cookies="acceptar">Acceptar</button>
+  </div>
+</div>
+
+<script src="js/main.js?v=20261019-7" defer></script>
+</body>
+</html>

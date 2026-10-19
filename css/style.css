@@ -1,0 +1,622 @@
+/* ============================================================
+   TORT — Landing
+   Tokens: css/tokens.css  (variables.css de l'equip)
+   Marca: manual d'identitat TORT
+   ============================================================ */
+
+@import url('./tokens.css');
+
+:root{
+  /* ---- Marca TORT (manual d'identitat) ---- */
+  --brand-red:   #E63030;
+  --brand-green: #63B76D;
+  --brand-blue:  #2C90CF;
+  --brand-dark:  #231F20;
+  --blue-soft:   #AED5EE;  /* blau de marca aclarit */
+  --green-soft:  #B9DFBD;  /* verd de marca aclarit */
+
+  /* ---- Superfícies ---- */
+  --canvas: #FFFFFF;
+  --ink:    var(--brand-dark);
+  --hairline: rgba(35,31,32,.14);
+  --bg-soft: #F4F3F2;
+  --muted:   #5C5A5B;
+
+  /* ---- Capa de color del hero (intercanviable en una línia) ---- */
+  --hero-layer: var(--brand-red);
+  --hero-layer-ink: #FFFFFF;
+
+  /* ---- Tipografia (Manrope, única família digital del manual) ---- */
+  --font-display: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-text:    'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box }
+
+html{ -webkit-text-size-adjust:100% }
+body{
+  margin:0;
+  background:var(--canvas);
+  color:var(--ink);
+  font-family:var(--font-text);
+  font-size:var(--text-body);
+  line-height:var(--leading-body);
+  letter-spacing:var(--tracking-body);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+img{ display:block; max-width:100% }
+a{ color:inherit; text-decoration:none }
+h1,h2,h3,p,figure,ul,ol{ margin:0 }
+ul,ol{ padding:0; list-style:none }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
+
+:where(a,button,[tabindex]):focus-visible{
+  outline:2px solid var(--ink); outline-offset:3px; border-radius:9999px;
+}
+
+.sr-only{ position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap }
+
+.wrap{ width:min(100% - 48px, var(--page-max-width)); margin-inline:auto }
+@media (max-width:640px){ .wrap{ width:min(100% - 40px, var(--page-max-width)) } }
+
+/* Seccions que trenquen l'amplada de pàgina (contacte) */
+.section--wide .wrap{ width:min(100% - 48px, 1920px) }
+@media (max-width:640px){ .section--wide .wrap{ width:calc(100% - 40px) } }
+
+/* ---------- Tipografia editorial ---------- */
+.display{
+  font-family:var(--font-display);
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-.03em;
+  text-wrap:balance;
+}
+.h-section{ font-size:clamp(32px,4.4vw,64px) }
+.h-sub{ font-size:clamp(24px,2.4vw,28px); line-height:1.2; letter-spacing:-.02em }
+.kicker{
+  font-size:var(--text-caption);
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.lead{ font-size:var(--text-body-lg); line-height:var(--leading-body-lg); letter-spacing:var(--tracking-body-lg); color:rgba(35,31,32,.72) }
+.body{ color:rgba(35,31,32,.72) }
+
+/* ---------- Accions (el sistema NO fa servir botons plens) ---------- */
+.action{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:12px 22px;
+  border:1.5px solid currentColor;
+  border-radius:9999px;
+  font-size:var(--text-body-sm);
+  font-weight:500;
+  letter-spacing:var(--tracking-body-sm);
+  transition:background .4s var(--ease), color .4s var(--ease), transform .4s var(--ease);
+}
+.action:hover{ background:var(--ink); color:var(--canvas); transform:translateY(-1px) }
+.action--red{ color:var(--brand-red) }
+.action--red:hover{ background:var(--brand-red); color:#fff; border-color:var(--brand-red) }
+.action--light{ color:#fff }
+.action--light:hover{ background:#fff; color:var(--ink); border-color:#fff }
+
+/* ============================================================
+   NAV — barra mínima: hamburguesa esquerra, logotip centrat, enllaç dreta
+   ============================================================ */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:60;
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+  padding:20px 24px;
+  color:#fff;
+  transition:color .5s var(--ease), background .5s var(--ease), backdrop-filter .5s var(--ease);
+}
+.nav.is-solid{
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(16px);
+  color:var(--ink);
+}
+.nav__burger{ justify-self:start; position:relative; display:inline-flex; width:44px; height:44px; align-items:center; padding:10px }
+.nav__burger span{
+  position:absolute; left:10px; width:24px; height:1.5px; background:currentColor; border-radius:2px;
+  transition:transform .5s var(--ease), top .5s var(--ease);
+}
+.nav__burger span:nth-child(1){ top:19px }
+.nav__burger span:nth-child(2){ top:25px }
+.menu-open .nav__burger span:nth-child(1){ top:22px; transform:rotate(45deg) }
+.menu-open .nav__burger span:nth-child(2){ top:22px; transform:rotate(-45deg) }
+
+.nav__logo{ justify-self:center; display:flex; align-items:center }
+.nav__logo img{ height:22px; width:auto; display:block }
+.nav__cta{ justify-self:end; font-size:var(--text-body-sm); font-weight:500; letter-spacing:var(--tracking-body-sm); transition:opacity .3s var(--ease), visibility .3s var(--ease) }
+.nav__cta span{ border-bottom:1px solid currentColor; padding-bottom:2px }
+
+/* ============================================================
+   MENÚ — pantalla completa: foto a l'esquerra + navegació gran
+   ============================================================ */
+
+/* Quan el menú és obert, la barra es torna blanca sobre el fons fosc */
+.menu-open .nav{ color:#fff; background:transparent; -webkit-backdrop-filter:none; backdrop-filter:none }
+.menu-open .nav__cta{ opacity:0; visibility:hidden; pointer-events:none }
+.menu-open .cookies{ display:none }
+
+.menu{
+  position:fixed; inset:0 0 auto 0; z-index:55;
+  width:100%; height:100vh; height:100svh;
+  display:grid; grid-template-columns:1fr 1fr;
+  background:var(--brand-dark); color:#fff;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .5s var(--ease), visibility 0s linear .5s;
+}
+.menu-open .menu{ opacity:1; visibility:visible; pointer-events:auto; transition:opacity .5s var(--ease), visibility 0s }
+
+/* ---------- Foto a sang (meitat esquerra) ---------- */
+.menu__media{
+  position:relative; margin:0; min-height:0; overflow:hidden; background:#1a1717;
+  opacity:0; transition:opacity .7s var(--ease) .05s;
+}
+.menu__media img{ width:100%; height:100%; object-fit:cover; display:block }
+.menu-open .menu__media{ opacity:1 }
+
+/* ---------- Navegació (meitat dreta) ---------- */
+.menu__nav{
+  display:flex; flex-direction:column; justify-content:space-between; min-height:0;
+  padding:clamp(96px,13vh,150px) clamp(28px,4.4vw,80px) clamp(32px,5vh,64px);
+  overflow-y:auto;
+}
+.menu__list{
+  flex:1 1 auto; display:flex; flex-direction:column; justify-content:space-between;
+  gap:clamp(8px,1.4vh,20px); margin:0; padding:0; list-style:none;
+}
+
+.menu__item{
+  opacity:0; transform:translateY(22px);
+  transition:opacity .5s var(--ease), transform .6s var(--ease);
+}
+.menu-open .menu__item{ opacity:1; transform:none }
+.menu-open .menu__item:nth-child(1){ transition-delay:.06s }
+.menu-open .menu__item:nth-child(2){ transition-delay:.13s }
+.menu-open .menu__item:nth-child(3){ transition-delay:.2s }
+.menu-open .menu__item:nth-child(4){ transition-delay:.27s }
+.menu-open .menu__item:nth-child(5){ transition-delay:.34s }
+
+.menu__item > a{
+  display:inline-block;
+  font-family:var(--font-display); font-weight:300; letter-spacing:-.035em;
+  font-size:clamp(40px,6vw,104px);
+  font-size:clamp(40px,min(6vw,14.5svh),104px);
+  line-height:1.02; color:#fff;
+  transition:opacity .35s var(--ease);
+}
+@media (hover:hover){
+  .menu__list:hover .menu__item > a{ opacity:.5 }
+  .menu__list:hover .menu__item:hover > a{ opacity:1 }
+}
+
+/* ---------- Peu: telèfon + pressupost (a baix a la dreta) ---------- */
+.menu__foot{
+  display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap;
+  gap:clamp(18px,2.4vw,40px);
+  margin-top:clamp(28px,5vh,56px);
+  opacity:0; transform:translateY(22px);
+  transition:opacity .5s var(--ease), transform .6s var(--ease);
+}
+.menu-open .menu__foot{ opacity:1; transform:none; transition-delay:.4s }
+.menu__phone{
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(24px,2.6vw,38px); letter-spacing:-.02em; line-height:1;
+  padding:8px 0;
+  transition:opacity .3s var(--ease);
+}
+.menu__phone:hover{ text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:2px }
+.menu__cta{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 26px; border-radius:9999px;
+  background:var(--brand-red); color:#fff;
+  font-size:var(--text-body); font-weight:600;
+  transition:background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease);
+}
+.menu__cta:hover{ background:#fff; color:var(--brand-red); transform:translateY(-1px) }
+
+/* ---------- Mòbil: una sola columna, sense foto ---------- */
+@media (max-width:900px){
+  .menu{ grid-template-columns:1fr }
+  .menu__media{ display:none }
+  .menu__nav{ padding:92px 22px 26px; overflow-y:auto }
+  .menu__list{ flex:0 0 auto; justify-content:flex-start; gap:clamp(6px,1.6vh,16px) }
+  .menu__item > a{ font-size:clamp(32px,9.6vw,56px) }
+  .menu__foot{
+    margin-top:auto; justify-content:flex-start; padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.16);
+  }
+}
+
+/* ============================================================
+   HERO — foto a sang + animació lligada al scroll
+   Estat inicial: sense radis, ocupant tota la pantalla.
+   Amb scroll: radis grans, la foto s'encongeix i deixa veure el color de marca.
+   ============================================================ */
+.hero{
+  position:relative;
+  height:220svh;             /* 100svh de pantalla + 120svh de recorregut */
+  background:var(--hero-layer);
+}
+.hero__sticky{
+  position:sticky; top:0; height:100svh; overflow:hidden;
+  background:var(--hero-layer);
+}
+.hero__frame{
+  position:absolute; inset:0; overflow:hidden;
+  transform-origin:center center;
+  transform:
+    translateY(calc(var(--p,0) * -2.4svh))
+    scale(calc(1 - var(--p,0) * .07));
+  border-radius:calc(var(--p,0) * 84px);
+  will-change:transform, border-radius;
+}
+.hero__slides{ position:absolute; inset:0 }
+.hero__slide{
+  position:absolute; inset:0; opacity:0;
+  transition:opacity 1.2s var(--ease);
+}
+.hero__slide.is-active{ opacity:1 }
+.hero__slide img{ width:100%; height:100%; object-fit:cover; object-position:center 60% }
+/* a la segona imatge el logotip de la jaqueta és a la meitat del quadre: el deixem allà */
+.hero__slide:nth-child(2) img{ object-position:center 40% }
+.hero__scrim{
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom,
+    rgba(20,17,18,.52) 0%,
+    rgba(20,17,18,.20) 26%,
+    rgba(20,17,18,.58) 55%,
+    rgba(20,17,18,.88) 80%,
+    rgba(20,17,18,.96) 100%);
+}
+.hero__content{
+  position:absolute; inset:auto 0 0 0; z-index:2;
+  padding:0 32px 88px; color:#fff;
+  animation:rise .9s var(--ease) both;
+}
+.hero__stack{ transition:opacity .34s var(--ease), transform .34s var(--ease) }
+.hero__stack.is-changing{ opacity:0; transform:translateY(10px) }
+.hero__title{
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(40px,7.4vw,104px); line-height:1.02; letter-spacing:-.035em;
+  max-width:16ch; margin-inline:auto; text-align:center; text-wrap:balance;
+}
+.hero__sub{
+  margin:20px auto 0; max-width:44ch; text-align:center;
+  font-size:var(--text-body-lg); line-height:1.35; color:rgba(255,255,255,.82);
+}
+
+/* Mòbil: efecte reduït per no trencar l'alçada de la pantalla */
+@media (max-width:640px){
+  .hero{ height:190svh }
+  .hero__frame{
+    transform:translateY(calc(var(--p,0) * -1.4svh)) scale(calc(1 - var(--p,0) * .04));
+    border-radius:calc(var(--p,0) * 40px);
+  }
+  .hero__content{ padding:0 20px 72px }
+  .hero__controls{ bottom:16px; padding:6px 10px }
+}
+
+/* Controls del carrusel (discrets, centrats a baix) */
+.hero__controls{
+  position:absolute; left:50%; bottom:24px; z-index:3;
+  transform:translateX(-50%);
+  display:flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:9999px;
+  background:rgba(20,17,18,.34); backdrop-filter:blur(8px);
+}
+.hero__dot{
+  width:8px; height:8px; padding:0; border-radius:9999px;
+  background:rgba(255,255,255,.45);
+  transition:background .4s var(--ease), width .4s var(--ease);
+}
+.hero__dot:hover{ background:rgba(255,255,255,.75) }
+.hero__dot.is-active{ background:#fff; width:22px }
+.hero__toggle{
+  display:grid; place-items:center; width:26px; height:26px; margin-left:4px;
+  border:1.5px solid rgba(255,255,255,.55); border-radius:9999px; color:#fff;
+  transition:background .4s var(--ease), border-color .4s var(--ease);
+}
+.hero__toggle:hover{ background:rgba(255,255,255,.16); border-color:#fff }
+.hero__toggle svg{ width:13px; height:13px; fill:currentColor }
+.hero__toggle-play{ display:none }
+.hero__controls.is-paused .hero__toggle-pause{ display:none }
+.hero__controls.is-paused .hero__toggle-play{ display:block }
+
+/* Animació d'entrada del titular */
+@keyframes rise{ from{ opacity:0; transform:translateY(22px) } to{ opacity:1; transform:none } }
+
+/* ============================================================
+   SECCIONS EDITORIALS
+   ============================================================ */
+.section{ padding-block:var(--section-gap) }
+.section--tight{ padding-block:calc(var(--section-gap) * .7) }
+
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start }
+@media (max-width:900px){ .grid-2{ grid-template-columns:1fr; gap:32px } }
+
+.blockquote{
+  padding-left:20px; border-left:2px solid var(--ink);
+  max-width:420px;
+}
+.blockquote p{ font-size:var(--text-subheading); line-height:var(--leading-subheading); letter-spacing:var(--tracking-subheading); font-weight:450 }
+
+/* ---------- Serveis: imatge + text + «Veure més» ---------- */
+.services{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+}
+.service{ display:flex; flex-direction:column }
+.service__media{
+  margin:0 0 24px; border-radius:16px; overflow:hidden; background:var(--bg-soft);
+  aspect-ratio:4/3;
+}
+.service__media img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease) }
+.service:hover .service__media img{ transform:scale(1.03) }
+.service__num{ font-size:var(--text-caption); font-weight:500; letter-spacing:.14em; color:var(--brand-red) }
+.service h3{ font-family:var(--font-display); font-weight:550; font-size:var(--text-subheading); letter-spacing:-.02em; margin:12px 0 12px }
+.service > p{ color:rgba(35,31,32,.72); margin-bottom:16px }
+.service__more{
+  margin-top:auto; align-self:flex-start;
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:var(--text-body-sm); font-weight:600; letter-spacing:var(--tracking-body-sm);
+  padding-bottom:3px; border-bottom:1px solid currentColor;
+  transition:gap .4s var(--ease), color .4s var(--ease);
+}
+.service__more:hover{ gap:14px; color:var(--brand-red) }
+.service__more svg{ width:16px; height:16px; fill:currentColor }
+@media (max-width:900px){ .services{ grid-template-columns:1fr; gap:40px } }
+
+/* ---------- Secció de fotografia a sang amb text al damunt ---------- */
+.photo{ position:relative; min-height:88svh; display:flex; align-items:flex-end; overflow:hidden }
+.photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
+.photo__scrim{ position:absolute; inset:0; background:linear-gradient(to top, rgba(20,17,18,.78), rgba(20,17,18,.12) 55%, rgba(20,17,18,.28)) }
+.photo__inner{ position:relative; width:100%; padding-bottom:80px; color:#fff }
+.photo__title{ font-family:var(--font-display); font-weight:500; letter-spacing:-.03em; line-height:1.04; font-size:clamp(30px,4vw,56px); max-width:18ch }
+
+/* ---------- Franges de color de secció ---------- */
+.section--paper{ background:#F0EDE9 }
+
+/* Franges de color: cada variant defineix tinta, text apagat i filet */
+.section--red{
+  --band-ink:#fff; --band-muted:rgba(255,255,255,.86); --band-rule:rgba(255,255,255,.4);
+  background:var(--brand-red); color:var(--band-ink);
+}
+.section--blue{
+  --band-ink:var(--brand-dark); --band-muted:rgba(35,31,32,.82); --band-rule:rgba(35,31,32,.32);
+  background:var(--blue-soft); color:var(--band-ink);
+}
+.section--red .kicker,.section--blue .kicker{ color:var(--band-muted) }
+.section--red .body,.section--blue .body{ color:var(--band-muted) }
+.section--red ::selection,.section--blue ::selection{ background:var(--band-ink); color:#fff }
+
+/* ---------- Autoritzacions: franja vermella amb les credencials ---------- */
+.creds-strip{
+  display:grid; grid-template-columns:1.15fr .85fr;
+  gap:clamp(32px,6vw,96px); align-items:end;
+}
+.creds-strip__intro .h-section{ margin:22px 0 40px; max-width:24ch }
+.creds-strip__list{ display:grid; gap:32px; margin:0 }
+.creds-strip .cred{ border-top:1px solid var(--band-rule); padding-top:20px }
+.creds-strip .cred dt{
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(44px,6vw,84px); line-height:.95; letter-spacing:-.04em;
+}
+.creds-strip .cred dd{ margin:10px 0 0; font-size:var(--text-body-sm); color:var(--band-muted) }
+@media (max-width:900px){ .creds-strip{ grid-template-columns:1fr; gap:40px } }
+
+/* ---------- Passos ---------- */
+.steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:40px }
+.step{ border-top:1px solid var(--hairline); padding-top:24px }
+.step h3{ font-family:var(--font-display); font-weight:550; font-size:var(--text-body-lg); letter-spacing:-.01em; margin:12px 0 8px }
+.step p{ color:rgba(35,31,32,.72); font-size:var(--text-body) }
+@media (max-width:900px){ .steps{ grid-template-columns:1fr; gap:28px } }
+
+/* ---------- Logos oficials dins del contenidor destacat ---------- */
+.feature__logos{ display:flex; flex-wrap:wrap; gap:12px; align-items:center }
+.logo-card{ display:inline-flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(35,31,32,.12); border-radius:12px; padding:12px 16px; min-height:64px }
+.logo-card img{ height:38px; width:auto; display:block }
+
+/* ---------- Materials que gestionem ---------- */
+.materials{
+  display:grid; grid-template-columns:1fr 1fr; gap:0;
+  border-top:1px solid var(--hairline);
+}
+.materials li{
+  padding:14px 0; border-bottom:1px solid var(--hairline);
+  font-size:var(--text-body); font-weight:450;
+}
+.materials li:nth-child(odd){ padding-right:24px }
+@media (max-width:560px){ .materials{ grid-template-columns:1fr } .materials li:nth-child(odd){ padding-right:0 } }
+
+/* ---------- Galeria ---------- */
+.gallery{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  grid-auto-rows:clamp(150px,20vw,260px);
+}
+.gallery figure{ margin:0; overflow:hidden; border-radius:16px; background:var(--bg-soft) }
+.gallery img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease) }
+.gallery figure:hover img{ transform:scale(1.03) }
+.gallery figure:nth-child(1),
+.gallery figure:nth-child(4){ grid-column:span 2 }
+@media (max-width:900px){
+  .gallery{ grid-template-columns:1fr 1fr; grid-auto-rows:clamp(140px,28vw,220px) }
+  .gallery figure:nth-child(1),
+  .gallery figure:nth-child(4){ grid-column:span 2 }
+}
+@media (max-width:560px){ .gallery{ grid-template-columns:1fr } .gallery figure:nth-child(n){ grid-column:span 1 } }
+
+/* ---------- Mapa ---------- */
+.map{ border-radius:16px; overflow:hidden; border:1px solid var(--hairline); min-height:360px; background:var(--bg-soft) }
+.map iframe{ display:block; width:100%; height:100%; min-height:360px; border:0 }
+
+/* ---------- Llistes de contacte ---------- */
+.contact-list{ display:grid; gap:16px; margin-top:32px }
+.contact-list li{ display:grid; gap:4px }
+.contact-list .kicker{ color:rgba(35,31,32,.5) }
+.contact-list a,.contact-list span:not(.kicker){ font-size:var(--text-body-lg); font-weight:500; letter-spacing:-.01em }
+.contact-list a{ text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--brand-blue) }
+.contact-list--ink .kicker{ color:rgba(35,31,32,.88) }
+.contact-list--ink a{ color:var(--brand-dark); text-decoration-color:rgba(35,31,32,.4) }
+
+/* ---------- FAQ ---------- */
+.faq{ display:grid; grid-template-columns:1fr 1fr; gap:0 48px }
+.faq details{ border-bottom:1px solid var(--hairline) }
+.faq summary{
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  padding:22px 0; cursor:pointer; list-style:none;
+  font-family:var(--font-display); font-weight:550; font-size:var(--text-body-lg); letter-spacing:-.01em;
+}
+.faq summary::-webkit-details-marker{ display:none }
+.faq-icon{ width:18px; height:18px; flex:0 0 auto; fill:var(--brand-red); transition:transform .5s var(--ease) }
+.faq details[open] .faq-icon{ transform:rotate(45deg) }
+.faq details p{ padding-bottom:22px; color:rgba(35,31,32,.72); max-width:52ch }
+@media (max-width:900px){ .faq{ grid-template-columns:1fr } }
+
+/* ---------- CTA final amb formulari ---------- */
+.cta{
+  background:var(--green-soft); color:var(--brand-dark);
+  border-radius:clamp(32px,6vw,110px);
+  padding:clamp(32px,5vw,72px);
+  display:grid; grid-template-columns:1fr 1.05fr; gap:clamp(32px,5vw,64px); align-items:start;
+}
+.cta__text{ align-self:stretch; display:flex; flex-direction:column }
+/* En pantalles amples, els contactes baixen fins al nivell del formulari */
+@media (min-width:1500px){ .cta__text .contact-list{ margin-top:auto; padding-top:40px } }
+.cta__text h2{ font-family:var(--font-display); font-weight:500; letter-spacing:-.03em; line-height:1.04; font-size:clamp(30px,3.6vw,52px); max-width:16ch }
+.cta__text p{ margin:20px 0 0; max-width:44ch; color:rgba(35,31,32,.86) }
+@media (min-width:1500px){ .cta{ grid-template-columns:minmax(0,1fr) minmax(0,720px) } }
+@media (max-width:900px){ .cta{ grid-template-columns:1fr } }
+@media (max-width:640px){ .cta{ border-radius:32px; padding:28px 20px } }
+
+/* ---------- Formulari ---------- */
+.form{ background:#fff; color:var(--ink); border-radius:16px; padding:clamp(20px,3vw,32px) }
+.form__row{ display:grid; grid-template-columns:1fr 1fr; gap:16px }
+.field{ display:flex; flex-direction:column; gap:8px; margin-bottom:16px }
+.field label{ font-size:var(--text-body-sm); font-weight:600 }
+.field input,.field select,.field textarea{
+  width:100%; font:inherit; font-size:var(--text-body); letter-spacing:var(--tracking-body);
+  padding:12px 14px; border:1px solid var(--hairline); border-radius:8px; background:#fff; color:var(--ink);
+  transition:border-color .4s var(--ease);
+}
+.field input:focus,.field select:focus,.field textarea:focus{ border-color:var(--brand-blue) }
+.field textarea{ resize:vertical; min-height:110px }
+.form__legal{ display:flex; gap:10px; align-items:flex-start; font-size:var(--text-body-sm); color:var(--muted); margin-bottom:12px }
+.form__legal input{ margin-top:3px; flex:0 0 auto }
+.form__legal a{ text-decoration:underline; text-underline-offset:3px }
+.form__submit{ width:100%; justify-content:center }
+.form__ok{ display:none; margin-top:16px; padding:12px 16px; border-radius:8px; background:#EAF6EE; color:#205C34; font-weight:600 }
+.form__ok.show{ display:block }
+.form__note{ margin-top:12px; text-align:center; font-size:var(--text-caption); color:var(--muted) }
+@media (max-width:640px){ .form__row{ grid-template-columns:1fr } }
+
+/* ---------- Avís de cookies ---------- */.cookies{
+  position:fixed; left:16px; right:16px; bottom:16px; z-index:70;
+  display:flex; flex-wrap:wrap; align-items:center; gap:16px 24px; justify-content:space-between;
+  padding:20px 24px; border-radius:16px;
+  background:#231F20; color:#fff;
+  box-shadow:0 24px 60px -30px rgba(0,0,0,.8);
+  max-width:var(--page-max-width); margin-inline:auto;
+  animation:rise .6s var(--ease) both;
+}
+.cookies p{ margin:0; font-size:var(--text-body-sm); color:rgba(255,255,255,.82); max-width:70ch }
+.cookies a{ color:#fff; text-decoration:underline; text-underline-offset:3px }
+.cookies__actions{ display:flex; gap:10px; flex:0 0 auto }
+.cookies .action{ color:#fff }
+.cookies .action--red{ border-color:var(--brand-red) }
+.cookies[hidden]{ display:none }
+@media (max-width:640px){
+  .cookies{ left:8px; right:8px; bottom:8px; padding:16px; border-radius:14px; gap:14px }
+  .cookies p{ font-size:var(--text-caption); line-height:1.4 }
+  .cookies__actions{ width:100%; justify-content:flex-end }
+  .cookies .action{ padding:10px 16px; font-size:var(--text-caption) }
+}
+
+/* ---------- Ajustos de la barra en pantalles petites ---------- */
+@media (max-width:640px){
+  .nav{ padding:16px 18px }
+  .nav__logo img{ height:18px }
+  .nav__cta{ font-size:var(--text-caption) }
+}
+
+/* ============================================================
+   PEU — graella de text neta, sense caixes
+   ============================================================ */
+.footer{ padding-block:80px 40px; border-top:1px solid var(--hairline) }
+.footer__grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px }
+.footer h2{ font-size:var(--text-caption); font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:rgba(35,31,32,.55); margin-bottom:20px }
+.footer li + li{ margin-top:10px }
+.footer a{ font-size:var(--text-body-sm); font-weight:450; color:rgba(35,31,32,.8) }
+.footer__contact{ display:grid; gap:8px; margin-top:20px }
+.footer__contact li{ font-size:var(--text-body-sm); color:rgba(35,31,32,.65) }
+.footer a:hover{ color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--brand-blue) }
+.footer__meta{
+  margin-top:64px; padding-top:24px; border-top:1px solid var(--hairline);
+  display:flex; flex-wrap:wrap; gap:12px 32px; justify-content:space-between;
+  font-size:var(--text-caption); color:rgba(35,31,32,.55);
+}
+@media (max-width:900px){ .footer__grid{ grid-template-columns:1fr } }
+
+/* ============================================================
+   APARICIÓ EN FER SCROLL — revelat de tot el que ve després del hero
+   L'estat ocult només s'aplica amb JavaScript actiu (`html.reveal-on`),
+   de manera que sense JS tot el contingut es veu igualment.
+   ============================================================ */
+.reveal-on .reveal{
+  opacity:0;
+  transform:translateY(var(--reveal-y,26px));
+  transition:opacity .7s var(--ease) var(--reveal-delay,0s),
+             transform .85s var(--ease) var(--reveal-delay,0s);
+}
+.reveal-on .reveal.is-in{ opacity:1; transform:none }
+
+/* ============================================================
+   Moviment reduït — sense animació: es queda l'estat inicial
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.001ms!important; transition-duration:.001ms!important }
+  .hero{ height:100svh }
+  .hero__frame{ transform:none; border-radius:0 }
+  .hero__content{ animation:none }
+  .hero__toggle{ display:none }   /* sense rotació automàtica, no cal aturar-la */
+  .menu__item,.menu__foot,.menu__media{ transition-delay:0s!important }
+  .reveal{ opacity:1!important; transform:none!important }   /* tot visible */
+}
+
+/* ============================================================
+   PÀGINES LEGALS
+   ============================================================ */
+.topbar{
+  position:absolute; inset:0 0 auto 0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  padding:20px 24px;
+}
+.topbar img{ height:22px; width:auto; display:block }
+.topbar a.back{ font-size:var(--text-body-sm); font-weight:500; letter-spacing:var(--tracking-body-sm) }
+.topbar a.back span{ border-bottom:1px solid currentColor; padding-bottom:2px }
+
+.legal{ padding-block:clamp(120px,16vh,180px) 80px }
+.legal__head{ border-bottom:1px solid var(--hairline); padding-bottom:32px; margin-bottom:44px }
+.legal h1{ font-family:var(--font-display); font-weight:500; letter-spacing:-.03em; line-height:1.05; font-size:clamp(32px,4.4vw,56px); max-width:20ch }
+.legal__updated{ margin-top:16px; font-size:var(--text-body-sm); color:var(--muted) }
+.legal h2{
+  font-family:var(--font-display); font-weight:550; letter-spacing:-.02em;
+  font-size:var(--text-subheading); line-height:1.2; margin:52px 0 16px; max-width:60ch;
+}
+.legal h3{ font-size:var(--text-body-lg); font-weight:600; margin:28px 0 10px }
+.legal p{ color:rgba(35,31,32,.78); max-width:74ch; margin-bottom:16px }
+.legal ul{ list-style:disc; padding-left:22px; margin-bottom:16px }
+.legal li{ color:rgba(35,31,32,.78); margin-bottom:8px }
+.legal a{ text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--brand-blue) }
+.legal table{ width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:var(--text-body-sm) }
+.legal th,.legal td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--hairline); vertical-align:top }
+.legal th{ font-weight:600; background:var(--bg-soft) }
+.legal__contact{ margin-top:12px; padding:20px 24px; border-radius:16px; background:var(--bg-soft) }
+.legal__contact p{ margin:0; color:var(--ink) }
+@media (max-width:640px){
+  .legal table{ font-size:var(--text-caption) }
+  .legal th,.legal td{ padding:8px }
+}
