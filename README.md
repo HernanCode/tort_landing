@@ -23,6 +23,10 @@ landing/
 ├── politica-de-cookies.html        # legal
 ├── politica-de-privacitat.html     # legal
 ├── 404.html                        # error personalitzat
+├── serveis/
+│   ├── gestio-de-residus.html      # pàgina de servei (avui enllaçada com a «Reciclatge»)
+│   ├── transport-de-residus.html   # pàgina de servei
+│   └── assessoria-tecnica.html     # pàgina de servei
 ├── css/
 │   ├── tokens.css                  # còpia de variables.css de l'equip
 │   └── style.css                   # sistema visual
@@ -49,6 +53,26 @@ landing/
 > Les seccions «Qui som», «Fotografia a sang», «Com funciona» i «Preguntes freqüents» segueixen al
 > codi comentades. Es poden recuperar descomentant el bloc corresponent.
 
+## Pàgines de servei
+
+Patró comú i **deliberadament curt** a `serveis/` (`gestio-de-residus.html` —avui enllaçada des de
+la targeta «Reciclatge»—, `transport-de-residus.html` i `assessoria-tecnica.html`):
+
+1. **Capçalera fotogràfica** (`.page-hero`, `data-page-hero`): foto a sang, fil d'Ariana, kicker,
+   títol gran i entrada. La barra hi va a sobre i es torna sòlida en passar-la.
+2. **«Què fem»** (`.section` + `.split`): titular, entrada i dos paràgrafs, amb una imatge al
+   costat. És tot el contingut de la pàgina.
+3. **«Explica'ns quins residus generes»** (`.cta.cta--page`): bloc verd amb telèfon, correu i botó
+   cap al formulari de la portada.
+4. **Peu i avís de cookies** idèntics a la portada.
+
+No hi ha franja d'autoritzacions, ni llistes «Què inclou», ni blocs addicionals: cada servei és una
+pàgina curta, no una web dins la web. Els botons intermedis tampoc no calen perquè el CTA final és
+just a sota.
+
+Les rutes són totes relatives (`../assets/`, `../css/`, `../index.html#...`). El menú i la barra
+s'inicialitzen a qualsevol pàgina que inclogui el markup (`main.js` ja no depèn de `#hero`).
+
 ## Menú de navegació
 
 Pantalla completa (`100svh`), fons carbó `#231F20`, sense panell flotant ni elements extra.
@@ -67,8 +91,9 @@ Pantalla completa (`100svh`), fons carbó `#231F20`, sense panell flotant ni ele
 - **Moviment**: fosa general i entrada escalonada dels enllaços (60–340 ms) i del peu; amb
   `prefers-reduced-motion` s'anul·len els retards i les transicions.
 
-El menú es tanca amb la X i amb `Esc` (no amb clic fora). Els «Veure més» dels serveis apunten a
-`serveis/*.html`, que encara no existeixen (vegeu «Pendent»).
+El menú es tanca amb la X i amb `Esc` (no amb clic fora). Les pàgines de servei viuen a
+`serveis/` (`gestio-de-residus.html` —enllaçada avui com a «Reciclatge»—, `transport-de-residus.html`
+i `assessoria-tecnica.html`).
 
 ### Ritme de color
 
@@ -223,9 +248,9 @@ en pes 500 amb tracking negatiu en comptes de negretes, i una sola família.
 
 ## Pendent
 
-- [ ] **Pàgines de servei**: els enllaços «Veure més» dels 3 blocs apunten a
-      `serveis/gestio-de-residus.html`, `serveis/reciclatge-de-residus.html` i
-      `serveis/transport-de-residus.html`, que encara no existeixen (donen 404).
+- [ ] **Pàgines de servei**: fetes `serveis/gestio-de-residus.html`,
+      `serveis/transport-de-residus.html` i `serveis/assessoria-tecnica.html`. Falta decidir el nom
+      final de la primera (la portada l'enllaça com a «Reciclatge»).
 - [ ] Fotografia i vídeo definitius de les noves instal·lacions.
 - [ ] Adreça postal concreta (ara només coordenades) i correu definitiu.
 - [ ] **Logos oficials en qualitat**: els actuals s'han recuperat de la web antiga i són de baixa

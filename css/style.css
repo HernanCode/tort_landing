@@ -9,6 +9,7 @@
 :root{
   /* ---- Marca TORT (manual d'identitat) ---- */
   --brand-red:   #E63030;
+  --brand-red-ink:#DC2C2C;  /* rojo de marca per a text petit sobre blanc (AA 4,7:1) */
   --brand-green: #63B76D;
   --brand-blue:  #2C90CF;
   --brand-dark:  #231F20;
@@ -356,7 +357,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 }
 .service__media img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease) }
 .service:hover .service__media img{ transform:scale(1.03) }
-.service__num{ font-size:var(--text-caption); font-weight:500; letter-spacing:.14em; color:var(--brand-red) }
+.service__num{ font-size:var(--text-caption); font-weight:500; letter-spacing:.14em; color:var(--brand-red-ink) }
 .service h3{ font-family:var(--font-display); font-weight:550; font-size:var(--text-subheading); letter-spacing:-.02em; margin:12px 0 12px }
 .service > p{ color:rgba(35,31,32,.72); margin-bottom:16px }
 .service__more{
@@ -559,6 +560,80 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
   font-size:var(--text-caption); color:rgba(35,31,32,.55);
 }
 @media (max-width:900px){ .footer__grid{ grid-template-columns:1fr } }
+
+/* ============================================================
+   PÀGINES DE SERVEI — capçalera fotogràfica i blocs editorials
+   ============================================================ */
+
+/* Capçalera a sang amb la foto i el títol */
+.page-hero{
+  position:relative; min-height:clamp(520px,74svh,820px);
+  display:flex; align-items:flex-end; overflow:hidden;
+  background:var(--brand-dark); color:#fff;
+}
+.page-hero__media{ position:absolute; inset:0 }
+.page-hero__media picture{ display:block; width:100%; height:100% }
+.page-hero__media img{ width:100%; height:100%; object-fit:cover; object-position:center 55% }
+.page-hero--focus-top .page-hero__media img{ object-position:center 38% }
+.page-hero__scrim{
+  position:absolute; inset:0;
+  background:linear-gradient(to top,
+    rgba(20,17,18,.94) 0%,
+    rgba(20,17,18,.55) 46%,
+    rgba(20,17,18,.58) 100%);
+}
+.page-hero__inner{
+  position:relative; z-index:2;
+  width:min(100% - 48px, var(--page-max-width));
+  margin-inline:auto; padding:140px 0 clamp(44px,7vh,84px);
+}
+.breadcrumb{
+  display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+  font-size:var(--text-caption); letter-spacing:.02em; color:rgba(255,255,255,.68);
+  margin-bottom:clamp(20px,4vh,34px);
+}
+.breadcrumb a{ transition:color .3s var(--ease) }
+.breadcrumb a:hover{ color:#fff; text-decoration:underline; text-underline-offset:3px }
+.breadcrumb [aria-current]{ color:#fff }
+.page-hero .kicker{ color:rgba(255,255,255,.72) }
+.page-hero__title{
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(44px,7.6vw,112px); line-height:.98; letter-spacing:-.04em;
+  margin-top:16px; max-width:16ch; text-wrap:balance;
+}
+.page-hero__lead{
+  margin-top:clamp(20px,3vh,30px); max-width:54ch;
+  font-size:clamp(18px,1.5vw,22px); line-height:1.4; color:rgba(255,255,255,.86);
+}
+@media (max-width:640px){
+  .page-hero{ min-height:clamp(440px,66svh,640px) }
+  .page-hero__inner{ width:calc(100% - 40px); padding-top:116px }
+}
+
+/* Dues columnes text + imatge */
+.split{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,6vw,96px); align-items:center }
+.split__media{
+  margin:0; border-radius:16px; overflow:hidden;
+  background:var(--bg-soft); aspect-ratio:4/3;
+}
+.split__media img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease) }
+.split__media:hover img{ transform:scale(1.03) }
+.split__text .lead + .body,
+.split__text .body + .body{ margin-top:20px }
+.split__text .action{ margin-top:32px }
+.split--reverse .split__media{ order:-1 }
+@media (max-width:900px){
+  .split{ grid-template-columns:1fr }
+  .split--reverse .split__media{ order:0 }
+}
+
+/* CTA de final de pàgina (reaprofita el bloc verd) */
+.cta.cta--page{ grid-template-columns:1fr auto; align-items:center; gap:clamp(24px,4vw,56px) }
+.cta--page .cta__text h2{ max-width:20ch }
+.cta--page .cta__text p{ max-width:48ch }
+.cta--page .cta__actions{ display:flex; flex-direction:column; align-items:flex-start; gap:18px }
+.cta--page .cta__actions .action{ white-space:nowrap }
+@media (max-width:900px){ .cta.cta--page{ grid-template-columns:1fr } }
 
 /* ============================================================
    APARICIÓ EN FER SCROLL — revelat de tot el que ve després del hero

@@ -20,6 +20,9 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 ## Estat actual
 
 - `index.html` completa i navegable.
+- Pàgines de servei `serveis/gestio-de-residus.html` (avui enllaçada com a «Reciclatge»),
+  `serveis/transport-de-residus.html` i `serveis/assessoria-tecnica.html`: només capçalera
+  fotogràfica, bloc «Què fem» (text + imatge) i CTA, amb el mateix menú, peu i revelat en scroll.
 - Seccions vives: Hero (carrusel 3 imatges + revelat al scroll), Serveis, Autoritzacions,
   Què gestionem, Galeria, Ubicació, Contacte, Peu, avís de cookies.
 - Seccions **comentades** al codi: «Qui som», «Fotografia a sang», «Com funciona», «Preguntes».
@@ -45,9 +48,9 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 
 ## Pendent (per ordre suggerit)
 
-1. **Pàgines de servei** `serveis/gestio-de-residus.html`, `reciclatge-de-residus.html` i
-   `transport-de-residus.html`. Ara donen 404: hi enllacen els «Veure més» de la landing i el
-   submenú del menú.
+1. **Pàgines de servei**: fetes `serveis/gestio-de-residus.html` (enllaçada com a «Reciclatge» des
+   de la portada), `serveis/transport-de-residus.html` i `serveis/assessoria-tecnica.html`. Falta
+   decidir si la primera es renombra a `reciclatge-de-residus.html`.
 2. **Slide 3 del hero**: el títol parla de «Destrucció de documents importants» però la imatge és
    la de la jaqueta. Cal una foto de documentació / trituradora / arxiu.
 3. **Textos dels slides**: només hi ha els 3 títols; falten subtítols o textos llargs si el client
@@ -63,7 +66,7 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 
 ## Avisos tècnics
 
-- **Cau de memòria cau**: `style.css` i `main.js` es carreguen amb `?v=20261019-7` a totes les
+- **Cau de memòria cau**: `style.css` i `main.js` es carreguen amb `?v=20261019-11` a totes les
   pàgines. En tocar CSS o JS cal pujar aquest valor o el navegador servirà la versió vella.
 - Les captures de pàgina sencera del navegador donen artefactes (hero, imatges lazy): verificar
   secció a secció per `id`.

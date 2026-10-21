@@ -12,18 +12,19 @@
   var root = document.documentElement;
   var hero = document.getElementById('hero');
 
+  var nav = document.getElementById('nav');
+  var navLogo = document.getElementById('navLogo');
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+
+  /* Rutes relatives: cada pàgina declara el logo blanc; el fosc és la variant sense -white */
+  var LOGO_LIGHT = navLogo ? navLogo.getAttribute('src') : '';
+  var LOGO_DARK = LOGO_LIGHT ? LOGO_LIGHT.replace('-white.svg', '.svg') : '';
+
   /* ============================================================
-     Només a la portada: hero, carrusel i navegació
+     Navegació i menú (a qualsevol pàgina que els inclogui)
      ============================================================ */
-  if (hero) {
-    var nav = document.getElementById('nav');
-    var navLogo = document.getElementById('navLogo');
-    var burger = document.getElementById('burger');
-    var menu = document.getElementById('menu');
-
-    var LOGO_LIGHT = 'assets/logo/logo-tort-compact-white.svg';
-    var LOGO_DARK = 'assets/logo/logo-tort-compact.svg';
-
+  if (nav && navLogo && burger && menu) {
     /* ---------- Menú ---------- */
     var lastFocus = null;
     menu.inert = true;
@@ -81,6 +82,12 @@
       else if (!menu.contains(current) && current !== burger) { e.preventDefault(); first.focus(); }
     });
 
+  }
+
+  /* ============================================================
+     Portada: progrés del hero i barra sòlida
+     ============================================================ */
+  if (hero && nav && navLogo) {
     /* ---------- Progrés del hero + barra sòlida ---------- */
     function heroDistance() {
       return Math.max(1, hero.offsetHeight - window.innerHeight);
@@ -214,6 +221,31 @@
   }
 
   /* ============================================================
+     Pàgines interiors: la barra es torna sòlida en passar la capçalera
+     ============================================================ */
+  if (!hero && nav && navLogo) {
+    var pageHero = document.querySelector('[data-page-hero]');
+
+    if (!pageHero) {
+      nav.classList.add('is-solid');
+      navLogo.src = LOGO_DARK;
+    } else {
+      var paintPageNav = function () {
+        var y = window.scrollY || window.pageYOffset;
+        var limit = Math.max(40, pageHero.offsetHeight - 90);
+        var solid = y > limit;
+        if (solid !== nav.classList.contains('is-solid')) {
+          nav.classList.toggle('is-solid', solid);
+          navLogo.src = solid ? LOGO_DARK : LOGO_LIGHT;
+        }
+      };
+      window.addEventListener('scroll', paintPageNav, { passive: true });
+      window.addEventListener('resize', paintPageNav, { passive: true });
+      paintPageNav();
+    }
+  }
+
+  /* ============================================================
      Aparició en fer scroll — tot el que ve després del hero
      ============================================================ */
   if (!reduce && 'IntersectionObserver' in window) {
@@ -222,8 +254,8 @@
       { sel:'.section .kicker' },
       { sel:'.section .h-section', delay:80 },
       { sel:'#serveis .services .service', stagger:110 },
-      { sel:'#autoritzacions .feature__logos .logo-card', stagger:90 },
-      { sel:'#autoritzacions .creds-strip__list .cred', stagger:130 },
+      { sel:'.feature__logos .logo-card', stagger:90 },
+      { sel:'.creds-strip__list .cred', stagger:130 },
       { sel:'#residus .body, #residus .action', stagger:80 },
       { sel:'.materials li', stagger:34 },
       { sel:'#galeria .gallery figure', stagger:80 },
@@ -231,6 +263,10 @@
       { sel:'#ubicacio .grid-2 > div:last-child', delay:120 },
       { sel:'#contacte .cta__text' },
       { sel:'#contacte .form', delay:140 },
+      /* Pàgines de servei */
+      { sel:'.split__media', delay:70 },
+      { sel:'.split__text .lead, .split__text .body', stagger:80 },
+      { sel:'.cta--page', delay:60 },
       { sel:'.footer__grid > div', stagger:110 },
       { sel:'.footer__meta', delay:120 }
     ];
