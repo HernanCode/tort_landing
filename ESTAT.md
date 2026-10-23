@@ -19,15 +19,23 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 
 ## Estat actual
 
-- `index.html` completa i navegable.
-- Pàgines de servei `serveis/gestio-de-residus.html` (avui enllaçada com a «Reciclatge»),
-  `serveis/transport-de-residus.html` i `serveis/assessoria-tecnica.html`: només capçalera
-  fotogràfica, bloc «Què fem» (text + imatge) i CTA, amb el mateix menú, peu i revelat en scroll.
-- Seccions vives: Hero (carrusel 3 imatges + revelat al scroll), Serveis, Autoritzacions,
+- `index.html` completa i navegable, amb els serveis agrupats en 3 blocs (Contenidors, Recollida i
+  gestió, Serveis especials) + bloc de sectors.
+- 18 pàgines de servei a `serveis/<slug>/` generades des de `serveis/data/serveis.json` i
+  `serveis/_template.html` amb `scripts/build-serveis.py`. Model de 7 blocs: capçalera, què és,
+  per a qui, 3 passos, residus acceptats, FAQ, relacionats i CTA.
+- Peu complet: CTA final, 4 columnes, logos ARC/Generalitat i codis; formulari amb foto i els 18 serveis.
+- Empresa: secció a la home + pàgina `/empresa/` (50+ anys, empresa familiar, planta nova).
+- Contenidors: 4 mides a la home i fitxes a `/serveis/lloguer-de-contenidors/#mides`.
+- Autoritzacions: E-211.96, T-663, CRT de RAEE, Gremi i enllaç de verificació ARC.
+- SEO: canòniques, `og:image`, JSON-LD (`LocalBusiness`, `Service`, `FAQPage`), `sitemap.xml` i `robots.txt`.
+- Seccions vives: Hero (carrusel de 3 vídeos de 5 s optimitzats: 1280/960, MP4 primer, posters WebP i càrrega diferida), Serveis, Autoritzacions,
   Què gestionem, Galeria, Ubicació, Contacte, Peu, avís de cookies.
 - Seccions **comentades** al codi: «Qui som», «Fotografia a sang», «Com funciona», «Preguntes».
-- Menú a pantalla completa (foto a l'esquerra + enllaços gegants a la dreta, telèfon i
-  «Pressupost» a baix), amb focus atrapat, `aria`, mòbil i `prefers-reduced-motion`.
+- Menú a pantalla completa (foto a l'esquerra + enllaços gegants a la dreta). El telèfon i el CTA
+  es queden al header, al mateix lloc; a mòbil, la barra inferior es manté visible sobre el menú.
+- Header amb logotip gran, telèfon clicable i CTA «Demana pressupost»; barra fixa que passa a
+  blanca en fer scroll. A ≤900 px, barra inferior fixa amb «Trucar» i «Demana pressupost».
 - Revelat en scroll de tot el que va després del hero (fosa + desplaçament, escalonat als blocs
   repetits), amb `IntersectionObserver`, sense JS tot visible i `prefers-reduced-motion` respectat.
 - Ritme de color: hero foto → Serveis blanc → Autoritzacions blau suau `#AED5EE` → Què gestionem
@@ -38,35 +46,41 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 ## Decisions clau
 
 - Tipografia: **Manrope** només; titulars pes 500, tracking negatiu. Mai 700.
-- Accions: pastilles delineades. Única excepció: botó «Pressupost» del menú, ple en vermell.
+- CTA principal únic: **«Demana pressupost»**, pastilla plena en `--brand-red-ink` (header, menú,
+  barra mòbil i formulari). La resta d'accions són pastilles delineades.
 - No hi ha degradats de superfície (només el vel del hero).
 - Sobre fons de color suau el text va en tinta `#231F20` (contrast 6,7–10,6:1). Blanc sobre
-  `#E63030` és 4,35:1: només per a text gran.
+  `#E63030` és 4,35:1: només per a text gran; per a text petit es fa servir `--brand-red-ink`
+  (`#DC2C2C`, 4,7:1).
 - `--blue-soft` i `--green-soft` surten de barrejar els corporatius amb blanc.
 - Contacte: `.section--wide` (fins a 1920 px) en lloc dels 1200 px de la resta.
 - Secció de contacte: formulari limitat a 720 px a partir de 1500 px.
 
 ## Pendent (per ordre suggerit)
 
-1. **Pàgines de servei**: fetes `serveis/gestio-de-residus.html` (enllaçada com a «Reciclatge» des
-   de la portada), `serveis/transport-de-residus.html` i `serveis/assessoria-tecnica.html`. Falta
-   decidir si la primera es renombra a `reciclatge-de-residus.html`.
-2. **Slide 3 del hero**: el títol parla de «Destrucció de documents importants» però la imatge és
-   la de la jaqueta. Cal una foto de documentació / trituradora / arxiu.
-3. **Textos dels slides**: només hi ha els 3 títols; falten subtítols o textos llargs si el client
-   els vol.
+1. **Pàgines de servei**: 18 pàgines generades des del JSON. Per canviar textos o afegir un servei,
+   editar `serveis/data/serveis.json` i executar `python3 scripts/build-serveis.py`.
+2. **Fotos reals per servei** (contenidors amb escala, documents, perillosos, RAEE, runes, cable,
+   vehicles, fosses, desembussos, extintors, neteges) i retocar les fotos de contenidors amb el
+   telèfon antic.
+3. **Dades per confirmar**: mides de contenidors, dies de lloguer, permisos de via pública,
+   ISO/CRT/UNE i àrea de servei.
 4. **Revisió legal** de les tres pàgines: els textos són adaptats dels del client i encara hi apareix
    l'adreça antiga (Carretera Viladordis).
 5. **Logos oficials** (`assets/oficial/`): SDR i Generalitat són de baixa resolució; calen els
    originals.
-6. **Telèfon als contenidors**: a les fotos hi ha el 93 872 85 69 al costat del 93 873 02 37.
-   Decidir quin és el bo o si es retoquen les imatges.
-7. **Formulari**: és un prototip (`preventDefault`, sense backend).
-8. Decidir si s'eliminen les carpetes antigues `propuesta/` i `propuesta-v2/`.
+6. **Formulari**: és un prototip (`preventDefault`, sense backend). Ja té foto opcional i els 18 serveis.
+7. **Empresa (dades)**: fundació, generacions, m², camions, persones, timeline i foto antiga.
+8. **Autoritzacions pendents**: ISO 9001/14001/45001 i UNE-EN 15713 (CRT, Gremi i verificació ARC ja hi són).
+9. **Contenidors pendents**: mesures reals, permisos/dies, selector i fotos amb escala.
+10. **SEO pendent**: `hreflang`/ES, 301, Core Web Vitals i Google Business/NAP.
+11. **Gremi**: logo i enllaç al peu.
+12. Decidir si s'eliminen les carpetes antigues `propuesta/` i `propuesta-v2/`.
 
 ## Avisos tècnics
 
-- **Cau de memòria cau**: `style.css` i `main.js` es carreguen amb `?v=20261019-11` a totes les
+- **Vídeos**: els originals 4K són a `../videos-origen/` (fora del deploy). A `assets/videos/` només hi ha les versions 1280/960 en MP4 i WebM.
+- **Cau de memòria cau**: `style.css` i `main.js` es carreguen amb `?v=20261019-31` a totes les
   pàgines. En tocar CSS o JS cal pujar aquest valor o el navegador servirà la versió vella.
 - Les captures de pàgina sencera del navegador donen artefactes (hero, imatges lazy): verificar
   secció a secció per `id`.

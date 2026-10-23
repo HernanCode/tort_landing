@@ -1,0 +1,1237 @@
+[
+  {
+    "slug": "lloguer-de-contenidors",
+    "group": "contenidors",
+    "groupLabel": "Contenidors",
+    "icon": "container",
+    "name": "Lloguer de contenidors",
+    "h1": "Lloguer de contenidors a Manresa",
+    "metaTitle": "Lloguer de contenidors a Manresa · Tort",
+    "metaDescription": "Contenidors per a obra, indústria i buidatges. Diferents mides, entrega i recollida amb camió propi. Demana pressupost.",
+    "summary": "Contenidors de 3 a 30 m³, entrega i recollida amb mitjans propis.",
+    "lead": "Contenidors per a obres, reformes, indústria i buidatges. Te'l portem on el necessites, el recollim quan és ple i ens fem càrrec de tot el que hi ha a dins.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Quin contenidor necessites?",
+    "intro": [
+      "Tenim contenidors de cadenes de 3, 5 i 7–9 m³ i contenidors de ganxo de 14 a 30 m³. La mida depèn del tipus d'obra, del volum i de si el contenidor ha de cap en un carrer estret.",
+      "Si no ho tens clar, truca'ns: amb quatre dades t'ajudem a triar la mida que et surt més a compte."
+    ],
+    "audience": [
+      "Reformes de pis i de local",
+      "Obres noves i enderrocs",
+      "Indústria i naus",
+      "Buidatges i neteges",
+      "Particulars"
+    ],
+    "steps": [
+      {
+        "title": "Truca'ns o escriu-nos",
+        "text": "Ens dius què has de treure, on ets i quan el necessites."
+      },
+      {
+        "title": "Te'l portem",
+        "text": "Col·loquem el contenidor al lloc acordat, amb els permisos que calguin."
+      },
+      {
+        "title": "El recollim",
+        "text": "Quan és ple, ens avises i ens l'emportem a gestionar."
+      }
+    ],
+    "waste": [
+      "Runa i terra",
+      "Fusta",
+      "Cartró i paper",
+      "Plàstic",
+      "Ferralla i metalls",
+      "Poda",
+      "Voluminosos"
+    ],
+    "faq": [
+      {
+        "q": "Quants dies el puc tenir?",
+        "a": "Ho pactem amb tu segons l'obra. Si necessites més temps, ens avises i l'ampliem."
+      },
+      {
+        "q": "Llogueu contenidors a particulars?",
+        "a": "Sí. Treballem amb empreses, constructors i particulars."
+      },
+      {
+        "q": "Què passa si l'omplo massa?",
+        "a": "La càrrega no pot sobresortir de les vores: per seguretat no el podríem transportar."
+      },
+      {
+        "q": "Cal permís per deixar-lo al carrer?",
+        "a": "Si ocupa la via pública, cal permís de l'ajuntament. T'expliquem com demanar-lo."
+      }
+    ],
+    "cta": "Digues-nos quin residu tens i on, i te'l portem.",
+    "related": [
+      "runes-i-obra",
+      "transport-de-residus"
+    ],
+    "sizes": [
+      {
+        "capacity": "3 m³",
+        "system": "Cadenes",
+        "ideal": "Reformes petites, banys, cuines i trasters.",
+        "not": "Amiant, líquids, pintures, olis, bateries i residus perillosos."
+      },
+      {
+        "capacity": "5 m³",
+        "system": "Cadenes",
+        "ideal": "El més demanat: reformes de pis, runa, fusta i voluminosos.",
+        "not": "Amiant, líquids, pintures, olis, bateries i residus perillosos."
+      },
+      {
+        "capacity": "7–9 m³",
+        "system": "Cadenes",
+        "ideal": "Obres mitjanes, buidatges de locals i residus lleugers amb molt volum.",
+        "not": "Amiant, líquids, pintures, olis, bateries i residus perillosos."
+      },
+      {
+        "capacity": "14–30 m³",
+        "system": "Ganxo",
+        "ideal": "Indústria, naus i obres grans, amb recollida periòdica.",
+        "not": "Amiant, líquids, pintures, olis, bateries i residus perillosos."
+      }
+    ]
+  },
+  {
+    "slug": "transport-de-residus",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "truck",
+    "name": "Recollida i transport",
+    "h1": "Transport de residus a Manresa",
+    "metaTitle": "Recollida i transport de residus a Manresa · Tort",
+    "metaDescription": "Venim al teu centre i ens emportem els residus. Transportista autoritzat T-663. Recollida puntual o periòdica.",
+    "summary": "Recollida puntual o periòdica amb camió propi i T-663.",
+    "lead": "Recollim al teu centre de treball i portem cada residu al gestor autoritzat, amb mitjans propis i la documentació en ordre.",
+    "heroImage": "assets/img/slide-operari-1600.webp",
+    "heroAlt": "Operari de Tort amb camió i contenidors",
+    "introHeading": "Puntual o periòdica",
+    "intro": [
+      "Si generes residus cada setmana, et fixem una ruta i no te n'has de tornar a preocupar. Si és una neteja, un canvi de maquinària o un tancament, venim només aquell dia.",
+      "Som transportista autoritzat (T-663) i gestor (E-211.96): el residu surt de casa teva i arriba directament a la nostra planta de Manresa."
+    ],
+    "audience": [
+      "Indústria",
+      "Tallers i obradors",
+      "Construcció",
+      "Comerç i oficines",
+      "Administració"
+    ],
+    "steps": [
+      {
+        "title": "Ens truques",
+        "text": "Ens dius què tens, quant i on."
+      },
+      {
+        "title": "Venim",
+        "text": "Anem al teu centre amb el camió i els contenidors que calguin."
+      },
+      {
+        "title": "Documentem",
+        "text": "Et deixem el full de seguiment de cada residu."
+      }
+    ],
+    "waste": [
+      "Paper i cartró",
+      "Plàstic",
+      "Fusta",
+      "Vidre",
+      "Ferralla",
+      "Bateries",
+      "Pneumàtics",
+      "RAEE",
+      "Residus perillosos",
+      "Voluminosos"
+    ],
+    "faq": [
+      {
+        "q": "Quins documents em doneu?",
+        "a": "El full de seguiment de cada recollida i el certificat de gestió."
+      },
+      {
+        "q": "Fins on arribeu?",
+        "a": "Manresa, el Bages i comarques veïnes."
+      },
+      {
+        "q": "Puc programar recollides periòdiques?",
+        "a": "Sí, amb la freqüència que necessiti la teva activitat."
+      }
+    ],
+    "cta": "Una recollida o cada setmana: tu dius quan.",
+    "related": [
+      "gestio-de-residus",
+      "lloguer-de-contenidors"
+    ]
+  },
+  {
+    "slug": "gestio-de-residus",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "recycle",
+    "name": "Gestió de residus",
+    "h1": "Gestió de residus a Manresa",
+    "metaTitle": "Gestió de residus industrials a Manresa · Tort",
+    "metaDescription": "Recollim, classifiquem i gestionem els residus de la teva empresa. Tota la documentació inclosa. Gestor autoritzat E-211.96.",
+    "summary": "Gestió integral: recollida, classificació, tractament i paperassa.",
+    "lead": "Classificació, tractament i destinació final de cada residu. Ens n'encarreguem de tot, amb la documentació en ordre.",
+    "heroImage": "assets/img/slide-interior-1600.webp",
+    "heroAlt": "Nau de classificació i tractament de residus de Tort",
+    "introHeading": "Cada empresa, un pla",
+    "intro": [
+      "Una metal·lúrgica genera ferralla i olis. Una impremta, paper i tintes. Un magatzem, cartró, plàstic i palets. Venim, mirem què generes i et diem com separar-ho i cada quan recollir-ho.",
+      "Classifiquem i premsem a la nostra planta. El que es pot reciclar torna a la indústria com a matèria primera; la resta va al gestor final autoritzat, amb traçabilitat de principi a fi."
+    ],
+    "audience": [
+      "Indústria i metal·lúrgia",
+      "Impremta i paper",
+      "Magatzems i logística",
+      "Tallers",
+      "Comerç i oficines"
+    ],
+    "steps": [
+      {
+        "title": "Analitzem",
+        "text": "Mirem quins residus generes i amb quina freqüència."
+      },
+      {
+        "title": "Proposem",
+        "text": "Et passem un pla de separació i recollida."
+      },
+      {
+        "title": "Gestionem",
+        "text": "Recollim, tractem i et deixem la documentació."
+      }
+    ],
+    "waste": [
+      "Paper i cartró",
+      "Plàstic",
+      "Fusta",
+      "Vidre",
+      "Ferralla i metalls",
+      "Bateries",
+      "Pneumàtics",
+      "RAEE",
+      "Residus perillosos",
+      "Voluminosos"
+    ],
+    "faq": [
+      {
+        "q": "Quina documentació em doneu?",
+        "a": "Els fulls de seguiment de cada recollida i el certificat de gestió."
+      },
+      {
+        "q": "Recolliu de manera periòdica?",
+        "a": "Sí, amb la freqüència que necessiti la teva activitat."
+      },
+      {
+        "q": "Per a quins sectors treballeu?",
+        "a": "Indústria, tallers, construcció, alimentació, comerç, oficines i administració."
+      }
+    ],
+    "cta": "Explica'ns què genera la teva empresa i et proposem un pla.",
+    "related": [
+      "transport-de-residus",
+      "residus-perillosos"
+    ]
+  },
+  {
+    "slug": "paper-i-carto",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "recycle",
+    "name": "Paper i cartró",
+    "h1": "Paper i cartró a Manresa",
+    "metaTitle": "Reciclatge de paper i cartró a Manresa · Tort",
+    "metaDescription": "Recollida i reciclatge de paper i cartró per a empreses. Contenidor al teu centre i recollida quan és ple.",
+    "summary": "Contenidor al centre i recollida de paper i cartró quan és ple.",
+    "lead": "Recollim i reciclem paper i cartró d'empreses, comerços i oficines. Et deixem el contenidor i el buidem quan és ple.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Paper, cartró i embalatges",
+    "intro": [
+      "Recollim caixes, embalatges, paper d'oficina, retalls d'impremta, tubs i mandrins. Ho classifiquem i ho premsem perquè torni a la cadena com a matèria primera.",
+      "Si generes molt volum, et posem un contenidor i programem les recollides segons la teva activitat."
+    ],
+    "audience": [
+      "Oficines",
+      "Comerços",
+      "Impremtes",
+      "Magatzems",
+      "Indústria"
+    ],
+    "steps": [
+      {
+        "title": "Mirem el volum",
+        "text": "Calculem què generes i cada quan."
+      },
+      {
+        "title": "Posem el contenidor",
+        "text": "Al lloc que et va bé, amb la mida adequada."
+      },
+      {
+        "title": "Recollim i premsem",
+        "text": "Quan és ple, ens avises i el buidem."
+      }
+    ],
+    "waste": [
+      "Caixes i embalatges",
+      "Paper d'oficina",
+      "Retalls d'impremta",
+      "Tubs i mandrins",
+      "Revistes i catàlegs"
+    ],
+    "faq": [
+      {
+        "q": "Cal separar el paper del cartró?",
+        "a": "No cal, però si ho fas, la gestió és més eficient."
+      },
+      {
+        "q": "Recolliu petites quantitats?",
+        "a": "Sí, ens adaptem al volum de cada empresa."
+      },
+      {
+        "q": "Puc llogar el contenidor?",
+        "a": "Sí, te'l deixem i el recollim quan és ple."
+      }
+    ],
+    "cta": "Tens paper acumulat? Te'l recollim.",
+    "related": [
+      "gestio-de-residus",
+      "ferralla-i-metalls"
+    ]
+  },
+  {
+    "slug": "ferralla-i-metalls",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "recycle",
+    "name": "Ferralla i metalls",
+    "h1": "Ferralla i metalls a Manresa",
+    "metaTitle": "Reciclatge de ferralla i metalls a Manresa · Tort",
+    "metaDescription": "Recollida i reciclatge de ferralla, metalls i cable per a indústria i tallers. Contenidor propi i gestió documentada.",
+    "summary": "Ferralla, metalls i cable: recollida i recuperació.",
+    "lead": "Recollim ferralla, metalls i cable de tallers, indústria i desmuntatges. Ho classifiquem i ho preparem per a la recuperació.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Metall que torna a la indústria",
+    "intro": [
+      "Separem ferralla i metalls perquè arribin al gestor en les condicions que calen. Treballem amb tallers, indústria i desmuntatges que generen volum de forma regular.",
+      "Si tens cable de coure o alumini, també el recollim i el gestionem."
+    ],
+    "audience": [
+      "Tallers i serralleries",
+      "Indústria",
+      "Desmuntatges",
+      "Instal·ladors",
+      "Obres"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius què tens",
+        "text": "Ferralla, metall o cable, i aproximadament quant."
+      },
+      {
+        "title": "Venim a recollir-ho",
+        "text": "Amb els mitjans que calguin."
+      },
+      {
+        "title": "Ho gestionem",
+        "text": "Classificació, recuperació i documentació."
+      }
+    ],
+    "waste": [
+      "Ferralla",
+      "Metalls",
+      "Cable de coure",
+      "Cable d'alumini",
+      "Bobines",
+      "Restes de desmuntatge"
+    ],
+    "faq": [
+      {
+        "q": "Cal pelar el cable?",
+        "a": "No, el recollim tal com el tens."
+      },
+      {
+        "q": "Accepteu cable amb plàstic?",
+        "a": "Sí."
+      },
+      {
+        "q": "Recolliu petites quantitats?",
+        "a": "Sí, ens adaptem al volum."
+      }
+    ],
+    "cta": "Tens metall acumulat? Te'l traiem.",
+    "related": [
+      "cable-de-coure",
+      "gestio-de-residus"
+    ]
+  },
+  {
+    "slug": "raee-i-electronica",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "electronics",
+    "name": "RAEE i electrònica",
+    "h1": "RAEE i electrònica a Manresa",
+    "metaTitle": "RAEE i electrònica a Manresa · Tort",
+    "metaDescription": "Centre de recollida i transferència de RAEE. Recollim i gestionem equips elèctrics i electrònics grans i petits.",
+    "summary": "CRT de RAEE: equips grans i petits, amb traçabilitat.",
+    "lead": "Som centre de recollida i transferència (CRT) de RAEE. Recollim equips elèctrics i electrònics grans i petits i els gestionem amb traçabilitat.",
+    "heroImage": "assets/img/slide-interior-1600.webp",
+    "heroAlt": "Instal·lacions de Tort per a la gestió de residus",
+    "introHeading": "Equips que ja no serveixen",
+    "intro": [
+      "Recollim electrodomèstics, ordinadors, pantalles, impressores i petits aparells elèctrics. Els portem a les nostres instal·lacions i els gestionem com a RAEE.",
+      "Com a CRT, et donem la documentació que cal per justificar la recollida i la destinació final."
+    ],
+    "audience": [
+      "Oficines i empreses",
+      "Comerços",
+      "Indústria",
+      "Administració",
+      "Particulars"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius què tens",
+        "text": "Tipus d'equips i quantitat."
+      },
+      {
+        "title": "Recollim",
+        "text": "Al teu centre, amb el mitjà adequat."
+      },
+      {
+        "title": "Gestionem",
+        "text": "Tractament com a RAEE i documentació."
+      }
+    ],
+    "waste": [
+      "Electrodomèstics grans",
+      "Electrodomèstics petits",
+      "Ordinadors",
+      "Pantalles",
+      "Impressores",
+      "Petits aparells"
+    ],
+    "faq": [
+      {
+        "q": "Què és un RAEE?",
+        "a": "Un residu d'aparell elèctric o electrònic."
+      },
+      {
+        "q": "Recolliu equips grans?",
+        "a": "Sí, amb els mitjans necessaris."
+      },
+      {
+        "q": "Em doneu documentació?",
+        "a": "Sí, el full de seguiment i el certificat de gestió."
+      }
+    ],
+    "cta": "Tens equips per retirar? Els recollim.",
+    "related": [
+      "gestio-de-residus",
+      "residus-perillosos"
+    ]
+  },
+  {
+    "slug": "destruccio-de-documents",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "document",
+    "name": "Destrucció de documents",
+    "h1": "Destrucció de documents a Manresa",
+    "metaTitle": "Destrucció confidencial de documents a Manresa · Tort",
+    "metaDescription": "Recollida i destrucció confidencial de documentació per a empreses i administracions, amb certificat.",
+    "summary": "Destrucció confidencial amb certificat per a empreses.",
+    "lead": "Recollim i destruïm documentació de forma confidencial, amb el certificat corresponent.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Documentació que no pot sortir de casa",
+    "intro": [
+      "Recollim documentació d'empreses i administracions i la destruïm de forma confidencial. El procés queda documentat amb el certificat corresponent.",
+      "També ens encarreguem de la destrucció d'estocs i mercaderia obsoleta que no pot arribar al mercat."
+    ],
+    "audience": [
+      "Empreses",
+      "Administració pública",
+      "Despatxos",
+      "Comerços",
+      "Indústria"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius què cal destruir",
+        "text": "Documentació, estocs o mercaderia."
+      },
+      {
+        "title": "Recollim",
+        "text": "Amb el mitjà adequat i la confidencialitat que cal."
+      },
+      {
+        "title": "Destruïm i certifiquem",
+        "text": "Et lliurem el certificat."
+      }
+    ],
+    "waste": [
+      "Documentació d'oficina",
+      "Arxius",
+      "Estocs",
+      "Mercaderia obsoleta",
+      "Suports amb dades"
+    ],
+    "faq": [
+      {
+        "q": "Em doneu un certificat?",
+        "a": "Sí, amb el procés de destrucció."
+      },
+      {
+        "q": "Recolliu a domicili?",
+        "a": "Sí, ens desplacem al teu centre."
+      },
+      {
+        "q": "Puc destruir estocs?",
+        "a": "Sí, també gestionem estocs i mercaderia obsoleta."
+      }
+    ],
+    "cta": "Tens documentació per destruir? Ens n'encarreguem.",
+    "related": [
+      "destruccio-d-estocs",
+      "assessoria-tecnica"
+    ]
+  },
+  {
+    "slug": "buidatge-de-naus",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "construction",
+    "name": "Buidatge de naus",
+    "h1": "Buidatge de naus i locals a Manresa",
+    "metaTitle": "Buidatge de naus, locals i pisos a Manresa · Tort",
+    "metaDescription": "Buidatges de naus, locals i pisos amb mitjans propis. Recollim, separem i gestionem tot el que cal treure.",
+    "summary": "Buidatge de naus, locals i pisos, amb separació i gestió.",
+    "lead": "Buidem naus, locals i pisos amb mitjans propis. Recollim, separem i gestionem tot el que cal treure.",
+    "heroImage": "assets/img/galeria-01-1200.webp",
+    "heroAlt": "Operari de Tort en una nau",
+    "introHeading": "Deixar un espai buit, sense maldecaps",
+    "intro": [
+      "Treballem en buidatges de naus, locals i pisos: mobiliari, maquinària, estocs, voluminosos i residus. Separem el que es pot recuperar del que s'ha de gestionar.",
+      "Ho fem amb mitjans propis i amb la documentació que cal perquè no hagis de perseguir ningú."
+    ],
+    "audience": [
+      "Naus i magatzems",
+      "Locals comercials",
+      "Oficines",
+      "Pisos",
+      "Indústria"
+    ],
+    "steps": [
+      {
+        "title": "Visitem l'espai",
+        "text": "Mirem el volum i què cal treure."
+      },
+      {
+        "title": "Buidem",
+        "text": "Amb els mitjans i el personal necessaris."
+      },
+      {
+        "title": "Gestionem",
+        "text": "Separem, reciclem i documentem."
+      }
+    ],
+    "waste": [
+      "Mobiliari",
+      "Maquinària",
+      "Estocs",
+      "Voluminosos",
+      "Ferralla",
+      "Runa",
+      "Residus d'oficina"
+    ],
+    "faq": [
+      {
+        "q": "Feu buidatges de pisos?",
+        "a": "Sí, també de pisos i locals."
+      },
+      {
+        "q": "Què feu amb el que es pot recuperar?",
+        "a": "Ho separem i ho enviem a recuperació."
+      },
+      {
+        "q": "Em doneu documentació?",
+        "a": "Sí, la documentació de la gestió."
+      }
+    ],
+    "cta": "Has de buidar un espai? Ho fem per tu.",
+    "related": [
+      "gestio-de-residus",
+      "destruccio-de-documents"
+    ]
+  },
+  {
+    "slug": "assessoria-tecnica",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "document",
+    "name": "Assessoria tècnica",
+    "h1": "Assessoria tècnica a Manresa",
+    "metaTitle": "Assessoria tècnica en residus a Manresa · Tort",
+    "metaDescription": "Codis LER, separació, documentació i obligacions. Assessorament per a empreses que gestionen residus.",
+    "summary": "Codis LER, separació, documentació i obligacions.",
+    "lead": "Informació i assessorament per gestionar els residus de la teva empresa amb totes les garanties.",
+    "heroImage": "assets/img/entrada-tort-1600.webp",
+    "heroAlt": "Cartell d'entrada a les instal·lacions de Tort",
+    "introHeading": "T'ajudem a gestionar els residus amb criteri",
+    "intro": [
+      "Posem a la disposició dels nostres clients tota la informació i l'assessorament necessaris a l'hora de gestionar els residus.",
+      "T'orientem sobre quins residus generes, com s'han de separar i quina documentació cal per a cada cas, i et posem al dia de les obligacions que et toquen com a empresa."
+    ],
+    "audience": [
+      "Indústria",
+      "Tallers",
+      "Comerç",
+      "Oficines",
+      "Administració"
+    ],
+    "steps": [
+      {
+        "title": "Visitem la instal·lació",
+        "text": "Mirem què generes i com ho tens."
+      },
+      {
+        "title": "Revisem",
+        "text": "Codis LER, separació i documentació."
+      },
+      {
+        "title": "Et deixem un pla",
+        "text": "Per escrit, perquè ho puguis aplicar."
+      }
+    ],
+    "waste": [
+      "Identificació de residus",
+      "Codis LER",
+      "Separació",
+      "Emmagatzematge",
+      "Documentació",
+      "Declaració anual"
+    ],
+    "faq": [
+      {
+        "q": "L'assessoria té cost?",
+        "a": "Depèn del cas. Parlem-ne i t'ho diem clarament."
+      },
+      {
+        "q": "M'ajudeu amb la declaració anual?",
+        "a": "Sí, t'orientem i t'ajudem amb la documentació."
+      },
+      {
+        "q": "Feu formació al personal?",
+        "a": "Sí, podem explicar la separació a l'equip."
+      }
+    ],
+    "cta": "Dubtes amb la normativa? Te'ls resolem.",
+    "related": [
+      "gestio-de-residus",
+      "destruccio-de-documents"
+    ]
+  },
+  {
+    "slug": "residus-perillosos",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "hazard",
+    "name": "Residus perillosos",
+    "h1": "Residus perillosos a Manresa",
+    "metaTitle": "Residus perillosos a Manresa · Tort",
+    "metaDescription": "Recollida i gestió d'olis, dissolvents, pintures, bateries i envasos contaminats. Documentació i traçabilitat.",
+    "summary": "Olis, dissolvents, bateries i envasos, amb traçabilitat.",
+    "lead": "Gestionem olis usats, dissolvents, pintures, envasos contaminats, bateries, filtres i absorbents amb tota la traçabilitat.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Cada residu, el seu paper",
+    "intro": [
+      "T'expliquem on i com emmagatzemar cada residu a la teva instal·lació, en quin envàs i durant quant de temps. Sense riscos i sense sancions.",
+      "Cada recollida porta el seu codi LER, full de seguiment i certificat de gestió. Si et fan una inspecció, ho tindràs tot."
+    ],
+    "audience": [
+      "Indústria",
+      "Tallers",
+      "Automoció",
+      "Impremtes",
+      "Laboratoris"
+    ],
+    "steps": [
+      {
+        "title": "Identifiquem",
+        "text": "Quin residu és i com s'ha de guardar."
+      },
+      {
+        "title": "Recollim",
+        "text": "Amb els envasos i mitjans adequats."
+      },
+      {
+        "title": "Documentem",
+        "text": "Codi LER, seguiment i certificat."
+      }
+    ],
+    "waste": [
+      "Olis usats",
+      "Dissolvents",
+      "Pintures",
+      "Envasos contaminats",
+      "Bateries",
+      "Filtres",
+      "Draps i absorbents"
+    ],
+    "faq": [
+      {
+        "q": "Quant temps els puc tenir emmagatzemats?",
+        "a": "Depèn del residu. T'ho diem en cada cas."
+      },
+      {
+        "q": "Em doneu bidons homologats?",
+        "a": "T'orientem sobre l'envàs adequat."
+      },
+      {
+        "q": "Recolliu petites quantitats?",
+        "a": "Sí, ens adaptem al volum."
+      }
+    ],
+    "cta": "Un residu perillós mal gestionat surt car. Fes-ho bé des del primer dia.",
+    "related": [
+      "gestio-de-residus",
+      "assessoria-tecnica"
+    ]
+  },
+  {
+    "slug": "runes-i-obra",
+    "group": "contenidors",
+    "groupLabel": "Contenidors",
+    "icon": "construction",
+    "name": "Runes i obra",
+    "h1": "Runes i obra a Manresa",
+    "metaTitle": "Contenidors de runa a Manresa · Tort",
+    "metaDescription": "Contenidor a peu d'obra i gestió de runes. Certificat per a la llicència d'obres.",
+    "summary": "Contenidor a peu d'obra i certificat per a la llicència.",
+    "lead": "Contenidor de runa a Manresa per a reformes, obra nova i enderrocs. El portem a peu d'obra, el recollim quan és ple i et donem el certificat.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Separa i paga menys",
+    "intro": [
+      "La runa neta costa menys de gestionar que la barrejada. Si separes runa, fusta, metall i plàstic, la factura baixa.",
+      "Molts ajuntaments demanen justificar on ha anat la runa. Te'n preparem el certificat."
+    ],
+    "audience": [
+      "Constructors",
+      "Reformes",
+      "Obres noves",
+      "Enderrocs",
+      "Particulars"
+    ],
+    "steps": [
+      {
+        "title": "Tries el contenidor",
+        "text": "Segons l'obra i el volum."
+      },
+      {
+        "title": "El portem a l'obra",
+        "text": "Amb el permís que calgui."
+      },
+      {
+        "title": "Recollim i certifiquem",
+        "text": "Quan és ple, el recollim i et donem el certificat."
+      }
+    ],
+    "waste": [
+      "Runa",
+      "Terra",
+      "Ceràmica",
+      "Formigó",
+      "Fusta",
+      "Metall",
+      "Plàstic"
+    ],
+    "faq": [
+      {
+        "q": "Accepteu guix i ceràmica?",
+        "a": "Sí, però han d'anar separats."
+      },
+      {
+        "q": "I terra d'excavació?",
+        "a": "Sí, ho gestionem segons el volum."
+      },
+      {
+        "q": "Treballeu amb constructors cada setmana?",
+        "a": "Sí, amb recollides programades."
+      }
+    ],
+    "cta": "Comences obra? Tingues el contenidor a punt el primer dia.",
+    "related": [
+      "lloguer-de-contenidors",
+      "gestio-de-residus"
+    ]
+  },
+  {
+    "slug": "destruccio-d-estocs",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "document",
+    "name": "Destrucció d'estocs",
+    "h1": "Destrucció d'estocs a Manresa",
+    "metaTitle": "Destrucció d'estocs i mercaderia obsoleta · Tort",
+    "metaDescription": "Destrucció controlada d'estocs, mercaderia obsoleta i productes fora de catàleg, amb certificat.",
+    "summary": "Estocs i mercaderia fora de catàleg, amb certificat.",
+    "lead": "Destruïm estocs, mercaderia obsoleta i productes fora de catàleg de forma controlada, amb certificat.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Producte que no pot arribar al mercat",
+    "intro": [
+      "Si tens estocs passats, mercaderia obsoleta o productes que no poden tornar a la venda, els recollim i els destruïm amb control.",
+      "Et donem el certificat de destrucció perquè en puguis justificar la sortida."
+    ],
+    "audience": [
+      "Indústria",
+      "Distribució",
+      "Comerç",
+      "Magatzems",
+      "Marques i fabricants"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius què cal destruir",
+        "text": "Tipus de producte i volum."
+      },
+      {
+        "title": "Recollim",
+        "text": "Amb el mitjà adequat."
+      },
+      {
+        "title": "Destruïm i certifiquem",
+        "text": "Amb el certificat corresponent."
+      }
+    ],
+    "waste": [
+      "Estocs",
+      "Mercaderia obsoleta",
+      "Productes fora de catàleg",
+      "Retorns",
+      "Material de marca"
+    ],
+    "faq": [
+      {
+        "q": "Em doneu certificat?",
+        "a": "Sí, de la destrucció."
+      },
+      {
+        "q": "Podeu garantir la confidencialitat?",
+        "a": "Sí, el procés és controlat."
+      },
+      {
+        "q": "Recolliu a tot el Bages?",
+        "a": "Sí, Manresa i comarques veïnes."
+      }
+    ],
+    "cta": "Tens estocs per destruir? Ens n'encarreguem.",
+    "related": [
+      "destruccio-de-documents",
+      "gestio-de-residus"
+    ]
+  },
+  {
+    "slug": "cable-de-coure",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "recycle",
+    "name": "Cable de coure",
+    "h1": "Reciclatge de cable a Manresa",
+    "metaTitle": "Reciclatge de cable de coure a Manresa · Tort",
+    "metaDescription": "Recollim cable de coure i alumini d'instal·lacions i reformes. Contenidor al teu taller.",
+    "summary": "Cable de coure i alumini: recollida i recuperació.",
+    "lead": "Recollim cable de coure i alumini d'instal·lacions, reformes i desmuntatges. Tot el metall es recupera.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Per a instal·ladors i desmuntatges",
+    "intro": [
+      "Si fas instal·lacions o desmuntatges, et deixem un contenidor al taller i el recollim quan és ple.",
+      "No cal pelar el cable: el recollim tal com el tens i en gestionem la recuperació."
+    ],
+    "audience": [
+      "Electricistes",
+      "Instal·ladors",
+      "Reformes",
+      "Indústria",
+      "Desmuntatges"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius què tens",
+        "text": "Coure, alumini o barreja."
+      },
+      {
+        "title": "Recollim",
+        "text": "Al taller o a l'obra."
+      },
+      {
+        "title": "Recuperem",
+        "text": "Separació i recuperació del metall."
+      }
+    ],
+    "waste": [
+      "Cable elèctric",
+      "Cable de coure",
+      "Cable d'alumini",
+      "Bobines",
+      "Mànegues"
+    ],
+    "faq": [
+      {
+        "q": "Cal pelar el cable?",
+        "a": "No, el recollim tal com el tens."
+      },
+      {
+        "q": "Accepteu cable amb plàstic?",
+        "a": "Sí."
+      },
+      {
+        "q": "Recolliu petites quantitats?",
+        "a": "Sí, ens adaptem al volum."
+      }
+    ],
+    "cta": "Tens cable acumulat? Te'l traiem.",
+    "related": [
+      "ferralla-i-metalls",
+      "gestio-de-residus"
+    ]
+  },
+  {
+    "slug": "vehicles-fora-d-us",
+    "group": "recollida-gestio",
+    "groupLabel": "Recollida i gestió",
+    "icon": "truck",
+    "name": "Vehicles fora d'ús",
+    "h1": "Vehicles fora d'ús a Manresa",
+    "metaTitle": "Vehicles fora d'ús a Manresa · Tort",
+    "metaDescription": "Recollida i gestió de vehicles fora d'ús i maquinària, amb la documentació corresponent.",
+    "summary": "Vehicles i maquinària fora d'ús, amb documentació.",
+    "lead": "Gestionem vehicles fora d'ús i maquinària que ja no es poden posar en circulació, amb la documentació corresponent.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Baixes i desmuntatges",
+    "intro": [
+      "Recollim vehicles fora d'ús i maquinària de tallers, indústria i particulars. Ens encarreguem de la gestió i de la documentació.",
+      "Si el vehicle encara té components aprofitables, se separen abans de la gestió final."
+    ],
+    "audience": [
+      "Tallers",
+      "Indústria",
+      "Transport",
+      "Particulars",
+      "Desmuntatges"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius què hi ha",
+        "text": "Vehicle, maquinària i estat."
+      },
+      {
+        "title": "Recollim",
+        "text": "Amb el mitjà adequat."
+      },
+      {
+        "title": "Gestionem",
+        "text": "Baixa i documentació."
+      }
+    ],
+    "waste": [
+      "Vehicles",
+      "Maquinària",
+      "Motors",
+      "Bateries",
+      "Pneumàtics",
+      "Ferralla"
+    ],
+    "faq": [
+      {
+        "q": "Feu la baixa del vehicle?",
+        "a": "T'orientem i gestionem la documentació."
+      },
+      {
+        "q": "Recolliu vehicles sense rodes?",
+        "a": "Sí, amb els mitjans adequats."
+      },
+      {
+        "q": "Treballeu amb particulars?",
+        "a": "Sí."
+      }
+    ],
+    "cta": "Tens un vehicle fora d'ús? Ens n'encarreguem.",
+    "related": [
+      "ferralla-i-metalls",
+      "gestio-de-residus"
+    ]
+  },
+  {
+    "slug": "fosses-septiques",
+    "group": "serveis-especials",
+    "groupLabel": "Serveis especials",
+    "icon": "special",
+    "name": "Fosses sèptiques",
+    "h1": "Buidatge de fosses sèptiques a Manresa",
+    "metaTitle": "Buidatge de fosses sèptiques a Manresa · Tort",
+    "metaDescription": "Buidatge i gestió de fosses sèptiques per a empreses i particulars, amb documentació.",
+    "summary": "Buidatge i gestió de fosses sèptiques.",
+    "lead": "Buidem i gestionem fosses sèptiques amb els mitjans adequats i la documentació corresponent.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Buidatge i transport",
+    "intro": [
+      "Buidem fosses sèptiques de cases, masies i instal·lacions. Recollim el residu i el portem al gestor autoritzat.",
+      "Et donem la documentació de la recollida i et diem com mantenir la fossa en bon estat."
+    ],
+    "audience": [
+      "Cases i masies",
+      "Restaurants",
+      "Càmpings",
+      "Indústria",
+      "Comunitats"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius on és",
+        "text": "Ubicació i capacitat de la fossa."
+      },
+      {
+        "title": "Buidem",
+        "text": "Amb el camió adequat."
+      },
+      {
+        "title": "Gestionem",
+        "text": "Transport i documentació."
+      }
+    ],
+    "waste": [
+      "Aigües residuals",
+      "Fangs",
+      "Residus de fossa"
+    ],
+    "faq": [
+      {
+        "q": "Cada quant s'ha de buidar?",
+        "a": "Depèn de l'ús i de la capacitat. T'ho diem en la visita."
+      },
+      {
+        "q": "Feu el servei a particulars?",
+        "a": "Sí."
+      },
+      {
+        "q": "Em doneu documentació?",
+        "a": "Sí, de la recollida i la gestió."
+      }
+    ],
+    "cta": "Tens la fossa plena? Truca'ns.",
+    "related": [
+      "desembussaments",
+      "gestio-de-residus"
+    ]
+  },
+  {
+    "slug": "desembussaments",
+    "group": "serveis-especials",
+    "groupLabel": "Serveis especials",
+    "icon": "special",
+    "name": "Desembussaments",
+    "h1": "Desembussaments a Manresa",
+    "metaTitle": "Desembussaments i neteja de canonades a Manresa · Tort",
+    "metaDescription": "Desembussaments i neteja de canonades per a empreses i comunitats, amb mitjans propis.",
+    "summary": "Desembussaments i neteja de canonades.",
+    "lead": "Desembussem i netegem canonades per a empreses, comunitats i particulars, amb mitjans propis.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Canonades que tornen a funcionar",
+    "intro": [
+      "Localitzem el tap i el desembussem amb els mitjans adequats. Després netegem la canonada perquè no torni a passar.",
+      "Treballem en comunitats, restaurants, indústria i particulars."
+    ],
+    "audience": [
+      "Comunitats",
+      "Restaurants",
+      "Indústria",
+      "Comerç",
+      "Particulars"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius què passa",
+        "text": "On és el tap i des de quan."
+      },
+      {
+        "title": "Desembussem",
+        "text": "Amb els mitjans adequats."
+      },
+      {
+        "title": "Netegem",
+        "text": "Perquè no torni a passar."
+      }
+    ],
+    "waste": [
+      "Fangs",
+      "Greixos",
+      "Residus de canonada"
+    ],
+    "faq": [
+      {
+        "q": "Feu urgències?",
+        "a": "Sí, segons disponibilitat."
+      },
+      {
+        "q": "Treballeu en comunitats?",
+        "a": "Sí."
+      },
+      {
+        "q": "Em doneu documentació?",
+        "a": "Sí, de la gestió dels residus."
+      }
+    ],
+    "cta": "Tens una canonada embussada? Truca'ns.",
+    "related": [
+      "fosses-septiques",
+      "neteges-industrials"
+    ]
+  },
+  {
+    "slug": "reciclatge-d-extintors",
+    "group": "serveis-especials",
+    "groupLabel": "Serveis especials",
+    "icon": "special",
+    "name": "Reciclatge d'extintors",
+    "h1": "Reciclatge d'extintors a Manresa",
+    "metaTitle": "Reciclatge d'extintors a Manresa · Tort",
+    "metaDescription": "Recollida i reciclatge d'extintors fora de servei per a empreses i comunitats.",
+    "summary": "Extintors fora de servei: recollida i reciclatge.",
+    "lead": "Recollim i reciclem extintors fora de servei, amb la documentació corresponent.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Extintors que ja no compleixen",
+    "intro": [
+      "Recollim extintors fora de servei d'empreses, comunitats i locals. Se separen els components i es gestionen com a residu.",
+      "Et donem la documentació de la recollida."
+    ],
+    "audience": [
+      "Empreses",
+      "Comunitats",
+      "Locals",
+      "Indústria",
+      "Administració"
+    ],
+    "steps": [
+      {
+        "title": "Ens dius quants n'hi ha",
+        "text": "Tipus i quantitat."
+      },
+      {
+        "title": "Recollim",
+        "text": "Al teu centre."
+      },
+      {
+        "title": "Reciclem",
+        "text": "Separació i gestió."
+      }
+    ],
+    "waste": [
+      "Extintors de pols",
+      "Extintors de CO₂",
+      "Extintors d'aigua",
+      "Suports i mànegues"
+    ],
+    "faq": [
+      {
+        "q": "Recolliu extintors caducats?",
+        "a": "Sí, fora de servei."
+      },
+      {
+        "q": "Em doneu documentació?",
+        "a": "Sí, de la recollida."
+      },
+      {
+        "q": "Treballeu amb comunitats?",
+        "a": "Sí."
+      }
+    ],
+    "cta": "Tens extintors per retirar? Els recollim.",
+    "related": [
+      "gestio-de-residus",
+      "neteges-industrials"
+    ]
+  },
+  {
+    "slug": "neteges-industrials",
+    "group": "serveis-especials",
+    "groupLabel": "Serveis especials",
+    "icon": "special",
+    "name": "Neteges industrials",
+    "h1": "Neteges industrials a Manresa",
+    "metaTitle": "Neteges industrials a Manresa · Tort",
+    "metaDescription": "Neteges industrials, de naus i espais de treball, amb gestió dels residus generats.",
+    "summary": "Neteges de naus i espais industrials, amb gestió de residus.",
+    "lead": "Netegem naus, espais de treball i instal·lacions industrials, i gestionem els residus que es generen.",
+    "heroImage": null,
+    "heroAlt": "",
+    "introHeading": "Espais nets, residus gestionats",
+    "intro": [
+      "Fem neteges industrials de naus, magatzems i espais de treball. Retirem residus, pols i materials acumulats.",
+      "Tot el que es retira es separa i es gestiona com cal."
+    ],
+    "audience": [
+      "Indústria",
+      "Magatzems",
+      "Naus",
+      "Tallers",
+      "Comunitats"
+    ],
+    "steps": [
+      {
+        "title": "Visitem l'espai",
+        "text": "Mirem el volum i què cal netejar."
+      },
+      {
+        "title": "Netegem",
+        "text": "Amb els mitjans i el personal adequats."
+      },
+      {
+        "title": "Gestionem",
+        "text": "Residus separats i documentats."
+      }
+    ],
+    "waste": [
+      "Pols",
+      "Residus de neteja",
+      "Materials acumulats",
+      "Voluminosos",
+      "Ferralla"
+    ],
+    "faq": [
+      {
+        "q": "Feu neteges puntuals?",
+        "a": "Sí, i periòdiques."
+      },
+      {
+        "q": "Treballeu en indústria?",
+        "a": "Sí, és el nostre entorn."
+      },
+      {
+        "q": "Gestioneu els residus?",
+        "a": "Sí, els separem i els gestionem."
+      }
+    ],
+    "cta": "Necessites netejar la nau? Ho fem per tu.",
+    "related": [
+      "buidatge-de-naus",
+      "gestio-de-residus"
+    ]
+  }
+]

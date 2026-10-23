@@ -24,13 +24,19 @@ landing/
 ├── politica-de-privacitat.html     # legal
 ├── 404.html                        # error personalitzat
 ├── serveis/
-│   ├── gestio-de-residus.html      # pàgina de servei (avui enllaçada com a «Reciclatge»)
-│   ├── transport-de-residus.html   # pàgina de servei
-│   └── assessoria-tecnica.html     # pàgina de servei
+│   ├── _template.html              # plantilla única de pàgina de servei
+│   ├── data/serveis.json           # 18 fitxes (textos, SEO, imatge, grup)
+│   ├── lloguer-de-contenidors/     # generades pel script
+│   ├── transport-de-residus/
+│   └── …                           # 18 carpetes en total
+├── empresa/index.html               # pàgina Empresa
+├── scripts/build-serveis.py        # genera les pàgines, la graella, el sitemap i robots.txt
+├── sitemap.xml                     # generat
+├── robots.txt                      # generat
 ├── css/
 │   ├── tokens.css                  # còpia de variables.css de l'equip
 │   └── style.css                   # sistema visual
-├── js/main.js                      # scroll, carrusel, formulari i cookies
+├── js/main.js                      # scroll, vídeo del hero, formulari i cookies
 └── assets/
     ├── logo/                       # logos vectorials del manual (SVG)
     ├── oficial/                    # logos SDR i Generalitat
@@ -39,39 +45,54 @@ landing/
 
 ## Seccions de la pàgina
 
-1. **Nav isla** — hamburguesa (obre el menú), logotip centrat i enllaç «Pressupost»
-2. **Hero** — carrusel de 3 imatges amb animació lligada al scroll
-3. **Serveis** — 3 blocs amb imatge (gestió, reciclatge i transport) i enllaç «Veure més» a la pàgina de cada servei
-4. **Autoritzacions** — franja blava amb E-211.96 i T-663 en tipografia gran + logos oficials
-5. **Què gestionem** — llistat de residus que es tracten
-6. **Galeria** — 7 imatges en graella editorial
-7. **Ubicació** — mapa OpenStreetMap + dades de contacte
-8. **Contacte** — formulari amb validació i consentiments
-9. **Peu** — navegació, legal i acreditacions
-10. **Avís de cookies** — acceptar / rebutjar, amb el consentiment guardat
+1. **Nav isla** — hamburguesa (obre el menú), logotip centrat, telèfon clicable i CTA «Demana pressupost»
+2. **Hero** — carrusel de 3 vídeos de 5 s amb animació lligada al scroll
+3. **Serveis** — 18 serveis en 3 blocs (Contenidors, Recollida i gestió, Serveis especials), amb icona, una línia i enllaç a la pàgina de cada servei
+4. **Sectors** — indústria, construcció, alimentació, comerç i administració
+5. **Contenidors** — 4 mides (3, 5, 7–9 i 14–30 m³) amb enllaç a la fitxa
+6. **Empresa** — 50+ anys, empresa familiar i planta nova, amb enllaç a `/empresa/`
+7. **Autoritzacions** — E-211.96, T-663, CRT de RAEE, Gremi, logos i enllaç de verificació ARC
+8. **Què gestionem** — llistat de residus que es tracten
+9. **Galeria** — 7 imatges en graella editorial
+10. **Ubicació** — mapa OpenStreetMap + enllaç a Google Maps
+11. **Contacte** — formulari amb validació, foto opcional i consentiments
+12. **Peu** — CTA final, 4 columnes (Tort · Serveis · Empresa · Contacte), confiança (ARC/Generalitat i codis) i legal
+13. **Barra mòbil** — Trucar / Demana pressupost, fixa a baix (≤900 px)
+14. **Avís de cookies** — acceptar / rebutjar (comentat a la portada per a la proposta)
 
 > Les seccions «Qui som», «Fotografia a sang», «Com funciona» i «Preguntes freqüents» segueixen al
 > codi comentades. Es poden recuperar descomentant el bloc corresponent.
 
 ## Pàgines de servei
 
-Patró comú i **deliberadament curt** a `serveis/` (`gestio-de-residus.html` —avui enllaçada des de
-la targeta «Reciclatge»—, `transport-de-residus.html` i `assessoria-tecnica.html`):
+Les 18 pàgines de servei **no s'escriuen a mà**: surten d'una plantilla i d'un JSON.
 
-1. **Capçalera fotogràfica** (`.page-hero`, `data-page-hero`): foto a sang, fil d'Ariana, kicker,
-   títol gran i entrada. La barra hi va a sobre i es torna sòlida en passar-la.
-2. **«Què fem»** (`.section` + `.split`): titular, entrada i dos paràgrafs, amb una imatge al
-   costat. És tot el contingut de la pàgina.
-3. **«Explica'ns quins residus generes»** (`.cta.cta--page`): bloc verd amb telèfon, correu i botó
-   cap al formulari de la portada.
-4. **Peu i avís de cookies** idèntics a la portada.
+- `serveis/data/serveis.json`: una fitxa per servei amb slug, grup, nom, H1, meta title/description,
+  entradilla, «què és», «per a qui», 3 passos, residus acceptats, FAQ, CTA, imatge i relacionats.
+- `serveis/_template.html`: la plantilla única (7 blocs).
+- `scripts/build-serveis.py`: genera `serveis/<slug>/index.html` i actualitza la graella de la home
+  entre `<!-- SERVEIS:START -->` i `<!-- SERVEIS:END -->`.
 
-No hi ha franja d'autoritzacions, ni llistes «Què inclou», ni blocs addicionals: cada servei és una
-pàgina curta, no una web dins la web. Els botons intermedis tampoc no calen perquè el CTA final és
-just a sota.
+Per canviar textos o afegir un servei: editar el JSON i executar
 
-Les rutes són totes relatives (`../assets/`, `../css/`, `../index.html#...`). El menú i la barra
-s'inicialitzen a qualsevol pàgina que inclogui el markup (`main.js` ja no depèn de `#hero`).
+```bash
+cd landing && python3 scripts/build-serveis.py
+```
+
+Cada pàgina té set blocs:
+
+1. **Capçalera** (`.page-hero`): fil d'Ariana, kicker, H1 «servei + Manresa» i entrada.
+   Si el servei no té foto pròpia, fa servir `.page-hero--plain` (fons de marca, sense imatge).
+2. **Què és** (`.service-intro`): titular, entrada i paràgrafs + «Per a qui» en columna.
+3. **Com funciona** (`.steps`): tres passos.
+4. **Residus acceptats** (`.materials`): llista a dues columnes.
+5. **Preguntes freqüents** (`.faq`): `<details>` amb 3–4 preguntes.
+6. **També et pot interessar** (`.related`): enllaços a serveis relacionats.
+7. **CTA final** (`.cta.cta--page`): frase pròpia del servei + telèfon, correu i botó.
+
+Rutes: les pàgines viuen a `serveis/<slug>/` i fan servir `../../assets/`, `../../css/`,
+`../../index.html#...`. El menú i la barra s'inicialitzen a qualsevol pàgina que inclogui el markup
+(`main.js` ja no depèn de `#hero`).
 
 ## Menú de navegació
 
@@ -79,21 +100,22 @@ Pantalla completa (`100svh`), fons carbó `#231F20`, sense panell flotant ni ele
 
 - **Esquerra (50 %)**: una sola foto a sang (`slide-operari-*`, l'operari amb l'uniforme),
   de dalt a baix i fins a les vores, sense cantonades ni textos a sobre.
-- **Dreta (50 %)**: Serveis, Què gestionem, Llicències, Ubicació i Contacte en tipografia molt
-  gran (fins a 104 px), pes 300, alineats a l'esquerra i repartits en vertical; a baix a la dreta,
-  només el telèfon 93 873 02 37 i el botó vermell «Pressupost».
+- **Dreta (50 %)**: Serveis, Contenidors, Empresa, Autoritzacions, Ubicació i Contacte en tipografia molt
+  gran (fins a 104 px), pes 300, alineats a l'esquerra i repartits en vertical. El telèfon i el CTA
+  no són dins del menú: es queden al header, al mateix lloc.
 - **Hover**: l'enllaç apuntat es manté i la resta baixa al 50 % d'opacitat (≈5:1 sobre el carbó, AA).
-- **Barra**: es manté a sobre del menú (logotip centrat i la X a l'esquerra); l'enllaç «Pressupost»
-  de la barra s'amaga mentre el menú és obert, i l'avís de cookies també.
-- **Mòbil**: una sola columna, sense foto; enllaços grans a dalt i telèfon + botó a baix.
+- **Barra**: es manté a sobre del menú (logotip centrat i la X a l'esquerra). El telèfon i el CTA
+  continuen visibles i a la mateixa posició; el padding del header es compensa perquè no es moguin
+  ni un píxel quan desapareix la barra de scroll.
+- **Mòbil**: una sola columna, sense foto; enllaços grans a dalt. La barra inferior amb «Trucar» i
+  «Demana pressupost» es manté visible sobre el menú, al mateix lloc que quan és tancat.
 - **Teclat**: `aria-expanded` al botó, `aria-modal` al diàleg, `inert` quan és tancat, focus atrapat
-  entre la barra i el menú, `Esc` per tancar i retorn del focus a l'hamburguesa.
-- **Moviment**: fosa general i entrada escalonada dels enllaços (60–340 ms) i del peu; amb
+  entre la barra, el menú i la barra mòbil, `Esc` per tancar i retorn del focus a l'hamburguesa.
+- **Moviment**: fosa general i entrada escalonada dels enllaços (60–340 ms); amb
   `prefers-reduced-motion` s'anul·len els retards i les transicions.
 
-El menú es tanca amb la X i amb `Esc` (no amb clic fora). Les pàgines de servei viuen a
-`serveis/` (`gestio-de-residus.html` —enllaçada avui com a «Reciclatge»—, `transport-de-residus.html`
-i `assessoria-tecnica.html`).
+El menú es tanca amb la X i amb `Esc` (no amb clic fora). Els CTA del header, el logo i la barra
+mòbil també tanquen el menú abans de navegar.
 
 ### Ritme de color
 
@@ -129,42 +151,45 @@ assessor abans de publicar**, i cal actualitzar-hi l'adreça quan es confirmi la
 
 ## El hero (el punt central)
 
-### Carrusel de 3 imatges
+### Carrusel de 3 vídeos de 5 s
 
-El hero gira entre **tres imatges** amb un **fosa encreuada** (crossfade) de 1,2 s, una cada 3,25 s.
-Cada diapositiva porta el seu **títol i subtítol**, que canvien amb la imatge (el text s'esvaeix,
-es canvia i torna a aparèixer):
+El hero manté el carrusel de sempre (títols, punts i pausa), però cada slide és un **vídeo de 5 s**:
 
-| # | Imatge | Títol | Subtítol |
+| # | Contingut | Títol | Fitxers |
 |---|---|---|---|
-| 1 | `mainimage.jpeg` — nau de tractament i tria | Gestió de residus a Manresa | Ens encarreguem de la classificació, el tractament i la destinació final de cada residu |
-| 2 | `Look_Tort19` — operari a les instal·lacions | Transport i processament de residus | Recollim al teu centre de treball i ho portem al gestor autoritzat, amb mitjans propis |
-| 3 | `Look_Tort5` — jaqueta de treball | Destrucció de documents importants | Recollida i destrucció confidencial de documentació, amb el certificat corresponent |
+| 1 | Planta nova, vista aèria | Gestió de residus a Manresa | `hero-1-1280` / `hero-1-960` + `hero-1-poster.webp` |
+| 2 | Cinta de classificació | Classificació i tractament | `hero-2-1280` / `hero-2-960` + `hero-2-poster.webp` |
+| 3 | Pala movent residus | Recollida i transport | `hero-3-1280` / `hero-3-960` + `hero-3-poster.webp` |
 
-Els textos viuen a `data-title` i `data-sub` de cada `figure.hero__slide`; el títol i el subtítol
-del HTML corresponen a la primera diapositiva (per a SEO i per si falla el JavaScript).
+- Cada slide passa al següent **0,3 s abans** que acabi el vídeo (`timeupdate`), amb fosa de 0,6 s:
+  així no es repeteix l'últim frame. El temporitzador de 5,2 s queda com a xarxa de seguretat.
+- `muted`, `playsinline`, sense controls ni `loop`; el JS fa `play()` del slide actiu i pausa la resta.
+- **MP4 primer** (H.264, descodificació per maquinari) i WebM de reserva.
+- **1280 px** en escriptori i **960 px** en mòbil (≤900 px).
+- `preload="none"` i només el slide actiu descarrega el vídeo; els altres esperen.
+- El primer vídeo arrenca **després de `load` + 350 ms**, amb el poster WebP ja pintat.
+- Amb `prefers-reduced-motion`, `saveData` o connexió 2G/3G no es descarrega cap vídeo: es veu el
+  poster i els punts continuen funcionant.
+- Es pausa en obrir el menú, en canviar de pestanya i quan el hero surt de pantalla.
 
-Controls: tres punts (canvi manual) i un botó de **pausa/represa** a baix a la dreta. La rotació
-s'atura quan el punter o el focus són damunt dels controls, quan la pestanya no és visible i quan
-el hero surt de pantalla (`IntersectionObserver`). Amb `prefers-reduced-motion` no hi ha rotació
-automàtica i el botó de pausa s'amaga; els punts continuen funcionant.
-
-> El botó de pausa no és decoratiu: la norma **WCAG 2.2.2** exigeix un mecanisme per aturar el
-> contingut que es mou sol durant més de 5 segons.
+> Mides: MP4 0,7 / 0,5 / 1,2 MB en escriptori i 0,4 / 0,3 / 0,6 MB en mòbil. Posters WebP de
+> 124 / 42 / 155 KB. Orígens: `7525961-uhd_2560_1440_30fps.mp4` (planta), `14210989-uhd_4096_2160_25fps.mp4`
+> (cinta) i `14099318_3840_2160_30fps.mp4` (pala), retallats a 5 s i sense àudio. Els originals
+> pesats són a `../videos-origen/`, fora de `landing/`, perquè no es despleguin.
 
 ### Animació lligada al scroll
 
-**Estat inicial (scroll = 0):** foto a sang, sense radis i sense franja de color. Ocupa tota
+**Estat inicial (scroll = 0):** vídeo a sang, sense radis i sense franja de color. Ocupa tota
 la pantalla (`100svh`) i les cantonades són rectes.
 
-**Amb scroll:** el contenidor és `sticky` i la foto es transforma de manera progressiva:
+**Amb scroll:** el contenidor és `sticky` i el vídeo es transforma de manera progressiva:
 
 - `border-radius` de 0 fins a 84 px (40 px en mòbil)
 - `scale` de 1 fins a 0,93 i un lleuger desplaçament cap amunt, de manera que queden buits als
   costats i, sobretot, a baix
 - per darrere hi ha una capa de **color sòlid de marca** (`--hero-layer`) que apareix pels buits
 
-És **reversible** (en pujar, la foto torna a ocupar tota la pantalla) i va lligat a la posició del
+És **reversible** (en pujar, el vídeo torna a ocupar tota la pantalla) i va lligat a la posició del
 scroll, no a un temporitzador: `main.js` calcula el progrés amb `scroll` passiu i `requestAnimationFrame`,
 i l'escriu a la variable CSS `--p`. Tot el moviment es resol amb `calc()` sobre aquesta variable.
 
@@ -193,14 +218,15 @@ que entren a la pantalla.
 
 | Ús | Origen | Sortida |
 |---|---|---|
-| Hero · 1 | `mainimage.jpeg` (nau de tractament i tria) | `slide-interior-1600` / `1000` |
-| Hero · 2 | `imagenestort/Look_Tort19` (operari) | `slide-operari-1600` / `1000` |
-| Hero · 3 | `imagenestort/Look_Tort5` (jaqueta) | `slide-jaqueta-1600` / `1000` |
+| Hero · 1 | `7525961-uhd_2560_1440_30fps.mp4` (planta aèria, 5 s) | `hero-1-1280` / `hero-1-960` + `hero-1-poster.webp` |
+| Hero · 2 | `14210989-uhd_4096_2160_25fps.mp4` (cinta, 5 s) | `hero-2-1280` / `hero-2-960` + `hero-2-poster.webp` |
+| Hero · 3 | `14099318_3840_2160_30fps.mp4` (pala, 5 s) | `hero-3-1280` / `hero-3-960` + `hero-3-poster.webp` |
+| Serveis (hero) | `mainimage.jpeg` · `Look_Tort19` · `Look_Tort3` · `galeria-01` | `slide-interior-1600` / `slide-operari-1600` / `entrada-tort-1600` / `galeria-01-1200` |
 | Secció «L'equip» | `imagenestort/Look_Tort5` | `taller-tort-1600` / `1000` |
 | Ubicació | `imagenestort/Look_Tort3` (cartell d'entrada) | `entrada-tort-1600` / `1000` |
 
-Cada imatge surt en **WebP** i **JPEG**; la primera diapositiva del hero va amb `fetchpriority="high"`
-i la resta amb `loading="lazy"`.
+El vídeo surt en **WebM + MP4** i amb poster JPG. Les imatges de servei surten en **WebP** i
+**JPEG**, amb `loading="lazy"` excepte la de la capçalera.
 
 > Nota: `mainimage.jpeg` fa 1365×768. Per a pantalles molt grans es pot veure lleugerament tova;
 > amb una foto definitiva de més resolució n'hi ha prou de substituir els fitxers mantenint el nom.
@@ -246,16 +272,36 @@ en pes 500 amb tracking negatiu en comptes de negretes, i una sola família.
    explícitament un degradat suau més intens a baix perquè el titular es llegís.
 3. **Blanc en lloc de crema** i **blau de marca** en lloc de l'electric blue de la referència.
 
+## SEO
+
+- Canòniques i `og:image` a la home i a les 18 pàgines de servei.
+- JSON-LD: `LocalBusiness` a la home; `Service` + `FAQPage` a cada servei (generat des del JSON).
+- `sitemap.xml` i `robots.txt` generats per `scripts/build-serveis.py`.
+- **Domini provisional**: `BASE_URL = "https://hernancode.github.io/tort_landing"` dins del script. Quan el lloc passi al domini final, cal canviar-lo, regenerar i actualitzar les canòniques de `index.html` i les pàgines legals.
+- Pendents: `hreflang`/versió ES, 301 de la web antiga, Core Web Vitals i Google Business/NAP.
+
 ## Pendent
 
-- [ ] **Pàgines de servei**: fetes `serveis/gestio-de-residus.html`,
-      `serveis/transport-de-residus.html` i `serveis/assessoria-tecnica.html`. Falta decidir el nom
-      final de la primera (la portada l'enllaça com a «Reciclatge»).
-- [ ] Fotografia i vídeo definitius de les noves instal·lacions.
+- [x] **Pàgines de servei**: 18 pàgines generades des de `serveis/data/serveis.json` amb
+      `scripts/build-serveis.py`, agrupades a la home (Contenidors · Recollida i gestió · Serveis
+      especials) + bloc de sectors.
+- [ ] **Fotos reals per servei**: contenidors amb escala, destrucció de documents, residus
+      perillosos, RAEE, runes, cable, vehicles, fosses, desembussos, extintors i neteges. Mentre no
+      hi siguin, aquests serveis fan servir cabecera tipogràfica o imatges genèriques.
+- [ ] **Fotos de contenidors**: les actuals porten el telèfon antic imprès; cal retocar-les o
+      substituir-les.
+- [ ] **Dades per confirmar**: mides reals dels contenidors, dies de lloguer, permisos de via
+      pública, certificacions ISO/CRT/UNE i àrea de servei.
+- [ ] Fotografia definitiva de les noves instal·lacions (el vídeo del hero ja és el clip de 5 s).
 - [ ] Adreça postal concreta (ara només coordenades) i correu definitiu.
 - [ ] **Logos oficials en qualitat**: els actuals s'han recuperat de la web antiga i són de baixa
       resolució. Cal demanar els originals a l'Agència de Residus i a la Generalitat.
-- [ ] `og:image` real (1200×630).
+- [x] `og:image` 1200×630 (`assets/img/og-tort.jpg`), canòniques, JSON-LD, `sitemap.xml` i `robots.txt`.
+- [x] **Peu complet**: CTA final, 4 columnes, logos ARC/Generalitat i codis.
+- [x] **Empresa**: secció a la home i pàgina `/empresa/` amb el contingut confirmat.
+- [x] **Contenidors**: secció a la home i 4 fitxes a la pàgina de Lloguer.
+- [x] **Autoritzacions**: CRT de RAEE, Gremi i enllaç de verificació ARC.
+- [ ] **Empresa (dades)**: any de fundació, generacions, m², camions, persones, timeline i foto antiga.
 - [ ] Revisió legal dels tres textos.
 - [ ] Decidir l'idioma (ara tot en català).
 - [ ] Connectar el formulari a un backend o servei d'enviament.

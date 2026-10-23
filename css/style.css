@@ -98,8 +98,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
   transition:background .4s var(--ease), color .4s var(--ease), transform .4s var(--ease);
 }
 .action:hover{ background:var(--ink); color:var(--canvas); transform:translateY(-1px) }
-.action--red{ color:var(--brand-red) }
-.action--red:hover{ background:var(--brand-red); color:#fff; border-color:var(--brand-red) }
+.action--red{ color:var(--brand-red-ink) }
+.action--red:hover{ background:var(--brand-red-ink); color:#fff; border-color:var(--brand-red-ink) }
+.action--solid{ background:var(--brand-red-ink); color:#fff; border-color:var(--brand-red-ink) }
+.action--solid:hover{ background:#fff; color:var(--brand-red-ink); border-color:#fff }
 .action--light{ color:#fff }
 .action--light:hover{ background:#fff; color:var(--ink); border-color:#fff }
 
@@ -129,9 +131,28 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 .menu-open .nav__burger span:nth-child(2){ top:22px; transform:rotate(-45deg) }
 
 .nav__logo{ justify-self:center; display:flex; align-items:center }
-.nav__logo img{ height:22px; width:auto; display:block }
-.nav__cta{ justify-self:end; font-size:var(--text-body-sm); font-weight:500; letter-spacing:var(--tracking-body-sm); transition:opacity .3s var(--ease), visibility .3s var(--ease) }
-.nav__cta span{ border-bottom:1px solid currentColor; padding-bottom:2px }
+.nav__logo img{ height:40px; width:auto; display:block }
+.nav__actions{
+  justify-self:end; display:flex; align-items:center;
+  gap:clamp(14px,1.8vw,28px);
+}
+.nav__phone{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:var(--text-body); font-weight:600; letter-spacing:var(--tracking-body-sm);
+  white-space:nowrap;
+}
+.nav__phone svg{ width:16px; height:16px; fill:currentColor; flex:0 0 auto }
+.nav__phone:hover{ text-decoration:underline; text-underline-offset:4px }
+.nav__cta{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:11px 20px; border-radius:9999px;
+  background:var(--brand-red-ink); color:#fff;
+  font-size:var(--text-body-sm); font-weight:600; letter-spacing:var(--tracking-body-sm);
+  white-space:nowrap;
+  transition:background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease),
+             opacity .3s var(--ease), visibility .3s var(--ease);
+}
+.nav__cta:hover{ background:var(--brand-dark); color:#fff; transform:translateY(-1px) }
 
 /* ============================================================
    MENÚ — pantalla completa: foto a l'esquerra + navegació gran
@@ -139,7 +160,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 
 /* Quan el menú és obert, la barra es torna blanca sobre el fons fosc */
 .menu-open .nav{ color:#fff; background:transparent; -webkit-backdrop-filter:none; backdrop-filter:none }
-.menu-open .nav__cta{ opacity:0; visibility:hidden; pointer-events:none }
+.menu-open .nav__cta:hover{ background:#fff; color:var(--brand-red-ink) }
 .menu-open .cookies{ display:none }
 
 .menu{
@@ -195,42 +216,55 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
   .menu__list:hover .menu__item:hover > a{ opacity:1 }
 }
 
-/* ---------- Peu: telèfon + pressupost (a baix a la dreta) ---------- */
-.menu__foot{
-  display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap;
-  gap:clamp(18px,2.4vw,40px);
-  margin-top:clamp(28px,5vh,56px);
-  opacity:0; transform:translateY(22px);
-  transition:opacity .5s var(--ease), transform .6s var(--ease);
-}
-.menu-open .menu__foot{ opacity:1; transform:none; transition-delay:.4s }
-.menu__phone{
-  font-family:var(--font-display); font-weight:500;
-  font-size:clamp(24px,2.6vw,38px); letter-spacing:-.02em; line-height:1;
-  padding:8px 0;
-  transition:opacity .3s var(--ease);
-}
-.menu__phone:hover{ text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:2px }
-.menu__cta{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:14px 26px; border-radius:9999px;
-  background:var(--brand-red); color:#fff;
-  font-size:var(--text-body); font-weight:600;
-  transition:background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease);
-}
-.menu__cta:hover{ background:#fff; color:var(--brand-red); transform:translateY(-1px) }
-
 /* ---------- Mòbil: una sola columna, sense foto ---------- */
 @media (max-width:900px){
   .menu{ grid-template-columns:1fr }
   .menu__media{ display:none }
-  .menu__nav{ padding:92px 22px 26px; overflow-y:auto }
+  .menu__nav{ padding:92px 22px calc(92px + env(safe-area-inset-bottom)); overflow-y:auto }
   .menu__list{ flex:0 0 auto; justify-content:flex-start; gap:clamp(6px,1.6vh,16px) }
   .menu__item > a{ font-size:clamp(32px,9.6vw,56px) }
-  .menu__foot{
-    margin-top:auto; justify-content:flex-start; padding-top:22px;
-    border-top:1px solid rgba(255,255,255,.16);
+}
+
+/* ============================================================
+   BARRA MÒBIL — contacte sempre a mà
+   ============================================================ */
+.mobile-bar{ display:none }
+
+@media (max-width:900px){
+  .nav__actions{ display:none }
+  .nav__logo img{ height:30px }
+
+  .mobile-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:56;
+    display:grid; grid-template-columns:1fr 1fr; gap:10px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(255,255,255,.94);
+    -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border-top:1px solid var(--hairline);
+    transition:opacity .3s var(--ease), visibility .3s var(--ease);
   }
+  body.has-mobile-bar{ padding-bottom:calc(78px + env(safe-area-inset-bottom)) }
+  body.has-mobile-bar .cookies{ bottom:calc(86px + env(safe-area-inset-bottom)) }
+
+  .mobile-bar__call,.mobile-bar__cta{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    min-height:46px; padding:0 16px; border-radius:9999px;
+    font-size:var(--text-body-sm); font-weight:600; letter-spacing:var(--tracking-body-sm);
+  }
+  .mobile-bar__call{ border:1.5px solid var(--ink); color:var(--ink) }
+  .mobile-bar__call svg{ width:16px; height:16px; fill:currentColor }
+  .mobile-bar__cta{ background:var(--brand-red-ink); color:#fff }
+
+  /* Que la barra no tapi el contingut del hero */
+  body.has-mobile-bar .hero__content{ padding-bottom:calc(128px + env(safe-area-inset-bottom)) }
+  body.has-mobile-bar .hero__controls{ bottom:calc(86px + env(safe-area-inset-bottom)) }
+}
+
+/* Barra compacta en pantalles mitjanes: que logo, telèfon i CTA no es toquin */
+@media (max-width:1100px) and (min-width:901px){
+  .nav__logo img{ height:34px }
+  .nav__phone{ font-size:var(--text-body-sm) }
+  .nav__actions{ gap:14px }
 }
 
 /* ============================================================
@@ -259,12 +293,13 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 .hero__slides{ position:absolute; inset:0 }
 .hero__slide{
   position:absolute; inset:0; opacity:0;
-  transition:opacity 1.2s var(--ease);
+  transition:opacity .6s var(--ease);
 }
 .hero__slide.is-active{ opacity:1 }
-.hero__slide img{ width:100%; height:100%; object-fit:cover; object-position:center 60% }
-/* a la segona imatge el logotip de la jaqueta és a la meitat del quadre: el deixem allà */
-.hero__slide:nth-child(2) img{ object-position:center 40% }
+.hero__video{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 55%; display:block;
+}
 .hero__scrim{
   position:absolute; inset:0;
   background:linear-gradient(to bottom,
@@ -311,12 +346,15 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
   background:rgba(20,17,18,.34); backdrop-filter:blur(8px);
 }
 .hero__dot{
-  width:8px; height:8px; padding:0; border-radius:9999px;
-  background:rgba(255,255,255,.45);
+  position:relative; width:24px; height:24px; padding:0; border-radius:9999px; background:none;
+}
+.hero__dot::before{
+  content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:8px; height:8px; border-radius:9999px; background:rgba(255,255,255,.45);
   transition:background .4s var(--ease), width .4s var(--ease);
 }
-.hero__dot:hover{ background:rgba(255,255,255,.75) }
-.hero__dot.is-active{ background:#fff; width:22px }
+.hero__dot:hover::before{ background:rgba(255,255,255,.75) }
+.hero__dot.is-active::before{ background:#fff; width:22px }
 .hero__toggle{
   display:grid; place-items:center; width:26px; height:26px; margin-left:4px;
   border:1.5px solid rgba(255,255,255,.55); border-radius:9999px; color:#fff;
@@ -367,7 +405,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
   padding-bottom:3px; border-bottom:1px solid currentColor;
   transition:gap .4s var(--ease), color .4s var(--ease);
 }
-.service__more:hover{ gap:14px; color:var(--brand-red) }
+.service__more:hover{ gap:14px; color:var(--brand-red-ink) }
 .service__more svg{ width:16px; height:16px; fill:currentColor }
 @media (max-width:900px){ .services{ grid-template-columns:1fr; gap:40px } }
 
@@ -539,27 +577,62 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 /* ---------- Ajustos de la barra en pantalles petites ---------- */
 @media (max-width:640px){
   .nav{ padding:16px 18px }
-  .nav__logo img{ height:18px }
-  .nav__cta{ font-size:var(--text-caption) }
+  .nav__logo img{ height:28px }
 }
 
 /* ============================================================
    PEU — graella de text neta, sense caixes
    ============================================================ */
-.footer{ padding-block:80px 40px; border-top:1px solid var(--hairline) }
-.footer__grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px }
-.footer h2{ font-size:var(--text-caption); font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:rgba(35,31,32,.55); margin-bottom:20px }
+/* ============================================================
+   CTA FINAL + PEU — 4 columnes, confiança i contacte
+   ============================================================ */
+.footer-cta{ background:var(--brand-dark); color:#fff; padding-block:clamp(28px,4vh,40px) }
+.footer-cta__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:16px 32px;
+}
+.footer-cta__title{
+  margin:0; font-family:var(--font-display); font-weight:500;
+  font-size:clamp(22px,2.4vw,32px); letter-spacing:-.02em;
+}
+.footer-cta__phone{
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(22px,2.4vw,32px); letter-spacing:-.02em; color:#fff;
+}
+.footer-cta__phone:hover{ text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:2px }
+
+.footer{ padding-block:72px 40px; border-top:1px solid var(--hairline) }
+.footer__grid{ display:grid; grid-template-columns:1.35fr 1fr 1fr 1.05fr; gap:clamp(32px,4vw,56px) }
+.footer__place{ margin-top:16px; font-size:var(--text-body-sm); color:rgba(35,31,32,.65) }
+.footer h2{ font-size:var(--text-caption); font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:rgba(35,31,32,.72); margin-bottom:20px }
 .footer li + li{ margin-top:10px }
 .footer a{ font-size:var(--text-body-sm); font-weight:450; color:rgba(35,31,32,.8) }
 .footer__contact{ display:grid; gap:8px; margin-top:20px }
 .footer__contact li{ font-size:var(--text-body-sm); color:rgba(35,31,32,.65) }
 .footer a:hover{ color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--brand-blue) }
-.footer__meta{
-  margin-top:64px; padding-top:24px; border-top:1px solid var(--hairline);
-  display:flex; flex-wrap:wrap; gap:12px 32px; justify-content:space-between;
-  font-size:var(--text-caption); color:rgba(35,31,32,.55);
+.footer__trust{
+  display:flex; align-items:center; flex-wrap:wrap; gap:14px 24px;
+  margin-top:48px; padding:20px 0;
+  border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
 }
-@media (max-width:900px){ .footer__grid{ grid-template-columns:1fr } }
+.footer__trust-label{ max-width:38ch; font-size:var(--text-caption); line-height:1.4; letter-spacing:.02em; color:rgba(35,31,32,.72) }
+.footer__trust .logo-card{ min-height:50px; padding:8px 12px; border-radius:8px }
+.footer__trust .logo-card img{ height:26px }
+.footer__codes{ margin-left:auto; font-size:var(--text-caption); color:rgba(35,31,32,.72); white-space:nowrap }
+.footer__meta{
+  margin-top:24px; padding-top:20px;
+  display:flex; flex-wrap:wrap; gap:12px 32px; justify-content:space-between;
+  font-size:var(--text-caption); color:rgba(35,31,32,.72);
+}
+.footer__legal{ display:flex; flex-wrap:wrap; gap:12px 20px }
+.footer__legal a{ font-size:var(--text-caption); color:rgba(35,31,32,.72); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(35,31,32,.25) }
+.footer__legal a:hover{ color:var(--ink) }
+@media (max-width:900px){ .footer__grid{ grid-template-columns:1fr 1fr } .footer__codes{ margin-left:0 } }
+@media (max-width:640px){
+  .footer__grid{ grid-template-columns:1fr }
+  .footer-cta__inner{ align-items:flex-start }
+  .footer__trust{ align-items:flex-start }
+}
 
 /* ============================================================
    PÀGINES DE SERVEI — capçalera fotogràfica i blocs editorials
@@ -636,6 +709,147 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 @media (max-width:900px){ .cta.cta--page{ grid-template-columns:1fr } }
 
 /* ============================================================
+   MODEL DE PÀGINA DE SERVEI — blocs del feedback
+   ============================================================ */
+
+/* Capçalera sense foto (serveis sense imatge pròpia) */
+.page-hero--plain{
+  background:
+    radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,.08), transparent 55%),
+    var(--brand-dark);
+}
+
+/* Què és + per a qui */
+.service-intro{
+  display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);
+  gap:clamp(32px,6vw,96px); align-items:start;
+}
+.service-intro__text .lead + .body,
+.service-intro__text .body + .body{ margin-top:20px }
+.service-intro__aside{ border-top:1px solid var(--hairline); padding-top:20px }
+.service-intro__aside .kicker{ color:rgba(35,31,32,.72) }
+.service-audience{ display:grid; gap:10px; margin-top:20px; padding:0; list-style:none }
+.service-audience li{ position:relative; padding-left:18px; font-size:var(--text-body); color:rgba(35,31,32,.82) }
+.service-audience li::before{
+  content:""; position:absolute; left:0; top:.62em;
+  width:6px; height:6px; border-radius:9999px; background:var(--brand-red-ink);
+}
+@media (max-width:900px){ .service-intro{ grid-template-columns:1fr } }
+
+/* Serveis relacionats */
+.related{ display:flex; flex-wrap:wrap; gap:12px; margin:24px 0 0; padding:0; list-style:none }
+.related a{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:10px 18px; border:1px solid var(--hairline); border-radius:9999px;
+  font-size:var(--text-body-sm); font-weight:500;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.related a:hover{ border-color:var(--ink); background:var(--bg-soft) }
+.related svg{ width:14px; height:14px; fill:currentColor }
+
+/* Graella de serveis agrupada (portada) */
+.services-groups{ display:grid; gap:clamp(40px,6vh,64px) }
+.services-group__title{
+  margin:0 0 0; padding-bottom:14px; border-bottom:1px solid var(--hairline);
+  font-size:var(--text-caption); font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:rgba(35,31,32,.72);
+}
+.services-grid{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 40px;
+  margin:0; padding:0; list-style:none;
+}
+.service-card{ border-bottom:1px solid var(--hairline) }
+.service-card a{
+  display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start;
+  padding:20px 0; transition:color .3s var(--ease);
+}
+.service-card__icon{ color:var(--brand-red-ink); padding-top:2px }
+.service-card__icon svg{
+  width:26px; height:26px; display:block; stroke:currentColor; fill:none;
+  stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round;
+}
+.service-card__name{
+  display:block; font-family:var(--font-display); font-weight:550;
+  font-size:var(--text-body-lg); letter-spacing:-.01em;
+}
+.service-card__summary{
+  display:block; margin-top:5px; font-size:var(--text-body-sm);
+  line-height:1.45; color:rgba(35,31,32,.68);
+}
+.service-card__arrow{ color:var(--brand-red-ink); transition:transform .3s var(--ease) }
+.service-card a:hover .service-card__arrow{ transform:translateX(4px) }
+@media (max-width:900px){ .services-grid{ grid-template-columns:1fr 1fr } }
+@media (max-width:640px){ .services-grid{ grid-template-columns:1fr } }
+
+/* Sectors */
+.sectors{ display:flex; flex-wrap:wrap; gap:10px; margin:0; padding:0; list-style:none }
+.sectors li{
+  padding:10px 18px; border:1px solid var(--hairline); border-radius:9999px;
+  font-size:var(--text-body-sm); font-weight:500;
+}
+
+/* CTA al final del bloc de serveis */
+.services-cta{
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:16px 24px;
+  margin-top:clamp(32px,5vh,56px); padding-top:24px;
+  border-top:1px solid var(--hairline);
+}
+.services-cta p{ margin:0; max-width:52ch; color:rgba(35,31,32,.72) }
+
+/* ============================================================
+   CONTENIDORS, AUTORITZACIONS AMPLIADES I EMPRESA
+   ============================================================ */
+.container-cards{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin-top:8px }
+.container-card{
+  display:flex; flex-direction:column; gap:8px;
+  padding:24px; border:1px solid var(--hairline); border-radius:16px;
+  background:#fff; color:var(--ink);
+  transition:border-color .3s var(--ease), transform .3s var(--ease);
+}
+a.container-card:hover, .container-card:hover{ border-color:rgba(35,31,32,.4); transform:translateY(-2px) }
+.container-card__size{
+  margin:0; font-family:var(--font-display); font-weight:500;
+  font-size:clamp(34px,3.4vw,48px); line-height:1; letter-spacing:-.04em;
+}
+.container-card__system{
+  margin:0; font-size:var(--text-caption); font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--brand-red-ink);
+}
+.container-card__ideal{ margin:6px 0 0; font-size:var(--text-body-sm); line-height:1.5; color:rgba(35,31,32,.72); flex:1 }
+.container-card__not{ margin:0; font-size:var(--text-caption); line-height:1.45; color:rgba(35,31,32,.72) }
+.container-card__not strong{ color:var(--ink); font-weight:600 }
+.container-card__cta{ margin-top:12px; font-size:var(--text-body-sm); font-weight:600; color:var(--brand-red-ink) }
+@media (max-width:900px){ .container-cards{ grid-template-columns:1fr 1fr } }
+@media (max-width:560px){ .container-cards{ grid-template-columns:1fr } }
+
+.creds-extra{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px }
+.cred-card{ background:#fff; border:1px solid rgba(35,31,32,.12); border-radius:16px; padding:24px }
+.cred-card__code{
+  margin:0; font-size:var(--text-caption); font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--brand-red-ink);
+}
+.cred-card h3{ margin:12px 0 8px; font-family:var(--font-display); font-weight:550; font-size:var(--text-body-lg); letter-spacing:-.01em }
+.cred-card p{ margin:0; font-size:var(--text-body-sm); line-height:1.5; color:rgba(35,31,32,.72) }
+.cred-card a{ text-decoration:underline; text-underline-offset:3px }
+.creds-verify{ margin-top:24px }
+.creds-verify a{
+  font-size:var(--text-body-sm); font-weight:500;
+  text-decoration:underline; text-underline-offset:3px;
+  text-decoration-color:rgba(35,31,32,.35);
+}
+.creds-verify a:hover{ text-decoration-color:var(--ink) }
+@media (max-width:700px){ .creds-extra{ grid-template-columns:1fr } }
+
+.stats{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px;
+  margin-top:8px; padding-top:24px; border-top:1px solid var(--hairline);
+}
+.stat__value{ font-family:var(--font-display); font-weight:500; font-size:clamp(44px,5vw,72px); line-height:.96; letter-spacing:-.04em }
+.stat__label{ margin-top:10px; font-size:var(--text-body-sm); color:rgba(35,31,32,.7); max-width:24ch }
+@media (max-width:700px){ .stats{ grid-template-columns:1fr } }
+
+/* ============================================================
    APARICIÓ EN FER SCROLL — revelat de tot el que ve després del hero
    L'estat ocult només s'aplica amb JavaScript actiu (`html.reveal-on`),
    de manera que sense JS tot el contingut es veu igualment.
@@ -657,7 +871,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
   .hero__frame{ transform:none; border-radius:0 }
   .hero__content{ animation:none }
   .hero__toggle{ display:none }   /* sense rotació automàtica, no cal aturar-la */
-  .menu__item,.menu__foot,.menu__media{ transition-delay:0s!important }
+  .menu__item,.menu__media{ transition-delay:0s!important }
   .reveal{ opacity:1!important; transform:none!important }   /* tot visible */
 }
 

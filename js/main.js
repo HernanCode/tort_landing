@@ -31,13 +31,17 @@
 
     function setMenu(open) {
       root.classList.toggle('menu-open', open);
+      document.dispatchEvent(new CustomEvent('tort:menu', { detail: { open: open } }));
       burger.setAttribute('aria-expanded', String(open));
       menu.setAttribute('aria-hidden', String(!open));
       menu.inert = !open;
       burger.querySelector('.sr-only').textContent = open ? 'Tanca el menú' : 'Obre el menú';
-      document.body.style.overflow = open ? 'hidden' : '';
       var bar = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = open ? 'hidden' : '';
       document.body.style.paddingRight = (open && bar > 0) ? bar + 'px' : '';
+      nav.style.paddingRight = (open && bar > 0)
+        ? (parseFloat(window.getComputedStyle(nav).paddingRight) + bar) + 'px'
+        : '';
       navLogo.src = (open || !nav.classList.contains('is-solid')) ? LOGO_LIGHT : LOGO_DARK;
 
       if (open) {
@@ -54,7 +58,10 @@
     }
 
     burger.addEventListener('click', function () { setMenu(!root.classList.contains('menu-open')); });
-    menu.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) setMenu(false); });
+    document.addEventListener('click', function (e) {
+      if (!root.classList.contains('menu-open')) return;
+      if (e.target.closest('[data-close]')) setMenu(false);
+    });
 
     /* Foco atrapat dins del panell; el botó de tancar també hi compta */
     document.addEventListener('keydown', function (e) {
@@ -64,12 +71,14 @@
 
       /* Comprovem visibilitat real: el CTA de la barra s'amaga (visibility:hidden)
          quan el menú és obert i no ha d'entrar al cicle de tabulació */
+      var mobileBar = document.querySelector('.mobile-bar');
       var focusables = Array.prototype.slice.call(nav.querySelectorAll('a[href], button')).concat(
-        Array.prototype.slice.call(menu.querySelectorAll('a[href], button'))
+        Array.prototype.slice.call(menu.querySelectorAll('a[href], button')),
+        mobileBar ? Array.prototype.slice.call(mobileBar.querySelectorAll('a[href], button')) : []
       ).filter(function (el) {
         if (el === burger) return true;
         var cs = window.getComputedStyle(el);
-        return cs.visibility !== 'hidden' && cs.display !== 'none';
+        return cs.visibility !== 'hidden' && cs.display !== 'none' && el.getClientRects().length > 0;
       });
 
       if (!focusables.length) return;
@@ -125,12 +134,12 @@
       navLogo.src = LOGO_DARK;
     }
 
-    /* ---------- Carrusel del hero ---------- */
+    /* ---------- Carrusel de vídeos del hero ---------- */
     var slides = [].slice.call(document.querySelectorAll('.hero__slide'));
     var dots = [].slice.call(document.querySelectorAll('.hero__dot'));
     var controls = document.querySelector('.hero__controls');
     var toggle = document.getElementById('heroToggle');
-    var DELAY = 4250;
+    var DELAY = 5200;
     var index = 0;
     var timer = null;
     var paused = false;
@@ -141,7 +150,12 @@
     var subEl = stack ? stack.querySelector('.hero__sub') : null;
     var swapTimer = null;
 
-    /* Canvia el títol i el subtítol segons la diapositiva */
+    var videoSize = window.matchMedia('(max-width: 900px)').matches ? '960' : '1280';
+    var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    var slowConnection = connection && (connection.saveData || /(^|-)2g$|(^|-)3g$/.test(connection.effectiveType || ''));
+    var skipVideo = reduce || slowConnection;
+    var booted = false;
+
     function swapText(i, animate) {
       var slide = slides[i];
       if (!slide || !titleEl || !subEl) return;
@@ -164,6 +178,27 @@
       }, 340);
     }
 
+    function pauseAll() {
+      slides.forEach(function (s) {
+        var v = s.querySelector('video');
+        if (v) v.pause();
+      });
+    }
+
+    function playActive(reset) {
+      slides.forEach(function (s, n) {
+        var v = s.querySelector('video');
+        if (!v) return;
+        if (n === index && !reduce && !skipVideo && booted && !root.classList.contains('menu-open') && inView && !document.hidden && !paused) {
+          if (reset) { try { v.currentTime = 0; } catch (err) {} }
+          var playing = v.play();
+          if (playing && playing.catch) playing.catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }
+
     function show(i, animate) {
       index = (i + slides.length) % slides.length;
       slides.forEach(function (s, n) { s.classList.toggle('is-active', n === index); });
@@ -173,6 +208,7 @@
         else d.removeAttribute('aria-current');
       });
       swapText(index, animate);
+      playActive(true);
     }
 
     function stop() {
@@ -181,9 +217,54 @@
 
     function start() {
       stop();
-      if (reduce || paused || !inView || document.hidden || !slides.length) return;
+      if (!booted || skipVideo || reduce || paused || !inView || document.hidden || root.classList.contains('menu-open') || slides.length < 2) return;
       timer = setInterval(function () { show(index + 1, true); }, DELAY);
     }
+
+    function addSources(video, n) {
+      if (!video || video.querySelector('source')) return;
+      var base = 'assets/videos/hero-' + n + '-' + videoSize;
+      var mp4 = document.createElement('source');
+      mp4.src = base + '.mp4';
+      mp4.type = 'video/mp4';
+      var webm = document.createElement('source');
+      webm.src = base + '.webm';
+      webm.type = 'video/webm';
+      video.appendChild(mp4);
+      video.appendChild(webm);
+    }
+
+    function bootVideos() {
+      if (booted) return;
+      booted = true;
+      if (skipVideo) { pauseAll(); return; }
+      slides.forEach(function (s, i) { addSources(s.querySelector('video'), i + 1); });
+      playActive(false);
+      start();
+    }
+
+    if (document.readyState === 'complete') {
+      window.setTimeout(bootVideos, 350);
+    } else {
+      window.addEventListener('load', function () { window.setTimeout(bootVideos, 350); });
+    }
+
+    if (toggle && skipVideo) toggle.style.display = 'none';
+
+    /* Passa al següent slide 0,3 s abans que acabi el vídeo, per no repetir l'últim frame */
+    slides.forEach(function (slide) {
+      var video = slide.querySelector('video');
+      if (!video) return;
+      video.addEventListener('timeupdate', function () {
+        if (slide !== slides[index]) return;
+        if (reduce || paused || !inView || document.hidden) return;
+        if (!video.duration) return;
+        if (video.duration - video.currentTime <= 0.3) {
+          show(index + 1, true);
+          start();
+        }
+      });
+    });
 
     dots.forEach(function (d) {
       d.addEventListener('click', function () {
@@ -197,27 +278,33 @@
         paused = !paused;
         controls.classList.toggle('is-paused', paused);
         toggle.setAttribute('aria-pressed', String(paused));
-        toggle.setAttribute('aria-label', paused ? "Reprèn la rotació d'imatges" : "Atura la rotació d'imatges");
-        if (paused) stop(); else start();
+        toggle.setAttribute('aria-label', paused ? "Reprèn la rotació de vídeos" : "Atura la rotació de vídeos");
+        if (paused) { stop(); pauseAll(); }
+        else { playActive(false); start(); }
       });
-      controls.addEventListener('mouseenter', stop);
-      controls.addEventListener('mouseleave', function () { if (!paused) start(); });
-      controls.addEventListener('focusin', stop);
-      controls.addEventListener('focusout', function () { if (!paused) start(); });
+      controls.addEventListener('mouseenter', function () { stop(); pauseAll(); });
+      controls.addEventListener('mouseleave', function () { if (!paused) { playActive(false); start(); } });
+      controls.addEventListener('focusin', function () { stop(); pauseAll(); });
+      controls.addEventListener('focusout', function () { if (!paused) { playActive(false); start(); } });
     }
 
     document.addEventListener('visibilitychange', function () {
-      if (document.hidden) stop(); else start();
+      if (document.hidden) { stop(); pauseAll(); }
+      else { playActive(false); start(); }
     });
 
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         inView = entries[0].isIntersecting;
-        if (inView) start(); else stop();
+        if (inView) { playActive(false); start(); }
+        else { stop(); pauseAll(); }
       }, { threshold: 0 }).observe(hero);
     }
 
-    start();
+    document.addEventListener('tort:menu', function (e) {
+      if (e.detail && e.detail.open) { stop(); pauseAll(); }
+      else if (!paused) { playActive(false); start(); }
+    });
   }
 
   /* ============================================================
@@ -254,6 +341,7 @@
       { sel:'.section .kicker' },
       { sel:'.section .h-section', delay:80 },
       { sel:'#serveis .services .service', stagger:110 },
+      { sel:'.service-card', stagger:30 },
       { sel:'.feature__logos .logo-card', stagger:90 },
       { sel:'.creds-strip__list .cred', stagger:130 },
       { sel:'#residus .body, #residus .action', stagger:80 },
@@ -264,6 +352,12 @@
       { sel:'#contacte .cta__text' },
       { sel:'#contacte .form', delay:140 },
       /* Pàgines de servei */
+      { sel:'.service-intro__text .lead, .service-intro__text .body', stagger:80 },
+      { sel:'.service-intro__aside', delay:100 },
+      { sel:'.steps .step', stagger:90 },
+      { sel:'.faq details', stagger:60 },
+      { sel:'.related li', stagger:60 },
+      { sel:'.sectors li', stagger:60 },
       { sel:'.split__media', delay:70 },
       { sel:'.split__text .lead, .split__text .body', stagger:80 },
       { sel:'.cta--page', delay:60 },

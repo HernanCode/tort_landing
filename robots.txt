@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hernancode.github.io/tort_landing/sitemap.xml
