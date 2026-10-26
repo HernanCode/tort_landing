@@ -80,7 +80,7 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 ## Avisos tècnics
 
 - **Vídeos**: els originals 4K són a `../videos-origen/` (fora del deploy). A `assets/videos/` només hi ha les versions 1280/960 en MP4 i WebM.
-- **Cau de memòria cau**: `style.css` i `main.js` es carreguen amb `?v=20261019-31` a totes les
+- **Cau de memòria cau**: `style.css` i `main.js` es carreguen amb `?v=20261019-36` a totes les
   pàgines. En tocar CSS o JS cal pujar aquest valor o el navegador servirà la versió vella.
 - Les captures de pàgina sencera del navegador donen artefactes (hero, imatges lazy): verificar
   secció a secció per `id`.

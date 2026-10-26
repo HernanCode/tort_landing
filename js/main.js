@@ -142,6 +142,7 @@
     var DELAY = 5200;
     var index = 0;
     var timer = null;
+    var preloadTimer = null;
     var paused = false;
     var inView = true;
 
@@ -150,9 +151,17 @@
     var subEl = stack ? stack.querySelector('.hero__sub') : null;
     var swapTimer = null;
 
+    slides.forEach(function (slide) {
+      var video = slide.querySelector('video');
+      if (!video) return;
+      video.addEventListener('playing', function () { slide.classList.add('is-playing'); });
+      video.addEventListener('waiting', function () { slide.classList.remove('is-playing'); });
+      video.addEventListener('stalled', function () { slide.classList.remove('is-playing'); });
+    });
+
     var videoSize = window.matchMedia('(max-width: 900px)').matches ? '960' : '1280';
     var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    var slowConnection = connection && (connection.saveData || /(^|-)2g$|(^|-)3g$/.test(connection.effectiveType || ''));
+    var slowConnection = connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || ''));
     var skipVideo = reduce || slowConnection;
     var booted = false;
 
@@ -192,7 +201,16 @@
         if (n === index && !reduce && !skipVideo && booted && !root.classList.contains('menu-open') && inView && !document.hidden && !paused) {
           if (reset) { try { v.currentTime = 0; } catch (err) {} }
           var playing = v.play();
-          if (playing && playing.catch) playing.catch(function () {});
+          if (playing && playing.catch) playing.catch(function () {
+            if (n !== index || paused) return;
+            paused = true;
+            if (controls) controls.classList.add('is-paused');
+            if (toggle) {
+              toggle.setAttribute('aria-pressed', 'true');
+              toggle.setAttribute('aria-label', 'Reprèn la rotació de vídeos');
+            }
+            stop();
+          });
         } else {
           v.pause();
         }
@@ -201,7 +219,12 @@
 
     function show(i, animate) {
       index = (i + slides.length) % slides.length;
-      slides.forEach(function (s, n) { s.classList.toggle('is-active', n === index); });
+      slides.forEach(function (s, n) {
+        /* el slide que entra torna a ensenyar el poster fins que el vídeo arrenca;
+           el que surt conserva l'últim frame durant el fundit */
+        if (n === index) s.classList.remove('is-playing');
+        s.classList.toggle('is-active', n === index);
+      });
       dots.forEach(function (d, n) {
         d.classList.toggle('is-active', n === index);
         if (n === index) d.setAttribute('aria-current', 'true');
@@ -209,6 +232,7 @@
       });
       swapText(index, animate);
       playActive(true);
+      schedulePreload();
     }
 
     function stop() {
@@ -219,6 +243,19 @@
       stop();
       if (!booted || skipVideo || reduce || paused || !inView || document.hidden || root.classList.contains('menu-open') || slides.length < 2) return;
       timer = setInterval(function () { show(index + 1, true); }, DELAY);
+    }
+
+    function preloadNext() {
+      if (skipVideo || !booted || !inView || document.hidden || root.classList.contains('menu-open')) return;
+      var next = (index + 1) % slides.length;
+      var video = slides[next] ? slides[next].querySelector('video') : null;
+      if (!video || video.readyState >= 3) return;
+      try { video.preload = 'auto'; video.load(); } catch (err) {}
+    }
+
+    function schedulePreload() {
+      if (preloadTimer) clearTimeout(preloadTimer);
+      preloadTimer = window.setTimeout(preloadNext, 2500);
     }
 
     function addSources(video, n) {
@@ -241,12 +278,13 @@
       slides.forEach(function (s, i) { addSources(s.querySelector('video'), i + 1); });
       playActive(false);
       start();
+      schedulePreload();
     }
 
-    if (document.readyState === 'complete') {
-      window.setTimeout(bootVideos, 350);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bootVideos);
     } else {
-      window.addEventListener('load', function () { window.setTimeout(bootVideos, 350); });
+      bootVideos();
     }
 
     if (toggle && skipVideo) toggle.style.display = 'none';
@@ -282,10 +320,6 @@
         if (paused) { stop(); pauseAll(); }
         else { playActive(false); start(); }
       });
-      controls.addEventListener('mouseenter', function () { stop(); pauseAll(); });
-      controls.addEventListener('mouseleave', function () { if (!paused) { playActive(false); start(); } });
-      controls.addEventListener('focusin', function () { stop(); pauseAll(); });
-      controls.addEventListener('focusout', function () { if (!paused) { playActive(false); start(); } });
     }
 
     document.addEventListener('visibilitychange', function () {
@@ -303,7 +337,7 @@
 
     document.addEventListener('tort:menu', function (e) {
       if (e.detail && e.detail.open) { stop(); pauseAll(); }
-      else if (!paused) { playActive(false); start(); }
+      else if (!paused) { playActive(false); start(); schedulePreload(); }
     });
   }
 

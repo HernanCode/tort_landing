@@ -163,14 +163,17 @@ El hero manté el carrusel de sempre (títols, punts i pausa), però cada slide 
 
 - Cada slide passa al següent **0,3 s abans** que acabi el vídeo (`timeupdate`), amb fosa de 0,6 s:
   així no es repeteix l'últim frame. El temporitzador de 5,2 s queda com a xarxa de seguretat.
-- `muted`, `playsinline`, sense controls ni `loop`; el JS fa `play()` del slide actiu i pausa la resta.
+- `muted`, `playsinline`, sense controls; `loop` com a xarxa de seguretat; el JS fa `play()` del slide actiu i pausa la resta.
 - **MP4 primer** (H.264, descodificació per maquinari) i WebM de reserva.
 - **1280 px** en escriptori i **960 px** en mòbil (≤900 px).
 - `preload="none"` i només el slide actiu descarrega el vídeo; els altres esperen.
-- El primer vídeo arrenca **després de `load` + 350 ms**, amb el poster WebP ja pintat.
-- Amb `prefers-reduced-motion`, `saveData` o connexió 2G/3G no es descarrega cap vídeo: es veu el
-  poster i els punts continuen funcionant.
+- El primer vídeo arrenca de seguida. El poster WebP és el **primer frame** i queda superposat fins que el vídeo reprodueix; llavors es fon en 0,35 s. Així no es veu el salt del poster al vídeo.
+- El **següent vídeo es precarrega als 2,5 s** perquè el canvi de slide sigui instantani.
+- Si el vídeo bufferitza, torna el poster fins que reprèn; si l'autoplay falla, el botó passa a play per arrencar-lo amb un toc.
+- Amb `prefers-reduced-motion`, `saveData` o connexió 2G no es descarrega cap vídeo: es veu el
+  poster i els punts continuen funcionant. En 3G sí que es reprodueix.
 - Es pausa en obrir el menú, en canviar de pestanya i quan el hero surt de pantalla.
+- Passar el ratolí pels controls **no** atura el vídeo; només el botó de pausa.
 
 > Mides: MP4 0,7 / 0,5 / 1,2 MB en escriptori i 0,4 / 0,3 / 0,6 MB en mòbil. Posters WebP de
 > 124 / 42 / 155 KB. Orígens: `7525961-uhd_2560_1440_30fps.mp4` (planta), `14210989-uhd_4096_2160_25fps.mp4`
