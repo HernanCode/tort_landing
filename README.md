@@ -47,7 +47,7 @@ landing/
 
 1. **Nav isla** — hamburguesa (obre el menú), logotip centrat, telèfon clicable i CTA «Demana pressupost»
 2. **Hero** — carrusel de 3 vídeos de 5 s amb animació lligada al scroll
-3. **Serveis** — 18 serveis en 3 blocs (Contenidors, Recollida i gestió, Serveis especials), amb icona, una línia i enllaç a la pàgina de cada servei
+3. **Serveis** — 3 destacats amb foto (Lloguer de contenidors, Recollida i transport, Gestió de residus) + 15 serveis compactes (només títol i fletxa), repartits 5/5/5 en tres columnes amb tint propi: Reciclatge i recuperació (blau molt clar) · Obra, buidatges i destrucció (verd molt clar) · Serveis especials (paper)
 4. **Sectors** — indústria, construcció, alimentació, comerç i administració
 5. **Contenidors** — 4 mides (3, 5, 7–9 i 14–30 m³) amb enllaç a la fitxa
 6. **Empresa** — 50+ anys, empresa familiar i planta nova, amb enllaç a `/empresa/`
@@ -56,7 +56,7 @@ landing/
 9. **Galeria** — 7 imatges en graella editorial
 10. **Ubicació** — mapa OpenStreetMap + enllaç a Google Maps
 11. **Contacte** — formulari amb validació, foto opcional i consentiments
-12. **Peu** — CTA final, 4 columnes (Tort · Serveis · Empresa · Contacte), confiança (ARC/Generalitat i codis) i legal
+12. **Peu** — 4 columnes (Tort · Serveis · Empresa · Contacte), confiança (ARC/Generalitat i codis) i legal
 13. **Barra mòbil** — Trucar / Demana pressupost, fixa a baix (≤900 px)
 14. **Avís de cookies** — acceptar / rebutjar (comentat a la portada per a la proposta)
 
@@ -124,18 +124,22 @@ La pàgina alterna superfícies perquè no tot sigui blanc:
 | Secció | Fons |
 | --- | --- |
 | Hero | fotografia + capa vermella al revelar |
-| Serveis | blanc |
+| Serveis | blanc + 3 columnes per tipus amb tints pàl·lids: `#EAF4FA`, `#EFF8F0` i `#F0EDE9` |
+| Sectors | verd molt clar `#EFF8F0` |
+| Contenidors | verd de marca molt aclarit `#EFF8F0` |
+| Empresa | paper càlid `#F0EDE9` |
 | Autoritzacions | **blau de marca aclarit `#AED5EE`** a sang (E-211.96 / T-663 en tipografia gran) |
+| Què gestionem | blanc |
 | Galeria | paper càlid `#F0EDE9` a sang |
-| Ubicació | blanc |
-| Contacte | **verd de marca aclarit `#B9DFBD`**, targeta arrodonida amb el formulari blanc a dins |
+| Ubicació | blau de marca molt aclarit `#EAF4FA` |
+| Contacte | blanc + **verd de marca aclarit `#B9DFBD`** a la targeta del formulari |
 
 La secció de contacte fa servir `.section--wide`: el contenidor arriba fins a `100% - 48px` (amb un
 màxim de 1920 px) en lloc dels 1200 px de la resta de la pàgina, de manera que la targeta verda ocupa
 gairebé tota l'amplada de la finestra. A partir de 1500 px el formulari es limita a 720 px i els
 contactes baixen al nivell del peu del formulari.
 
-Els modificadors són `.section--red`, `.section--blue`, `.section--paper` i `.section--wide`. Cada franja defineix les
+Els modificadors són `.section--red`, `.section--blue`, `.section--paper`, `.section--wash-green`, `.section--wash-blue` i `.section--wide`. Cada franja defineix les
 seves variables `--band-ink`, `--band-muted` i `--band-rule`, de manera que canviar de color és tan
 simple com canviar la classe de la secció. La variant vermella queda implementada per si es vol
 recuperar.
@@ -286,8 +290,8 @@ en pes 500 amb tracking negatiu en comptes de negretes, i una sola família.
 ## Pendent
 
 - [x] **Pàgines de servei**: 18 pàgines generades des de `serveis/data/serveis.json` amb
-      `scripts/build-serveis.py`, agrupades a la home (Contenidors · Recollida i gestió · Serveis
-      especials) + bloc de sectors.
+      `scripts/build-serveis.py`. A la home: 3 destacats amb foto + 15 compactes per necessitat +
+      bloc de sectors.
 - [ ] **Fotos reals per servei**: contenidors amb escala, destrucció de documents, residus
       perillosos, RAEE, runes, cable, vehicles, fosses, desembussos, extintors i neteges. Mentre no
       hi siguin, aquests serveis fan servir cabecera tipogràfica o imatges genèriques.
@@ -300,7 +304,7 @@ en pes 500 amb tracking negatiu en comptes de negretes, i una sola família.
 - [ ] **Logos oficials en qualitat**: els actuals s'han recuperat de la web antiga i són de baixa
       resolució. Cal demanar els originals a l'Agència de Residus i a la Generalitat.
 - [x] `og:image` 1200×630 (`assets/img/og-tort.jpg`), canòniques, JSON-LD, `sitemap.xml` i `robots.txt`.
-- [x] **Peu complet**: CTA final, 4 columnes, logos ARC/Generalitat i codis.
+- [x] **Peu complet**: 4 columnes, logos ARC/Generalitat i codis.
 - [x] **Empresa**: secció a la home i pàgina `/empresa/` amb el contingut confirmat.
 - [x] **Contenidors**: secció a la home i 4 fitxes a la pàgina de Lloguer.
 - [x] **Autoritzacions**: CRT de RAEE, Gremi i enllaç de verificació ARC.

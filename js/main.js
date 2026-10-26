@@ -374,8 +374,9 @@
     var GROUPS = [
       { sel:'.section .kicker' },
       { sel:'.section .h-section', delay:80 },
-      { sel:'#serveis .services .service', stagger:110 },
-      { sel:'.service-card', stagger:30 },
+      { sel:'.services-title, .services-lead', stagger:80 },
+      { sel:'.featured-service', stagger:100 },
+      { sel:'.compact-item', stagger:25 },
       { sel:'.feature__logos .logo-card', stagger:90 },
       { sel:'.creds-strip__list .cred', stagger:130 },
       { sel:'#residus .body, #residus .action', stagger:80 },

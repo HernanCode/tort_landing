@@ -26,6 +26,31 @@ GROUPS = [
     ("serveis-especials", "Serveis especials"),
 ]
 
+# Nous blocs de la home: 3 destacats + 15 compactes agrupats per necessitat
+FEATURED = [
+    ("lloguer-de-contenidors", "assets/img/hero-1-poster.webp",
+     "Vista aèria de la planta i els contenidors de Tort", "Contenidors"),
+    ("transport-de-residus", "assets/img/slide-operari-1600.webp",
+     "Operari de Tort amb camió i contenidors", "Recollida"),
+    ("gestio-de-residus", "assets/img/slide-interior-1600.webp",
+     "Nau de classificació i tractament de residus de Tort", "Planta"),
+]
+
+COMPACT = [
+    ("Reciclatge i recuperació", [
+        "paper-i-carto", "ferralla-i-metalls", "cable-de-coure",
+        "raee-i-electronica", "vehicles-fora-d-us",
+    ]),
+    ("Obra, buidatges i destrucció", [
+        "runes-i-obra", "buidatge-de-naus", "destruccio-de-documents",
+        "destruccio-d-estocs", "residus-perillosos",
+    ]),
+    ("Serveis especials", [
+        "fosses-septiques", "desembussaments", "neteges-industrials",
+        "reciclatge-d-extintors", "assessoria-tecnica",
+    ]),
+]
+
 ARROW = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 5.2a1 1 0 0 1 1.4 0l5.6 5.6a1.7 1.7 0 0 1 0 2.4'
          'l-5.6 5.6a1 1 0 0 1-1.4-1.4l3.9-3.9H4.6a1 1 0 0 1 0-2h12.5l-3.9-3.9a1 1 0 0 1 0-1.4Z"/></svg>')
 
@@ -204,33 +229,46 @@ def render(service, by_slug):
     return target
 
 
-def build_grid(data):
+def build_services(data):
+    by_slug = {s["slug"]: s for s in data}
+
+    featured = []
+    for slug, image, alt, tag in FEATURED:
+        service = by_slug[slug]
+        featured.append(
+            f'        <a class="featured-service" href="serveis/{slug}/">\n'
+            f'          <figure class="featured-service__media"><img src="{image}" alt="{esc(alt)}" loading="lazy"></figure>\n'
+            f'          <div class="featured-service__body">\n'
+            f'            <p class="featured-service__tag">{esc(tag)}</p>\n'
+            f'            <h3 class="featured-service__title">{esc(service["name"])}</h3>\n'
+            f'            <p class="featured-service__text">{esc(service["summary"])}</p>\n'
+            f'            <span class="featured-service__more">Veure servei {ARROW}</span>\n'
+            f'          </div>\n'
+            f'        </a>'
+        )
+
     groups = []
-    for group_id, label in GROUPS:
-        items = [s for s in data if s["group"] == group_id]
-        cards = []
-        for service in items:
-            cards.append(
-                f'            <li class="service-card">\n'
-                f'              <a href="serveis/{service["slug"]}/">\n'
-                f'                <span class="service-card__icon" aria-hidden="true">{icon(service["icon"])}</span>\n'
-                f'                <span class="service-card__body">\n'
-                f'                  <span class="service-card__name">{esc(service["name"])}</span>\n'
-                f'                  <span class="service-card__summary">{esc(service["summary"])}</span>\n'
-                f'                </span>\n'
-                f'                <span class="service-card__arrow" aria-hidden="true">→</span>\n'
-                f'              </a>\n'
-                f'            </li>'
+    for title, slugs in COMPACT:
+        items = []
+        for slug in slugs:
+            service = by_slug[slug]
+            items.append(
+                f'            <li class="compact-item"><a href="serveis/{slug}/">'
+                f'{esc(service["name"])} <span class="compact-item__arrow" aria-hidden="true">→</span></a></li>'
             )
         groups.append(
-            f'      <div class="services-group">\n'
-            f'        <h3 class="services-group__title">{esc(label)}</h3>\n'
-            f'        <ul class="services-grid">\n'
-            + "\n".join(cards) + "\n"
+            f'      <section class="compact-group">\n'
+            f'        <h3 class="compact-group__title">{esc(title)}</h3>\n'
+            f'        <ul class="compact-grid">\n'
+            + "\n".join(items) + "\n"
             f'        </ul>\n'
-            f'      </div>'
+            f'      </section>'
         )
-    return '<div class="services-groups">\n' + "\n".join(groups) + '\n      </div>'
+
+    return (
+        '<div class="featured-services">\n' + "\n".join(featured) + '\n      </div>\n\n'
+        '      <div class="compact-services">\n' + "\n".join(groups) + '\n      </div>'
+    )
 
 
 def update_index(data):
@@ -239,7 +277,7 @@ def update_index(data):
     end_marker = "<!-- SERVEIS:END -->"
     start = html_text.index(start_marker) + len(start_marker)
     end = html_text.index(end_marker)
-    grid = build_grid(data)
+    grid = build_services(data)
     html_text = html_text[:start] + "\n" + grid + "\n      " + html_text[end:]
     INDEX.write_text(html_text, encoding="utf-8")
 
@@ -281,12 +319,16 @@ def main():
             if slug not in by_slug:
                 raise SystemExit(f"Relacionat inexistent: {slug} ({service['slug']})")
 
+    used = [slug for slug, _, _, _ in FEATURED] + [slug for _, slugs in COMPACT for slug in slugs]
+    if len(used) != len(set(used)) or set(used) != set(by_slug):
+        raise SystemExit("Els serveis destacats i compactes no cobreixen exactament les 18 fitxes")
+
     for service in data:
         target = render(service, by_slug)
         print(f"  ✓ {target.relative_to(ROOT)}")
 
     update_index(data)
-    print("  ✓ index.html (graella de serveis)")
+    print("  ✓ index.html (secció de serveis)")
 
     build_seo_files(data)
 

@@ -9,7 +9,9 @@
 :root{
   /* ---- Marca TORT (manual d'identitat) ---- */
   --brand-red:   #E63030;
-  --brand-red-ink:#DC2C2C;  /* rojo de marca per a text petit sobre blanc (AA 4,7:1) */
+  --brand-red-ink:#C42A2A;  /* rojo de text petit; AA sobre blanc i sobre tints (5,6:1) */
+  --blue-wash:  #EAF4FA;  /* blau de marca molt aclarit */
+  --green-wash: #EFF8F0;  /* verd de marca molt aclarit */
   --brand-green: #63B76D;
   --brand-blue:  #2C90CF;
   --brand-dark:  #231F20;
@@ -391,30 +393,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 }
 .blockquote p{ font-size:var(--text-subheading); line-height:var(--leading-subheading); letter-spacing:var(--tracking-subheading); font-weight:450 }
 
-/* ---------- Serveis: imatge + text + «Veure més» ---------- */
-.services{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
-}
-.service{ display:flex; flex-direction:column }
-.service__media{
-  margin:0 0 24px; border-radius:16px; overflow:hidden; background:var(--bg-soft);
-  aspect-ratio:4/3;
-}
-.service__media img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease) }
-.service:hover .service__media img{ transform:scale(1.03) }
+/* ---------- Números de pas ---------- */
 .service__num{ font-size:var(--text-caption); font-weight:500; letter-spacing:.14em; color:var(--brand-red-ink) }
-.service h3{ font-family:var(--font-display); font-weight:550; font-size:var(--text-subheading); letter-spacing:-.02em; margin:12px 0 12px }
-.service > p{ color:rgba(35,31,32,.72); margin-bottom:16px }
-.service__more{
-  margin-top:auto; align-self:flex-start;
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:var(--text-body-sm); font-weight:600; letter-spacing:var(--tracking-body-sm);
-  padding-bottom:3px; border-bottom:1px solid currentColor;
-  transition:gap .4s var(--ease), color .4s var(--ease);
-}
-.service__more:hover{ gap:14px; color:var(--brand-red-ink) }
-.service__more svg{ width:16px; height:16px; fill:currentColor }
-@media (max-width:900px){ .services{ grid-template-columns:1fr; gap:40px } }
 
 /* ---------- Secció de fotografia a sang amb text al damunt ---------- */
 .photo{ position:relative; min-height:88svh; display:flex; align-items:flex-end; overflow:hidden }
@@ -425,6 +405,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 
 /* ---------- Franges de color de secció ---------- */
 .section--paper{ background:#F0EDE9 }
+.section--wash-blue{ background:var(--blue-wash) }
+.section--wash-green{ background:var(--green-wash) }
 
 /* Franges de color: cada variant defineix tinta, text apagat i filet */
 .section--red{
@@ -591,23 +573,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
    PEU — graella de text neta, sense caixes
    ============================================================ */
 /* ============================================================
-   CTA FINAL + PEU — 4 columnes, confiança i contacte
+   PEU — 4 columnes, confiança i contacte
    ============================================================ */
-.footer-cta{ background:var(--brand-dark); color:#fff; padding-block:clamp(28px,4vh,40px) }
-.footer-cta__inner{
-  display:flex; align-items:center; justify-content:space-between;
-  flex-wrap:wrap; gap:16px 32px;
-}
-.footer-cta__title{
-  margin:0; font-family:var(--font-display); font-weight:500;
-  font-size:clamp(22px,2.4vw,32px); letter-spacing:-.02em;
-}
-.footer-cta__phone{
-  font-family:var(--font-display); font-weight:500;
-  font-size:clamp(22px,2.4vw,32px); letter-spacing:-.02em; color:#fff;
-}
-.footer-cta__phone:hover{ text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:2px }
-
 .footer{ padding-block:72px 40px; border-top:1px solid var(--hairline) }
 .footer__grid{ display:grid; grid-template-columns:1.35fr 1fr 1fr 1.05fr; gap:clamp(32px,4vw,56px) }
 .footer__place{ margin-top:16px; font-size:var(--text-body-sm); color:rgba(35,31,32,.65) }
@@ -637,7 +604,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 @media (max-width:900px){ .footer__grid{ grid-template-columns:1fr 1fr } .footer__codes{ margin-left:0 } }
 @media (max-width:640px){
   .footer__grid{ grid-template-columns:1fr }
-  .footer-cta__inner{ align-items:flex-start }
   .footer__trust{ align-items:flex-start }
 }
 
@@ -755,38 +721,80 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 .related svg{ width:14px; height:14px; fill:currentColor }
 
 /* Graella de serveis agrupada (portada) */
-.services-groups{ display:grid; gap:clamp(40px,6vh,64px) }
-.services-group__title{
-  margin:0 0 0; padding-bottom:14px; border-bottom:1px solid var(--hairline);
+/* ============================================================
+   SERVEIS — 3 destacats + 15 compactes
+   ============================================================ */
+.services-title{ margin:20px 0 14px; max-width:22ch }
+.services-lead{
+  max-width:56ch; margin:0 0 clamp(32px,5vh,48px);
+  font-size:var(--text-body-lg); line-height:1.35; color:rgba(35,31,32,.72);
+}
+
+.featured-services{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px; margin-bottom:clamp(40px,6vh,64px);
+}
+.featured-service{
+  display:flex; flex-direction:column; color:var(--ink);
+  background:transparent; border:0; border-radius:0; overflow:visible;
+}
+.featured-service__media{ margin:0; aspect-ratio:4/3; overflow:hidden; border-radius:16px; background:var(--bg-soft) }
+.featured-service__media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s var(--ease) }
+.featured-service:hover .featured-service__media img{ transform:scale(1.04) }
+.featured-service__body{ display:flex; flex-direction:column; flex:1; padding:18px 0 0; background:transparent }
+.featured-service__tag{
+  margin:0; font-size:var(--text-caption); font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--brand-red-ink);
+}
+.featured-service__title{
+  margin:10px 0 0; font-family:var(--font-display); font-weight:550;
+  font-size:clamp(22px,2vw,28px); line-height:1.1; letter-spacing:-.02em;
+}
+.featured-service__text{ margin:10px 0 0; font-size:var(--text-body-sm); line-height:1.5; color:rgba(35,31,32,.72); flex:1 }
+.featured-service__more{
+  display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+  font-size:var(--text-body-sm); font-weight:600; color:var(--brand-red-ink);
+}
+.featured-service__more svg{ width:15px; height:15px; fill:currentColor; transition:transform .3s var(--ease) }
+.featured-service:hover .featured-service__more svg{ transform:translateX(4px) }
+
+.compact-services{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:start }
+.compact-group{ padding:24px; border-radius:18px; border:1px solid rgba(35,31,32,.08); background:var(--blue-wash) }
+.compact-group:nth-child(2){ background:var(--green-wash) }
+.compact-group:nth-child(3){ background:#F0EDE9 }
+.compact-group__title{
+  margin:0; padding-bottom:12px; border-bottom:1px solid var(--hairline);
   font-size:var(--text-caption); font-weight:500; letter-spacing:.14em;
   text-transform:uppercase; color:rgba(35,31,32,.72);
 }
-.services-grid{
-  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 40px;
-  margin:0; padding:0; list-style:none;
+.compact-grid{ display:grid; grid-template-columns:1fr; gap:0; margin:0; padding:0; list-style:none }
+.compact-item{ border-bottom:1px solid var(--hairline) }
+.compact-item a{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:14px 0; font-size:var(--text-body); font-weight:500;
+  color:var(--ink); transition:color .3s var(--ease);
 }
-.service-card{ border-bottom:1px solid var(--hairline) }
-.service-card a{
-  display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start;
-  padding:20px 0; transition:color .3s var(--ease);
+.compact-item a:hover{ text-decoration:underline; text-underline-offset:3px }
+.compact-item__arrow{ color:var(--ink); opacity:.8; transition:transform .3s var(--ease), opacity .3s var(--ease) }
+.compact-item a:hover .compact-item__arrow{ transform:translateX(3px); opacity:1 }
+
+@media (max-width:900px){
+  .featured-services{ grid-template-columns:1fr; gap:16px }
+  .featured-service{ flex-direction:row; align-items:stretch }
+  .featured-service__media{ flex:0 0 40%; aspect-ratio:auto; min-height:150px; border-radius:14px }
+  .featured-service__body{ padding:0 0 0 16px }
+  .featured-service__title{ font-size:20px; margin-top:6px }
+  .featured-service__text{ margin-top:6px }
+  .featured-service__more{ margin-top:10px }
+  .compact-services{ grid-template-columns:1fr 1fr }
 }
-.service-card__icon{ color:var(--brand-red-ink); padding-top:2px }
-.service-card__icon svg{
-  width:26px; height:26px; display:block; stroke:currentColor; fill:none;
-  stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round;
+@media (max-width:900px) and (min-width:601px){
+  .compact-services .compact-group:last-child{ grid-column:span 2 }
 }
-.service-card__name{
-  display:block; font-family:var(--font-display); font-weight:550;
-  font-size:var(--text-body-lg); letter-spacing:-.01em;
+@media (max-width:600px){
+  .compact-services{ grid-template-columns:1fr }
+  .compact-group{ padding:20px 18px 8px }
 }
-.service-card__summary{
-  display:block; margin-top:5px; font-size:var(--text-body-sm);
-  line-height:1.45; color:rgba(35,31,32,.68);
-}
-.service-card__arrow{ color:var(--brand-red-ink); transition:transform .3s var(--ease) }
-.service-card a:hover .service-card__arrow{ transform:translateX(4px) }
-@media (max-width:900px){ .services-grid{ grid-template-columns:1fr 1fr } }
-@media (max-width:640px){ .services-grid{ grid-template-columns:1fr } }
 
 /* Sectors */
 .sectors{ display:flex; flex-wrap:wrap; gap:10px; margin:0; padding:0; list-style:none }

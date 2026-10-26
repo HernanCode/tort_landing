@@ -24,7 +24,7 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 - 18 pàgines de servei a `serveis/<slug>/` generades des de `serveis/data/serveis.json` i
   `serveis/_template.html` amb `scripts/build-serveis.py`. Model de 7 blocs: capçalera, què és,
   per a qui, 3 passos, residus acceptats, FAQ, relacionats i CTA.
-- Peu complet: CTA final, 4 columnes, logos ARC/Generalitat i codis; formulari amb foto i els 18 serveis.
+- Peu complet: 4 columnes, logos ARC/Generalitat i codis; formulari amb foto i els 18 serveis.
 - Empresa: secció a la home + pàgina `/empresa/` (50+ anys, empresa familiar, planta nova).
 - Contenidors: 4 mides a la home i fitxes a `/serveis/lloguer-de-contenidors/#mides`.
 - Autoritzacions: E-211.96, T-663, CRT de RAEE, Gremi i enllaç de verificació ARC.
@@ -38,8 +38,10 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
   blanca en fer scroll. A ≤900 px, barra inferior fixa amb «Trucar» i «Demana pressupost».
 - Revelat en scroll de tot el que va després del hero (fosa + desplaçament, escalonat als blocs
   repetits), amb `IntersectionObserver`, sense JS tot visible i `prefers-reduced-motion` respectat.
-- Ritme de color: hero foto → Serveis blanc → Autoritzacions blau suau `#AED5EE` → Què gestionem
-  blanc → Galeria paper `#F0EDE9` → Ubicació blanc → Contacte verd suau `#B9DFBD` (targeta ampla).
+- Ritme de color: hero foto → Serveis blanc amb 3 columnes per tipus i tints pàl·lids (`--blue-wash`, `--green-wash`, paper) → Sectors paper →
+  Contenidors verd molt clar `#EFF8F0` → Empresa paper → Autoritzacions blau suau `#AED5EE` →
+  Què gestionem blanc → Galeria paper → Ubicació blau molt clar → Contacte blanc + targeta verda
+  `#B9DFBD`.
 - Pàgines legals: `avis-legal.html`, `politica-de-cookies.html`, `politica-de-privacitat.html`,
   `404.html`.
 
@@ -51,7 +53,7 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 - No hi ha degradats de superfície (només el vel del hero).
 - Sobre fons de color suau el text va en tinta `#231F20` (contrast 6,7–10,6:1). Blanc sobre
   `#E63030` és 4,35:1: només per a text gran; per a text petit es fa servir `--brand-red-ink`
-  (`#DC2C2C`, 4,7:1).
+  (`#C42A2A`, 5,6:1), que també passa sobre els tints `--blue-wash` i `--green-wash`.
 - `--blue-soft` i `--green-soft` surten de barrejar els corporatius amb blanc.
 - Contacte: `.section--wide` (fins a 1920 px) en lloc dels 1200 px de la resta.
 - Secció de contacte: formulari limitat a 720 px a partir de 1500 px.
@@ -80,7 +82,7 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 ## Avisos tècnics
 
 - **Vídeos**: els originals 4K són a `../videos-origen/` (fora del deploy). A `assets/videos/` només hi ha les versions 1280/960 en MP4 i WebM.
-- **Cau de memòria cau**: `style.css` i `main.js` es carreguen amb `?v=20261019-36` a totes les
+- **Cau de memòria cau**: `style.css` i `main.js` es carreguen amb `?v=20261019-47` a totes les
   pàgines. En tocar CSS o JS cal pujar aquest valor o el navegador servirà la versió vella.
 - Les captures de pàgina sencera del navegador donen artefactes (hero, imatges lazy): verificar
   secció a secció per `id`.
