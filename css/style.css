@@ -585,13 +585,21 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer }
 .footer__contact li{ font-size:var(--text-body-sm); color:rgba(35,31,32,.65) }
 .footer a:hover{ color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--brand-blue) }
 .footer__trust{
-  display:flex; align-items:center; flex-wrap:wrap; gap:14px 24px;
+  display:flex; align-items:center; flex-wrap:wrap; gap:16px 28px;
   margin-top:48px; padding:20px 0;
   border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
 }
 .footer__trust-label{ max-width:38ch; font-size:var(--text-caption); line-height:1.4; letter-spacing:.02em; color:rgba(35,31,32,.72) }
-.footer__trust .logo-card{ min-height:50px; padding:8px 12px; border-radius:8px }
-.footer__trust .logo-card img{ height:26px }
+.footer__logos{ display:flex; align-items:center; flex-wrap:wrap; gap:14px 28px }
+.trust-logo{ display:inline-flex; align-items:center; justify-content:center; padding:4px 0 }
+.trust-logo img{
+  display:block; height:36px; width:auto;
+  filter:grayscale(1); opacity:.7;
+  transition:filter .25s ease, opacity .25s ease;
+}
+.trust-logo--mark img{ height:42px }
+.trust-logo:hover img, .trust-logo:focus-visible img{ filter:grayscale(0); opacity:1 }
+.trust-logo:focus-visible{ outline:2px solid var(--brand-blue); outline-offset:4px; border-radius:4px }
 .footer__codes{ margin-left:auto; font-size:var(--text-caption); color:rgba(35,31,32,.72); white-space:nowrap }
 .footer__meta{
   margin-top:24px; padding-top:20px;
@@ -839,7 +847,12 @@ a.container-card:hover, .container-card:hover{ border-color:rgba(35,31,32,.4); t
 @media (max-width:560px){ .container-cards{ grid-template-columns:1fr } }
 
 .creds-extra{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px }
-.cred-card{ background:#fff; border:1px solid rgba(35,31,32,.12); border-radius:16px; padding:24px }
+.cred-card{
+  display:flex; flex-direction:column;
+  background:#fff; border:1px solid rgba(35,31,32,.12); border-radius:16px;
+  padding:28px 28px 24px;
+  min-height:clamp(250px,22vw,280px);
+}
 .cred-card__code{
   margin:0; font-size:var(--text-caption); font-weight:500; letter-spacing:.14em;
   text-transform:uppercase; color:var(--brand-red-ink);
@@ -847,6 +860,13 @@ a.container-card:hover, .container-card:hover{ border-color:rgba(35,31,32,.4); t
 .cred-card h3{ margin:12px 0 8px; font-family:var(--font-display); font-weight:550; font-size:var(--text-body-lg); letter-spacing:-.01em }
 .cred-card p{ margin:0; font-size:var(--text-body-sm); line-height:1.5; color:rgba(35,31,32,.72) }
 .cred-card a{ text-decoration:underline; text-underline-offset:3px }
+/* Franja inferior reservada per al logotip de cada entitat */
+.cred-card__logo{
+  margin-top:auto; padding-top:24px;
+  display:flex; align-items:center; justify-content:flex-start;
+  min-height:96px;
+}
+.cred-card__logo img{ max-height:72px; max-width:200px; width:auto; height:auto; display:block; object-fit:contain }
 .creds-verify{ margin-top:24px }
 .creds-verify a{
   font-size:var(--text-body-sm); font-weight:500;
