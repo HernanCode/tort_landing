@@ -48,15 +48,15 @@ landing/
 1. **Nav isla** — hamburguesa (obre el menú), logotip centrat, telèfon clicable i CTA «Demana pressupost»
 2. **Hero** — carrusel de 3 vídeos de 5 s amb animació lligada al scroll
 3. **Serveis** — 3 destacats amb foto (Lloguer de contenidors, Recollida i transport, Gestió de residus) + 15 serveis compactes (només títol i fletxa), repartits 5/5/5 en tres columnes amb tint propi: Reciclatge i recuperació (blau molt clar) · Obra, buidatges i destrucció (verd molt clar) · Serveis especials (paper)
-4. **Sectors** — indústria, construcció, alimentació, comerç i administració
+4. **Sectors** — 5 sectors amb descripció del que s'hi gestiona i enllaç al servei relacionat (indústria, construcció, alimentació, comerç i administració)
 5. **Contenidors** — 4 mides (3, 5, 7–9 i 14–30 m³) amb enllaç a la fitxa
-6. **Empresa** — 50+ anys, empresa familiar i planta nova, amb enllaç a `/empresa/`
+6. **Empresa** — 128 anys, empresa familiar i planta nova, amb enllaç a `/empresa/`
 7. **Autoritzacions** — E-211.96, T-663, CRT de RAEE, Gremi, logos i enllaç de verificació ARC
 8. **Què gestionem** — llistat de residus que es tracten
-9. **Galeria** — 7 imatges en graella editorial
+9. **Galeria** — 7 imatges: peça panoràmica a tot l'ample + graella 3×2, respectant el format 4:3 de les fotos
 10. **Ubicació** — mapa OpenStreetMap + enllaç a Google Maps
 11. **Contacte** — formulari amb validació, foto opcional i consentiments
-12. **Peu** — 4 columnes (Tort · Serveis · Empresa · Contacte), confiança (ARC/Generalitat i codis) i legal
+12. **Peu** — 4 columnes (Tort · Serveis · Empresa · Contacte), confiança (ARC/Generalitat, SDR, Gremi, RAEE i codis) i legal
 13. **Barra mòbil** — Trucar / Demana pressupost, fixa a baix (≤900 px)
 14. **Avís de cookies** — acceptar / rebutjar (comentat a la portada per a la proposta)
 
@@ -82,7 +82,7 @@ cd landing && python3 scripts/build-serveis.py
 Cada pàgina té set blocs:
 
 1. **Capçalera** (`.page-hero`): fil d'Ariana, kicker, H1 «servei + Manresa» i entrada.
-   Si el servei no té foto pròpia, fa servir `.page-hero--plain` (fons de marca, sense imatge).
+   Si el servei no té foto pròpia, fa servir `.page-hero--plain` (fons vermell de marca, sense imatge).
 2. **Què és** (`.service-intro`): titular, entrada i paràgrafs + «Per a qui» en columna.
 3. **Com funciona** (`.steps`): tres passos.
 4. **Residus acceptats** (`.materials`): llista a dues columnes.

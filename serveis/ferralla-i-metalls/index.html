@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://hernancode.github.io/tort_landing/assets/img/og-tort.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Planta de gestió de residus de Tort a Manresa">
+<meta property="og:image:alt" content="Planta de gestió de residus de Tort a Sant Fruitós de Bages">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -32,7 +32,7 @@
         "telephone": "+34938730237",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Manresa",
+          "addressLocality": "Sant Fruitós de Bages",
           "addressRegion": "Barcelona",
           "addressCountry": "ES"
         }
@@ -78,10 +78,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="../../css/style.css?v=20261103-3">
+<link rel="preload" as="image" href="../../assets/img/servei-ferralla-i-metalls.webp" type="image/webp">
+<link rel="stylesheet" href="../../css/style.css?v=20261106-1">
 </head>
-<body class="has-mobile-bar">
+<body class="has-mobile-bar page-service">
 
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
@@ -137,8 +137,8 @@
 <main id="top">
 
   <!-- ============ CAPÇALERA ============ -->
-  <header class="page-hero page-hero--plain" data-page-hero>
-    
+  <header class="page-hero" data-page-hero>
+        <div class="page-hero__media" aria-hidden="true"><img src="../../assets/img/servei-ferralla-i-metalls.webp" alt="" fetchpriority="high"></div>
     <div class="page-hero__scrim" aria-hidden="true"></div>
 
     <div class="page-hero__inner">
@@ -255,18 +255,18 @@
   </section>
 
   <!-- ============ CONTACTE ============ -->
-  <section class="section section--wide" id="contacte">
+  <section class="section" id="contacte">
     <div class="wrap">
       <div class="cta cta--page">
         <div class="cta__text">
           <h2>Tens metall acumulat? Te'l traiem.</h2>
           <p>Et passem un pressupost sense compromís i amb la documentació que caldrà per a cada residu.</p>
+        </div>
+        <div class="cta__actions">
           <ul class="contact-list contact-list--ink">
             <li><span class="kicker">Telèfon</span><a href="tel:+34938730237">93 873 02 37</a></li>
             <li><span class="kicker">Correu</span><a href="mailto:administracio@containerstort.com">administracio@containerstort.com</a></li>
           </ul>
-        </div>
-        <div class="cta__actions">
           <a class="action action--red" href="../../index.html#contacte">Demana pressupost</a>
         </div>
       </div>
@@ -281,7 +281,7 @@
       <div class="footer__brand">
         <img src="../../assets/logo/logo-tort.svg" alt="Contenidors i Gestió de Residus Tort" width="409" height="138" style="width:210px;height:auto;margin-bottom:24px">
         <p class="body" style="font-size:var(--text-body-sm);max-width:34ch">Recollida, transport i gestió de residus per a empreses i indústria del Bages.</p>
-        <p class="footer__place">Manresa, Barcelona</p>
+        <p class="footer__place">Sant Fruitós de Bages, Barcelona</p>
       </div>
       <div>
         <h2>Serveis</h2>
@@ -311,15 +311,27 @@
         <ul class="footer__contact">
           <li><a href="tel:+34938730237">93 873 02 37</a></li>
           <li><a href="mailto:administracio@containerstort.com">administracio@containerstort.com</a></li>
-          <li>Manresa, Barcelona</li>
+          <li>Sant Fruitós de Bages, Barcelona</li>
         </ul>
       </div>
     </div>
 
     <div class="footer__trust">
       <span class="footer__trust-label">Empresa autoritzada per l'Agència de Residus de Catalunya</span>
-      <span class="logo-card"><img src="../../assets/oficial/arc.png" alt="SDR, Sistema Documental de Residus" width="260" height="116" loading="lazy"></span>
-      <span class="logo-card"><img src="../../assets/oficial/generalitat.png" alt="Generalitat de Catalunya" width="392" height="196" loading="lazy"></span>
+      <div class="footer__logos">
+        <a class="trust-logo" href="https://residus.gencat.cat/" target="_blank" rel="noopener">
+          <img src="../../assets/img/arc_generalitat.png" alt="Agència de Residus de Catalunya i Generalitat de Catalunya" width="2008" height="349" loading="lazy">
+        </a>
+        <a class="trust-logo" href="https://sdr.arc.cat/sdr/GetLogin.do" target="_blank" rel="noopener">
+          <img src="../../assets/oficial/arc.png" alt="SDR, Sistema Documental de Residus" width="260" height="116" loading="lazy">
+        </a>
+        <a class="trust-logo" href="https://www.gremirecuperacio.org/" target="_blank" rel="noopener">
+          <img src="../../assets/oficial/gremi.png" alt="Gremi de Recuperació de Catalunya" width="298" height="119" loading="lazy">
+        </a>
+        <a class="trust-logo trust-logo--mark" href="https://residus.gencat.cat/ca/ambits_dactuacio/tipus_de_residu/residus_daparells_electrics_i_electronics_raee/" target="_blank" rel="noopener">
+          <img src="../../assets/oficial/raee.svg" alt="RAEE, residus d'aparells elèctrics i electrònics" width="420" height="597" loading="lazy">
+        </a>
+      </div>
       <span class="footer__codes">E-211.96 · T-663</span>
     </div>
 
@@ -334,6 +346,6 @@
   </div>
 </footer>
 
-<script src="../../js/main.js?v=20261019-47" defer></script>
+<script src="../../js/main.js?v=20261104-1" defer></script>
 </body>
 </html>

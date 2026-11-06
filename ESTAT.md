@@ -24,8 +24,8 @@ cd /home/samuel/proyectos/tort/landing && python3 -m http.server 8779
 - 18 pàgines de servei a `serveis/<slug>/` generades des de `serveis/data/serveis.json` i
   `serveis/_template.html` amb `scripts/build-serveis.py`. Model de 7 blocs: capçalera, què és,
   per a qui, 3 passos, residus acceptats, FAQ, relacionats i CTA.
-- Peu complet: 4 columnes, logos ARC/Generalitat i codis; formulari amb foto i els 18 serveis.
-- Empresa: secció a la home + pàgina `/empresa/` (50+ anys, empresa familiar, planta nova).
+- Peu complet: 4 columnes, logos ARC/Generalitat, SDR, Gremi i RAEE, i codis; formulari amb foto i els 18 serveis.
+- Empresa: secció a la home + pàgina `/empresa/` (128 anys, empresa familiar, planta nova).
 - Contenidors: 4 mides a la home i fitxes a `/serveis/lloguer-de-contenidors/#mides`.
 - Autoritzacions: E-211.96, T-663, CRT de RAEE, Gremi i enllaç de verificació ARC.
 - SEO: canòniques, `og:image`, JSON-LD (`LocalBusiness`, `Service`, `FAQPage`), `sitemap.xml` i `robots.txt`.

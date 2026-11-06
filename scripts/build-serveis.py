@@ -175,7 +175,7 @@ def render(service, by_slug):
                     "telephone": "+34938730237",
                     "address": {
                         "@type": "PostalAddress",
-                        "addressLocality": "Manresa",
+                        "addressLocality": "Sant Fruitós de Bages",
                         "addressRegion": "Barcelona",
                         "addressCountry": "ES",
                     },

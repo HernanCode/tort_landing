@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://hernancode.github.io/tort_landing/assets/img/og-tort.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Planta de gestió de residus de Tort a Manresa">
+<meta property="og:image:alt" content="Planta de gestió de residus de Tort a Sant Fruitós de Bages">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -27,7 +27,7 @@
   "image": "https://hernancode.github.io/tort_landing/assets/img/og-tort.jpg",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Manresa",
+    "addressLocality": "Sant Fruitós de Bages",
     "addressRegion": "Barcelona",
     "addressCountry": "ES"
   },
@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero-1-poster.webp" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="css/style.css?v=20261103-3">
+<link rel="stylesheet" href="css/style.css?v=20261106-1">
 </head>
 <body class="has-mobile-bar">
 
@@ -122,7 +122,7 @@
 
       <div class="hero__content">
         <div class="hero__stack">
-          <h1 class="hero__title">Gestió de residus a Manresa</h1>
+          <h1 class="hero__title">Gestió de residus al Bages</h1>
           <p class="hero__sub">Ens encarreguem de la classificació, el tractament i la destinació final de cada residu.</p>
         </div>
       </div>
@@ -221,15 +221,70 @@
   <!-- ============ SECTORS ============ -->
   <section class="section section--tight section--wash-green" id="sectors">
     <div class="wrap">
-      <p class="kicker" style="color:var(--brand-red-ink)">Sectors</p>
-      <h2 class="display h-section" style="margin:24px 0 40px; max-width:22ch">Treballem amb empreses de tots els sectors</h2>
-      <ul class="sectors">
-        <li>Indústria</li>
-        <li>Construcció</li>
-        <li>Alimentació</li>
-        <li>Comerç i oficines</li>
-        <li>Administració pública</li>
-      </ul>
+      <div class="sectors-layout">
+        <div class="sectors-intro">
+          <p class="kicker" style="color:var(--brand-red-ink)">Sectors</p>
+          <h2 class="display h-section">Treballem amb empreses de tots els sectors</h2>
+          <p class="sectors-intro__text">Cada sector genera residus diferents. Fa més de 128 anys que els recollim, els classifiquem i els lliurem a gestor autoritzat.</p>
+        </div>
+
+        <div class="sectors-panel">
+          <ul class="sector-list">
+            <li class="sector-item">
+              <a href="serveis/ferralla-i-metalls/">
+                <span class="sector-item__num">01</span>
+                <span class="sector-item__body">
+                  <span class="sector-item__name">Indústria</span>
+                  <span class="sector-item__desc">Ferralla, metalls, plàstics i residus perillosos. Contenidors de gran capacitat i recollida periòdica.</span>
+                </span>
+                <span class="sector-item__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="sector-item">
+              <a href="serveis/runes-i-obra/">
+                <span class="sector-item__num">02</span>
+                <span class="sector-item__body">
+                  <span class="sector-item__name">Construcció</span>
+                  <span class="sector-item__desc">Runes, fusta, guix i voluminosos. De la reforma petita a l'obra gran, amb contenidors de 3 a 30 m³.</span>
+                </span>
+                <span class="sector-item__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="sector-item">
+              <a href="serveis/gestio-de-residus/">
+                <span class="sector-item__num">03</span>
+                <span class="sector-item__body">
+                  <span class="sector-item__name">Alimentació</span>
+                  <span class="sector-item__desc">Orgànica, envasos, paper i cartró. Recollida programada per no aturar l'activitat.</span>
+                </span>
+                <span class="sector-item__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="sector-item">
+              <a href="serveis/destruccio-de-documents/">
+                <span class="sector-item__num">04</span>
+                <span class="sector-item__body">
+                  <span class="sector-item__name">Comerç i oficines</span>
+                  <span class="sector-item__desc">Paper, cartró, RAEE i tòners. Destrucció de documents amb certificat.</span>
+                </span>
+                <span class="sector-item__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="sector-item">
+              <a href="serveis/raee-i-electronica/">
+                <span class="sector-item__num">05</span>
+                <span class="sector-item__body">
+                  <span class="sector-item__name">Administració pública</span>
+                  <span class="sector-item__desc">RAEE, paper, voluminosos i gestió documental. Circuits i documentació per a licitacions.</span>
+                </span>
+                <span class="sector-item__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <p class="sectors-cta"><strong>No trobes el teu cas?</strong> <a href="#contacte">Explica'ns què generes i t'ho diem →</a></p>
+      </div>
     </div>
   </section>
 
@@ -273,13 +328,17 @@
     <div class="wrap split">
       <div class="split__text">
         <p class="kicker" style="color:var(--brand-red-ink)">Empresa</p>
-        <h2 class="display h-section" style="margin:24px 0 28px">Més de 50 anys gestionant residus al Bages</h2>
-        <p class="lead">Som una empresa familiar de Manresa. Fa més de 50 anys que recollim, transportem i gestionem residus d'empreses i indústries del Bages.</p>
+        <h2 class="display h-section" style="margin:24px 0 28px">Més de 128 anys gestionant residus al Bages</h2>
+        <p class="lead">Som una empresa familiar del Bages. Fa més de 128 anys que recollim, transportem i gestionem residus d'empreses i indústries del Bages.</p>
         <p class="body">Ara estrenem planta nova: més espai, més capacitat i la mateixa manera de treballar de sempre.</p>
         <p><a class="action action--red" href="empresa/">Coneix l'empresa</a></p>
       </div>
-      <figure class="split__media">
-        <img src="assets/img/entrada-tort-1000.webp" alt="Cartell d'entrada a les instal·lacions de Tort" width="1000" height="752" loading="lazy">
+      <figure class="split__media split__media--wide">
+        <img src="assets/img/125anys-1500.webp"
+             srcset="assets/img/125anys-800.webp 800w, assets/img/125anys-1500.webp 1500w"
+             sizes="(max-width:900px) 100vw, 50vw"
+             alt="Fotografia històrica de l'empresa: camió de transport a Sant Fruitós de Bages"
+             width="1500" height="1000" loading="lazy">
       </figure>
     </div>
   </section>
@@ -291,10 +350,6 @@
         <div class="creds-strip__intro">
           <p class="kicker">Autoritzacions</p>
           <h2 class="display h-section">Empresa autoritzada per l'Agència de Residus de Catalunya</h2>
-          <div class="feature__logos">
-            <span class="logo-card"><img src="assets/oficial/arc.png" alt="SDR, Sistema Documental de Residus" width="260" height="116" loading="lazy"></span>
-            <span class="logo-card"><img src="assets/oficial/generalitat.png" alt="Generalitat de Catalunya" width="392" height="196" loading="lazy"></span>
-          </div>
         </div>
         <dl class="creds-strip__list">
           <div class="cred">
@@ -314,6 +369,7 @@
           <p>Autoritzat per a la recollida i transferència d'equips elèctrics i electrònics grans i petits.</p>
           <div class="cred-card__logo">
             <img src="assets/oficial/raee.svg" alt="Símbol RAEE" width="420" height="597" loading="lazy">
+            <img src="assets/oficial/arc.png" alt="SDR, Sistema Documental de Residus" width="260" height="116" loading="lazy">
           </div>
         </article>
         <article class="cred-card">
@@ -364,13 +420,34 @@
       <p class="kicker" style="color:var(--brand-red-ink)">Galeria</p>
       <h2 class="display h-section" style="margin:24px 0 48px; max-width:24ch">Les instal·lacions, els mitjans i l'equip</h2>
       <div class="gallery">
-        <figure><img src="assets/img/galeria-01-800.webp" alt="Operari de Tort a les instal·lacions" loading="lazy" width="800" height="597"></figure>
-        <figure><img src="assets/img/galeria-02-800.webp" alt="Nau de tractament i tria de residus" loading="lazy" width="800" height="450"></figure>
-        <figure><img src="assets/img/galeria-03-800.webp" alt="Contenidor de Tort carregat" loading="lazy" width="800" height="601"></figure>
-        <figure><img src="assets/img/galeria-04-800.webp" alt="Equipament de treball de Tort" loading="lazy" width="800" height="597"></figure>
-        <figure><img src="assets/img/galeria-05-800.webp" alt="Contenidor de recollida de residus" loading="lazy" width="800" height="601"></figure>
-        <figure><img src="assets/img/galeria-06-800.webp" alt="Cartell d'entrada a les instal·lacions" loading="lazy" width="800" height="597"></figure>
-        <figure><img src="assets/img/galeria-07-800.webp" alt="Targetes de visita de Tort" loading="lazy" width="800" height="597"></figure>
+        <figure><img src="assets/img/galeria-02-1200.webp"
+          srcset="assets/img/galeria-02-800.webp 800w, assets/img/galeria-02-1200.webp 1200w"
+          sizes="(max-width:560px) 100vw, (max-width:900px) 100vw, 1200px"
+          alt="Nau de tractament i tria de residus" loading="lazy" width="1200" height="675"></figure>
+        <figure><img src="assets/img/galeria-01-800.webp"
+          srcset="assets/img/galeria-01-800.webp 800w, assets/img/galeria-01-1200.webp 1200w"
+          sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+          alt="Operari de Tort a les instal·lacions" loading="lazy" width="800" height="597"></figure>
+        <figure><img src="assets/img/galeria-03-800.webp"
+          srcset="assets/img/galeria-03-800.webp 800w, assets/img/galeria-03-1200.webp 1200w"
+          sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+          alt="Contenidor de Tort carregat" loading="lazy" width="800" height="601"></figure>
+        <figure><img src="assets/img/galeria-04-800.webp"
+          srcset="assets/img/galeria-04-800.webp 800w, assets/img/galeria-04-1200.webp 1200w"
+          sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+          alt="Equipament de treball de Tort" loading="lazy" width="800" height="597"></figure>
+        <figure><img src="assets/img/galeria-05-800.webp"
+          srcset="assets/img/galeria-05-800.webp 800w, assets/img/galeria-05-1200.webp 1200w"
+          sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+          alt="Contenidor de recollida de residus" loading="lazy" width="800" height="601"></figure>
+        <figure><img src="assets/img/galeria-06-800.webp"
+          srcset="assets/img/galeria-06-800.webp 800w, assets/img/galeria-06-1200.webp 1200w"
+          sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+          alt="Cartell d'entrada a les instal·lacions" loading="lazy" width="800" height="597"></figure>
+        <figure><img src="assets/img/galeria-07-800.webp"
+          srcset="assets/img/galeria-07-800.webp 800w, assets/img/galeria-07-1200.webp 1200w"
+          sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+          alt="Targetes de visita de Tort" loading="lazy" width="800" height="597"></figure>
       </div>
     </div>
   </section>
@@ -380,15 +457,15 @@
     <div class="wrap">
       <div class="sec__head">
         <p class="kicker" style="color:var(--brand-red-ink)">Ubicació</p>
-        <h2 class="display h-section" style="margin-top:24px; margin-bottom:48px">Nova ubicació a Manresa</h2>
+        <h2 class="display h-section" style="margin-top:24px; margin-bottom:48px">Nova ubicació a Sant Fruitós de Bages</h2>
       </div>
       <div class="grid-2">
         <div class="map">
-          <iframe title="Mapa de la ubicació de Tort a Manresa" loading="lazy"
+          <iframe title="Mapa de la ubicació de Tort a Sant Fruitós de Bages" loading="lazy"
             src="https://www.openstreetmap.org/export/embed.html?bbox=1.8590%2C41.7619%2C1.8844%2C41.7739&amp;layer=mapnik&amp;marker=41.767960%2C1.871633"></iframe>
         </div>
         <div>
-          <p class="body">Nova ubicació a Manresa, a peu de carretera i amb accés directe per a camions. Si vens, avisa'ns i t'expliquem com arribar-hi.</p>
+          <p class="body">Nova ubicació a Sant Fruitós de Bages, a peu de carretera i amb accés directe per a camions. Si vens, avisa'ns i t'expliquem com arribar-hi.</p>
           <p style="margin-top:28px">
             <a class="action" href="https://www.google.com/maps/search/?api=1&amp;query=41.767960,1.871633" target="_blank" rel="noopener">Obrir al Google Maps</a>
           </p>
@@ -434,7 +511,6 @@
               <option>Runes i residus d'obra</option>
               <option>Destrucció d'estocs</option>
               <option>Cable de coure i alumini</option>
-              <option>Vehicles fora d'ús</option>
               <option>Fosses sèptiques</option>
               <option>Desembussos</option>
               <option>Reciclatge d'extintors</option>
@@ -458,6 +534,7 @@
   </section>
 </main>
 
+
 <!-- ============ PEU ============ -->
 <footer class="footer">
   <div class="wrap">
@@ -465,7 +542,7 @@
       <div class="footer__brand">
         <img src="assets/logo/logo-tort.svg" alt="Contenidors i Gestió de Residus Tort" width="409" height="138" style="width:210px;height:auto;margin-bottom:24px">
         <p class="body" style="font-size:var(--text-body-sm);max-width:34ch">Recollida, transport i gestió de residus per a empreses i indústria del Bages.</p>
-        <p class="footer__place">Manresa, Barcelona</p>
+        <p class="footer__place">Sant Fruitós de Bages, Barcelona</p>
       </div>
       <div>
         <h2>Serveis</h2>
@@ -495,7 +572,7 @@
         <ul class="footer__contact">
           <li><a href="tel:+34938730237">93 873 02 37</a></li>
           <li><a href="mailto:administracio@containerstort.com">administracio@containerstort.com</a></li>
-          <li>Manresa, Barcelona</li>
+          <li>Sant Fruitós de Bages, Barcelona</li>
         </ul>
       </div>
     </div>
@@ -504,7 +581,7 @@
       <span class="footer__trust-label">Empresa autoritzada per l'Agència de Residus de Catalunya</span>
       <div class="footer__logos">
         <a class="trust-logo" href="https://residus.gencat.cat/" target="_blank" rel="noopener">
-          <img src="assets/oficial/generalitat.png" alt="Generalitat de Catalunya" width="392" height="196" loading="lazy">
+          <img src="assets/img/arc_generalitat.png" alt="Agència de Residus de Catalunya i Generalitat de Catalunya" width="2008" height="349" loading="lazy">
         </a>
         <a class="trust-logo" href="https://sdr.arc.cat/sdr/GetLogin.do" target="_blank" rel="noopener">
           <img src="assets/oficial/arc.png" alt="SDR, Sistema Documental de Residus" width="260" height="116" loading="lazy">
@@ -539,6 +616,6 @@
   </div>
 </div> -->
 
-<script src="js/main.js?v=20261019-47" defer></script>
+<script src="js/main.js?v=20261104-1" defer></script>
 </body>
 </html>

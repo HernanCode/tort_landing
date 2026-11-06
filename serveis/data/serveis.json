@@ -10,8 +10,8 @@
     "metaDescription": "Contenidors per a obra, indústria i buidatges. Diferents mides, entrega i recollida amb camió propi. Demana pressupost.",
     "summary": "Contenidors de 3 a 30 m³, entrega i recollida amb mitjans propis.",
     "lead": "Contenidors per a obres, reformes, indústria i buidatges. Te'l portem on el necessites, el recollim quan és ple i ens fem càrrec de tot el que hi ha a dins.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/galeria-03-1200.webp",
+    "heroAlt": "Contenidor de Tort carregat",
     "introHeading": "Quin contenidor necessites?",
     "intro": [
       "Tenim contenidors de cadenes de 3, 5 i 7–9 m³ i contenidors de ganxo de 14 a 30 m³. La mida depèn del tipus d'obra, del volum i de si el contenidor ha de cap en un carrer estret.",
@@ -113,7 +113,7 @@
     "introHeading": "Puntual o periòdica",
     "intro": [
       "Si generes residus cada setmana, et fixem una ruta i no te n'has de tornar a preocupar. Si és una neteja, un canvi de maquinària o un tancament, venim només aquell dia.",
-      "Som transportista autoritzat (T-663) i gestor (E-211.96): el residu surt de casa teva i arriba directament a la nostra planta de Manresa."
+      "Som transportista autoritzat (T-663) i gestor (E-211.96): el residu surt de casa teva i arriba directament a la nostra planta de Sant Fruitós de Bages."
     ],
     "audience": [
       "Indústria",
@@ -250,8 +250,8 @@
     "metaDescription": "Recollida i reciclatge de paper i cartró per a empreses. Contenidor al teu centre i recollida quan és ple.",
     "summary": "Contenidor al centre i recollida de paper i cartró quan és ple.",
     "lead": "Recollim i reciclem paper i cartró d'empreses, comerços i oficines. Et deixem el contenidor i el buidem quan és ple.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-paper-i-carto.webp",
+    "heroAlt": "Imatge del servei Paper i cartró",
     "introHeading": "Paper, cartró i embalatges",
     "intro": [
       "Recollim caixes, embalatges, paper d'oficina, retalls d'impremta, tubs i mandrins. Ho classifiquem i ho premsem perquè torni a la cadena com a matèria primera.",
@@ -316,8 +316,8 @@
     "metaDescription": "Recollida i reciclatge de ferralla, metalls i cable per a indústria i tallers. Contenidor propi i gestió documentada.",
     "summary": "Ferralla, metalls i cable: recollida i recuperació.",
     "lead": "Recollim ferralla, metalls i cable de tallers, indústria i desmuntatges. Ho classifiquem i ho preparem per a la recuperació.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-ferralla-i-metalls.webp",
+    "heroAlt": "Imatge del servei Ferralla i metalls",
     "introHeading": "Metall que torna a la indústria",
     "intro": [
       "Separem ferralla i metalls perquè arribin al gestor en les condicions que calen. Treballem amb tallers, indústria i desmuntatges que generen volum de forma regular.",
@@ -383,8 +383,8 @@
     "metaDescription": "Centre de recollida i transferència de RAEE. Recollim i gestionem equips elèctrics i electrònics grans i petits.",
     "summary": "CRT de RAEE: equips grans i petits, amb traçabilitat.",
     "lead": "Som centre de recollida i transferència (CRT) de RAEE. Recollim equips elèctrics i electrònics grans i petits i els gestionem amb traçabilitat.",
-    "heroImage": "assets/img/slide-interior-1600.webp",
-    "heroAlt": "Instal·lacions de Tort per a la gestió de residus",
+    "heroImage": "assets/img/servei-raee-i-electronica.webp",
+    "heroAlt": "Imatge del servei RAEE i electrònica",
     "introHeading": "Equips que ja no serveixen",
     "intro": [
       "Recollim electrodomèstics, ordinadors, pantalles, impressores i petits aparells elèctrics. Els portem a les nostres instal·lacions i els gestionem com a RAEE.",
@@ -450,8 +450,8 @@
     "metaDescription": "Recollida i destrucció confidencial de documentació per a empreses i administracions, amb certificat.",
     "summary": "Destrucció confidencial amb certificat per a empreses.",
     "lead": "Recollim i destruïm documentació de forma confidencial, amb el certificat corresponent.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-destruccio-de-documents.webp",
+    "heroAlt": "Imatge del servei Destrucció de documents",
     "introHeading": "Documentació que no pot sortir de casa",
     "intro": [
       "Recollim documentació d'empreses i administracions i la destruïm de forma confidencial. El procés queda documentat amb el certificat corresponent.",
@@ -516,8 +516,8 @@
     "metaDescription": "Buidatges de naus, locals i pisos amb mitjans propis. Recollim, separem i gestionem tot el que cal treure.",
     "summary": "Buidatge de naus, locals i pisos, amb separació i gestió.",
     "lead": "Buidem naus, locals i pisos amb mitjans propis. Recollim, separem i gestionem tot el que cal treure.",
-    "heroImage": "assets/img/galeria-01-1200.webp",
-    "heroAlt": "Operari de Tort en una nau",
+    "heroImage": "assets/img/servei-buidatge-de-naus.webp",
+    "heroAlt": "Imatge del servei Buidatge de naus",
     "introHeading": "Deixar un espai buit, sense maldecaps",
     "intro": [
       "Treballem en buidatges de naus, locals i pisos: mobiliari, maquinària, estocs, voluminosos i residus. Separem el que es pot recuperar del que s'ha de gestionar.",
@@ -584,8 +584,8 @@
     "metaDescription": "Codis LER, separació, documentació i obligacions. Assessorament per a empreses que gestionen residus.",
     "summary": "Codis LER, separació, documentació i obligacions.",
     "lead": "Informació i assessorament per gestionar els residus de la teva empresa amb totes les garanties.",
-    "heroImage": "assets/img/entrada-tort-1600.webp",
-    "heroAlt": "Cartell d'entrada a les instal·lacions de Tort",
+    "heroImage": "assets/img/servei-assessoria-tecnica.webp",
+    "heroAlt": "Imatge del servei Assessoria tècnica",
     "introHeading": "T'ajudem a gestionar els residus amb criteri",
     "intro": [
       "Posem a la disposició dels nostres clients tota la informació i l'assessorament necessaris a l'hora de gestionar els residus.",
@@ -651,8 +651,8 @@
     "metaDescription": "Recollida i gestió d'olis, dissolvents, pintures, bateries i envasos contaminats. Documentació i traçabilitat.",
     "summary": "Olis, dissolvents, bateries i envasos, amb traçabilitat.",
     "lead": "Gestionem olis usats, dissolvents, pintures, envasos contaminats, bateries, filtres i absorbents amb tota la traçabilitat.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-residus-perillosos.webp",
+    "heroAlt": "Imatge del servei Residus perillosos",
     "introHeading": "Cada residu, el seu paper",
     "intro": [
       "T'expliquem on i com emmagatzemar cada residu a la teva instal·lació, en quin envàs i durant quant de temps. Sense riscos i sense sancions.",
@@ -719,8 +719,8 @@
     "metaDescription": "Contenidor a peu d'obra i gestió de runes. Certificat per a la llicència d'obres.",
     "summary": "Contenidor a peu d'obra i certificat per a la llicència.",
     "lead": "Contenidor de runa a Manresa per a reformes, obra nova i enderrocs. El portem a peu d'obra, el recollim quan és ple i et donem el certificat.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-runes-i-obra.webp",
+    "heroAlt": "Imatge del servei Runes i obra",
     "introHeading": "Separa i paga menys",
     "intro": [
       "La runa neta costa menys de gestionar que la barrejada. Si separes runa, fusta, metall i plàstic, la factura baixa.",
@@ -787,8 +787,8 @@
     "metaDescription": "Destrucció controlada d'estocs, mercaderia obsoleta i productes fora de catàleg, amb certificat.",
     "summary": "Estocs i mercaderia fora de catàleg, amb certificat.",
     "lead": "Destruïm estocs, mercaderia obsoleta i productes fora de catàleg de forma controlada, amb certificat.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-destruccio-d-estocs.webp",
+    "heroAlt": "Imatge del servei Destrucció d'estocs",
     "introHeading": "Producte que no pot arribar al mercat",
     "intro": [
       "Si tens estocs passats, mercaderia obsoleta o productes que no poden tornar a la venda, els recollim i els destruïm amb control.",
@@ -853,8 +853,8 @@
     "metaDescription": "Recollim cable de coure i alumini d'instal·lacions i reformes. Contenidor al teu taller.",
     "summary": "Cable de coure i alumini: recollida i recuperació.",
     "lead": "Recollim cable de coure i alumini d'instal·lacions, reformes i desmuntatges. Tot el metall es recupera.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-cable-de-coure.webp",
+    "heroAlt": "Imatge del servei Cable de coure",
     "introHeading": "Per a instal·ladors i desmuntatges",
     "intro": [
       "Si fas instal·lacions o desmuntatges, et deixem un contenidor al taller i el recollim quan és ple.",
@@ -919,8 +919,8 @@
     "metaDescription": "Recollida i gestió de vehicles fora d'ús i maquinària, amb la documentació corresponent.",
     "summary": "Vehicles i maquinària fora d'ús, amb documentació.",
     "lead": "Gestionem vehicles fora d'ús i maquinària que ja no es poden posar en circulació, amb la documentació corresponent.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-vehicles-fora-d-us.webp",
+    "heroAlt": "Imatge del servei Vehicles fora d'ús",
     "introHeading": "Baixes i desmuntatges",
     "intro": [
       "Recollim vehicles fora d'ús i maquinària de tallers, indústria i particulars. Ens encarreguem de la gestió i de la documentació.",
@@ -986,8 +986,8 @@
     "metaDescription": "Buidatge i gestió de fosses sèptiques per a empreses i particulars, amb documentació.",
     "summary": "Buidatge i gestió de fosses sèptiques.",
     "lead": "Buidem i gestionem fosses sèptiques amb els mitjans adequats i la documentació corresponent.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-fosses-septiques.webp",
+    "heroAlt": "Imatge del servei Fosses sèptiques",
     "introHeading": "Buidatge i transport",
     "intro": [
       "Buidem fosses sèptiques de cases, masies i instal·lacions. Recollim el residu i el portem al gestor autoritzat.",
@@ -1050,8 +1050,8 @@
     "metaDescription": "Desembussaments i neteja de canonades per a empreses i comunitats, amb mitjans propis.",
     "summary": "Desembussaments i neteja de canonades.",
     "lead": "Desembussem i netegem canonades per a empreses, comunitats i particulars, amb mitjans propis.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-desembussaments.webp",
+    "heroAlt": "Imatge del servei Desembussaments",
     "introHeading": "Canonades que tornen a funcionar",
     "intro": [
       "Localitzem el tap i el desembussem amb els mitjans adequats. Després netegem la canonada perquè no torni a passar.",
@@ -1114,8 +1114,8 @@
     "metaDescription": "Recollida i reciclatge d'extintors fora de servei per a empreses i comunitats.",
     "summary": "Extintors fora de servei: recollida i reciclatge.",
     "lead": "Recollim i reciclem extintors fora de servei, amb la documentació corresponent.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-reciclatge-d-extintors.webp",
+    "heroAlt": "Imatge del servei Reciclatge d'extintors",
     "introHeading": "Extintors que ja no compleixen",
     "intro": [
       "Recollim extintors fora de servei d'empreses, comunitats i locals. Se separen els components i es gestionen com a residu.",
@@ -1179,8 +1179,8 @@
     "metaDescription": "Neteges industrials, de naus i espais de treball, amb gestió dels residus generats.",
     "summary": "Neteges de naus i espais industrials, amb gestió de residus.",
     "lead": "Netegem naus, espais de treball i instal·lacions industrials, i gestionem els residus que es generen.",
-    "heroImage": null,
-    "heroAlt": "",
+    "heroImage": "assets/img/servei-neteges-industrials.webp",
+    "heroAlt": "Imatge del servei Neteges industrials",
     "introHeading": "Espais nets, residus gestionats",
     "intro": [
       "Fem neteges industrials de naus, magatzems i espais de treball. Retirem residus, pols i materials acumulats.",
